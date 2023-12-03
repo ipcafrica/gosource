@@ -555,6 +555,14 @@ export default {
   color: var(--grey-500);
 }
 @media screen and (max-width: 600px) {
+  .track{
+
+  margin: 24px 0px 0px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
   .container {
     background: var(--white);
     width: 100%;
@@ -568,7 +576,7 @@ export default {
     align-items: center;
   }
   .modal-container {
-    margin: 25px 0px 0px 0px;
+    margin: 24px 0px 0px 0px;
     /* border: 1px solid blue; */
   }
   .flexed-modal{
