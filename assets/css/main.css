@@ -1,0 +1,180 @@
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+}
+
+@font-face {
+    font-family: "InterRegular";
+    src: url("../fonts/Inter-Font-Family/Inter-Regular.otf");
+}
+
+@font-face {
+    font-family: "InterSemibold";
+    src: url("../fonts/Inter-Font-Family/Inter-SemiBold.otf");
+}
+
+@font-face {
+    font-family: "InterBlack";
+    src: url("../fonts/Inter-Font-Family/Inter-Black.otf");
+}
+
+@font-face {
+    font-family: "InterBold";
+    src: url("../fonts/Inter-Font-Family/Inter-Bold.otf");
+}
+
+@font-face {
+    font-family: "InterExtrabold";
+    src: url("../fonts/Inter-Font-Family/Inter-ExtraBold.otf");
+}
+
+@font-face {
+    font-family: "InterMedium";
+    src: url("../fonts/Inter-Font-Family/Inter-Medium.otf");
+}
+
+@font-face {
+    font-family: "GraphikMedium";
+    src: url("../fonts/Graphik-Font-Family/GraphikMedium.otf");
+
+}
+
+@font-face {
+    font-family: "GraphikBold";
+    src: url("../fonts/Graphik-Font-Family/GraphikBold.otf");
+}
+
+@font-face {
+    font-family: "GraphikLight";
+    src: url("../fonts/Graphik-Font-Family/GraphikLight.otf");
+}
+
+@font-face {
+    font-family: "GraphikExtraLight";
+    src: url("../fonts/Graphik-Font-Family/GraphikExtralight.otf");
+}
+
+@font-face {
+    font-family: "GraphikRegular";
+    src: url("../fonts/Graphik-Font-Family/GraphikRegular.otf");
+}
+
+@font-face {
+    font-family: "GraphikSemibold";
+    src: url("../fonts/Graphik-Font-Family/GraphikSemibold.otf");
+}
+
+:root {
+    --white: #FFF;
+    --success-50: #E7F6EC;
+    --success-500: #099137;
+
+    --grey-2: #D0D5DD;
+    --grey-900-base: #101928;
+    --grey-500: #667185;
+    --grey-700: #344054;
+    --grey-100: #F0F2F5;
+    --grey-200: #E4E7EC;
+    --grey-300:#D0D5DD;
+
+    --orange-300:  #EE806A;
+    --orange-25:#FDF5F4;
+
+    --supporting-500-base: #09420C;
+    --success-500: #099137;
+    --negative-500-base: #CB1A14;
+
+    --primary-500-base: #19B820;
+    --primary-600-base: #17A71D;
+    --primary-700: #128317;
+
+    --InterSemibold: 'InterSemibold', 'san-serif';
+    --InterRegular: 'InterRegular', 'san-serif';
+    --graphikMedium: "GraphikMedium", sans-serif;
+    --graphikRegular: "GraphikRegular", sans-serif;
+    --graphikLight: "GraphikLight", sans-serif;
+    --graphikBold: "GraphikBold", sans-serif;
+    --graphikSemibold: "GraphikSemibold", sans-serif;
+}
+.input-error{
+    border:1px solid var(--negative-500-base);
+}
+.heading-3-medium {
+    color: var(--grey-900-base);
+    font-family: var(--graphikMedium);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 36px;
+    letter-spacing: -0.5px;
+}
+.heading-3-small-medium {
+    color: var(--grey-900-base);
+    font-family: var(--graphikMedium);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px; 
+    letter-spacing: -0.3px;
+}
+
+.heading-4-bold {
+    font-family: var(--graphikSemibold);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+    letter-spacing: -0.3px;
+}
+.heading-4-small-bold{
+font-family: var(--graphikSemibold);
+font-size: 18px;
+font-style: normal;
+font-weight: 600;
+line-height: 27px;
+letter-spacing: -0.2px;
+}
+.body-micro-bold {
+    font-family: var(--InterSemibold);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+}
+
+.body-large-regular {
+    font-family: var(--InterRegular);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+}
+.body-small-regular{
+font-family: var(--InterRegular);
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 21px;
+letter-spacing: -0.2px;
+}
+.body-micro-regular{
+    font-family: var(--InterRegular);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 150% */
+}
+
+.primary-btn-large{
+color: var(--White);
+font-family: var(--graphikSemibold);
+font-size: 18px;
+font-style: normal;
+font-weight: 600;
+line-height: 18px;
+letter-spacing: -0.2px;
+}
