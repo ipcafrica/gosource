@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <div class="top">
+    <div class="sub-container">
+      <div class="top">
       <div class="logo">
         <svg
           width="121"
@@ -327,6 +328,7 @@
       </div>
     </div>
     </div>
+    </div>
 </template>
 
 <script>
@@ -481,6 +483,9 @@ export default {
 .container {
   background-color: var(--white);
 }
+.sub-container{
+  background-color:var(--white);
+}
 .top {
   height: 80px;
   padding-left: 100px;
@@ -566,6 +571,11 @@ export default {
   .container {
     background: var(--white);
     width: 100%;
+  }
+  .sub-container {
+    background: var(--white);
+    width: 100%;
+    padding-bottom: 100px;
   }
   .top {
     height: 80px;
