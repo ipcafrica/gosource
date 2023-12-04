@@ -59,9 +59,17 @@
     
   <style scoped>
   .message-container {
-  animation: fadeIn 0.5s ease-out;
+  animation: slideLeft 0.3s ease-out;
 }
+@keyframes slideLeft {
+  from {
+    transform: translateX(100%);
+  }
 
+  to {
+    transform: translateX(0);
+  }
+}
 @keyframes fadeIn {
   from {
     opacity: 0;
