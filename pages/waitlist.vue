@@ -567,7 +567,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 96px;
+    margin-top: 24px;
   }
 
   .final-modal {
