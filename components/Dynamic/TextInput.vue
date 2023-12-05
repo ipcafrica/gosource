@@ -59,7 +59,7 @@
     
   <style scoped>
   .message-container {
-  animation: slideLeft 0.3s ease-out;
+  animation: fadeIn 0.3s ease-out;
 }
 @keyframes slideLeft {
   from {
