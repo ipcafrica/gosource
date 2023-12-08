@@ -22,10 +22,12 @@
         </svg>
       </div>
     </div>
-    <div class="line" :class="{completed: step === 2 || step === 3 }">
-    </div>
+    <div class="line" :class="{ completed: step === 2 || step === 3 }"></div>
     <div class="step">
-        <div class="number" :class="{ active: step === 2 || step === 3, finished: !inValid }">
+      <div
+        class="number"
+        :class="{ active: step === 2 || step === 3, finished: !inValid }"
+      >
         <p class="body-micro-bold" v-if="inValid">2</p>
         <svg
           v-else
@@ -44,24 +46,24 @@
             stroke-linejoin="round"
           />
         </svg>
+      </div>
     </div>
-  </div>
   </div>
 </template>
 
 <script>
-export default{
-    props:{
-        step:{
-            type: Number,
-            required: true
-        },
-        inValid:{
-          type: Boolean,
-          required:true
-        }
-    }
-}
+export default {
+  props: {
+    step: {
+      type: Number,
+      required: true,
+    },
+    inValid: {
+      type: Boolean,
+      required: true,
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -79,8 +81,8 @@ export default{
   width: 24px;
   height: 24px;
   background-color: #ffffff;
-  color: var(--grey-2); 
-  border: 1px solid var(--grey-2); 
+  color: var(--grey-2);
+  border: 1px solid var(--grey-2);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -89,17 +91,13 @@ export default{
 }
 .active {
   color: var(--success-500);
-  border: 1px solid var(--success-500); 
+  border: 1px solid var(--success-500);
   animation: scaleUp 0.3s ease-in-out forwards;
 }
 .line {
   width: 90px;
   height: 2px;
-  background: linear-gradient(
-    90deg,
-    var(--success-500) 50%,
-    var(--success-50) 50%
-  ); 
+  background: linear-gradient(90deg, var(--success-500) 50%, var(--success-50) 50%);
   transition: background-color 0.5s;
 }
 .completed {
@@ -110,7 +108,6 @@ export default{
   background: #28a745;
   animation: pulse 0.5s infinite alternate;
 }
-
 
 @keyframes scaleUp {
   to {
