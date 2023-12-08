@@ -4,10 +4,11 @@
     class="btn"
     :class="buttonClasses"
     :style="buttonStyles"
-    :disabled="disabled"
+    :disabled="disabled || isLoading"
   >
-    <div class="" v-if="showText">{{ buttonText }}</div>
-    <slot name="svg"></slot>
+    <div class="" v-if="showText && !isLoading">{{ buttonText }}</div>
+    <slot v-if="!isLoading" name="svg"></slot>
+    <DynamicLoader :size="size" :isLoading="isLoading"/>
   </button>
 </template>
   
@@ -37,6 +38,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    isLoading: {
+        type: Boolean,
+        default: false,
+      },
   },
   computed: {
     buttonClasses() {
@@ -112,10 +117,12 @@ button.micro {
 button.primary {
   color: var(--white);
   background: var(--primary-500-base);
+  cursor:pointer;
 }
 button.primary:hover {
   color: var(--white, #fff);
   background: var(--primary-600-base);
+  cursor:pointer;
 }
 button.primary:focus,
 button.primary:active {
@@ -124,6 +131,7 @@ button.primary:active {
 }
 button.primary:disabled {
   background-color: var(--grey-300);
+  cursor: not-allowed;
 }
 button.icon-right {
   flex-direction: row;

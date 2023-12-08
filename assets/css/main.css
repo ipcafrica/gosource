@@ -171,10 +171,23 @@ letter-spacing: -0.2px;
 
 .primary-btn-large{
 color: var(--White);
-font-family: var(--graphikSemibold);
+font-family: var(--InterSemibold);
 font-size: 18px;
 font-style: normal;
 font-weight: 600;
 line-height: 18px;
 letter-spacing: -0.2px;
 }
+
+
+@keyframes clickedAnimation {
+    0% {
+      border-color: var(--grey-100);
+      background-color: transparent;
+    } 
+    100% {
+    border-color: var(--orange-300);
+    background-color: var(--orange-25);
+    }
+  }
+  

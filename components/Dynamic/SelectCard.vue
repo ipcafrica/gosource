@@ -97,8 +97,9 @@ export default {
   justify-content: center;
   align-items: flex-start;
   gap: 24px;
-  cursor: default;
+  cursor: pointer;
   padding: 20px;
+  transition: all 1s ease-out;
 }
 .card-top {
   display: flex;
@@ -132,34 +133,30 @@ svg circle {
   height: 20px;
 }
 .try{
-  animation: selectedAnimation 0.5s ease-in-out;
+  animation: selectedAnimation 1s ease-in-out;
 }
 .card:hover {
   border: 1px solid var(--grey-300);
+  stroke: var(--grey-300);
+  opacity: 1;
 }
 
 .clicked {
-  border: 1px solid var(--orange-300);
-  background: var(--orange-25);
-}
-.clicked:hover, .clicked:active {
-  border: 1px solid var(--orange-300);
-  background: var(--orange-25);
+  border-color: var(--orange-300);
+  background-color: var(--orange-25);
+ 
 }
 
-@keyframes clickedAnimation {
-  0% {
-    border-color: var(--orange-300);
-    background-color: var(--orange-25);
-    opacity: 0;
-  }
-  100% {
-    border-color: var(--grey-100);
-    background-color: transparent;
-    opacity: 1;
-  }
+.clicked:hover {
+  border: 1px solid var(--orange-300);
 }
 
+.clicked h4 {
+  color: var(--grey-900-base);
+}
+.clicked p {
+  color: var(--grey-700);
+}
 /* Keyframes for selected animation */
 @keyframes selectedAnimation {
   0% {
@@ -176,16 +173,7 @@ svg circle {
 @media screen and (max-width: 600px) {
   .card {
     cursor: default;
-    padding: 20px;
     width: 100%;
-    border: 1px solid var(--grey-100);
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 24px;
-    transition: 0.3s ease-in-out;
   }
 
   .heading-4-bold {
@@ -195,10 +183,6 @@ svg circle {
     font-weight: 600;
     line-height: 27px;
     letter-spacing: -0.2px;
-  }
-  .clicked {
-    border: 1px solid var(--orange-300);
-    background: var(--orange-25);
   }
 }
 </style>
