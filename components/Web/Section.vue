@@ -1,24 +1,45 @@
 <template>
   <section class="section-wrapper">
-    <div class="header-content">
-      <header class="base-font">Hassle-Free</header>
+    <div class="header-content" :class="[flexPosition]">
+      <header class="base-font">{{ data.title }}</header>
       <div class="content">
         <h1 class="text-heading-1-medium medium text-grey-900-base">
-          Let’s manage your procurement process
+          {{ data.header }}
         </h1>
         <p class="text-body-large-regular regular text-grey-700">
-          We are a food procurement, supply-chain, and logistics powerhouse that take
-          responsibilities off businesses and consumers and keeps the supply chain
-          running.
+          {{ data.snippet }}
         </p>
       </div>
-      <!-- <DynamicButton /> -->
+      <DynamicButtonMain
+        size="medium"
+        type="primary"
+        icon="icon-right"
+        :buttonText="data.buttonText"
+        class="w-auto"
+      >
+        <template v-slot:svg>
+          <div v-html="caretRightWhite"></div>
+        </template>
+      </DynamicButtonMain>
     </div>
     <slot name="content" />
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+import { caretRightWhite } from "../utils/svg";
+
+defineProps({
+  data: {
+    type: Object,
+    required: true,
+  },
+  flexPosition: {
+    type: String,
+    default: "right",
+  },
+});
+</script>
 
 <style scoped>
 .section-wrapper {
@@ -44,5 +65,10 @@ header {
   font-weight: 500;
   line-height: 24px; /* 133.333% */
   letter-spacing: 0.36px;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 </style>
