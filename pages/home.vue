@@ -1,5 +1,18 @@
 <template>
   <div>
+    <WebNews />
+    <WebSection :data="null">
+      <template v-slot:content>
+        <div class="client">
+          <h3 class="heading-3-medium medium text-grey-900-base">
+            Trusted by 100+ businesses across the Nation
+          </h3>
+          <div class="logos">
+            <img :src="image" alt="" v-for="(image, index) in images" :key="index" />
+          </div>
+        </div>
+      </template>
+    </WebSection>
     <div class="bg-grey-100">
       <WebSection
         :data="sectionData[0]"
@@ -35,7 +48,11 @@
         maxWidth="1009px"
         bigFont="text-white text-display-regular bold"
       >
-        <template v-slot:content> </template>
+        <template v-slot:content>
+          <div class="img mt-128">
+            <img src="/assets/images/zero-stress.png" alt="" />
+          </div>
+        </template>
       </WebSection>
     </div>
 
@@ -133,9 +150,30 @@ const sectionData = ref([
     buttonText: "Start now",
   },
 ]);
+const images = ref([
+  "/images/papasgril.png",
+  "/images/wingbistro.svg",
+  "/images/spicycorner.png",
+  "/images/grillshark.png",
+  "/images/redkitchen.png",
+  "/images/citysub.png",
+]);
 </script>
 
 <style scoped>
+.client {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+.logos {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .bfy-wrap {
   display: flex;
   align-items: flex-start;
@@ -145,5 +183,18 @@ const sectionData = ref([
 }
 .mt-128 {
   margin-top: 128px;
+}
+.img {
+  max-width: 1140px;
+  width: 100%;
+  height: 608px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 </style>

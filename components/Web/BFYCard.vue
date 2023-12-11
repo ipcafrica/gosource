@@ -110,10 +110,14 @@ span.line {
   -o-transform: translateX(10px) rotate(-45deg);
   transform: translateX(10px) rotate(-45deg);
 }
-.bfycard-wrapper:hover .cta span{
-    color: var(--grey-900);
+.bfycard-wrapper:hover .cta span {
+  color: var(--grey-900);
 }
 .bfycard-wrapper:hover .hamburger .line {
   background-color: var(--primary-primary-500-base);
+}
+
+p {
+  text-align: left;
 }
 </style>

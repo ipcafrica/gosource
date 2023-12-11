@@ -1,6 +1,7 @@
 <template>
   <section class="section-wrapper" :class="align">
     <div
+      v-if="data"
       class="header-content"
       :class="[flexPosition]"
       :style="{ 'max-width': dynamicmaxWidth }"
