@@ -1,5 +1,5 @@
 <template>
-  <section class="section-wrapper">
+  <section class="section-wrapper" :class="align">
     <div
       class="header-content"
       :class="[flexPosition]"
@@ -7,10 +7,7 @@
     >
       <header class="base-font">{{ data.title }}</header>
       <div class="content" :class="[flexPosition]">
-        <h1
-          class="text-grey-900-base"
-          :class="bigFont"
-        >
+        <h1 class="text-grey-900-base" :class="bigFont">
           {{ data.header }}
         </h1>
         <p class="text-body-large-regular regular text-grey-700">
@@ -52,7 +49,11 @@ const { maxWidth, data, flexPosition, fontSize, bigFont } = defineProps({
   },
   bigFont: {
     type: String,
-    default: 'text-heading-1-medium medium',
+    default: "text-heading-1-medium medium",
+  },
+  align: {
+    type: String,
+    default: "center",
   },
 });
 
@@ -67,7 +68,16 @@ const dynamicmaxWidth = ref(maxWidth || "100%");
   margin-inline: auto;
   padding: 96px 0;
   flex-direction: column;
+}
+
+.section-wrapper.center {
   align-items: center;
+}
+.section-wrapper.start {
+  align-items: flex-start;
+}
+.section-wrapper.end {
+  align-items: flex-end;
 }
 .header-content {
   display: flex;
