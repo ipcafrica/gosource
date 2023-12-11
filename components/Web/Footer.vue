@@ -72,6 +72,7 @@ const FooterData = ref([
 footer {
   display: flex;
   max-width: 1440px;
+  margin-inline: auto;
   width: 100%;
   flex-direction: column;
   align-items: center;

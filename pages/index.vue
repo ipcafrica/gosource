@@ -1,14 +1,36 @@
 <template>
   <div>
-    <div class="bfy-wrap">
-      <WebBFYCard :data="data" v-for="(data, index) in builtForYou" :key="index">
-        <template v-slot:svg>
-          <div v-html="data.svg"></div>
-        </template>
-      </WebBFYCard>
-    </div>
-    <WebSection :data="dummyData[0]" />
-    <WebFeatureCard />
+    <WebSection :data="sectionData[1]" flexPosition="center" maxWidth="458px">
+      <template v-slot:content>
+        <div class="bfy-wrap">
+          <WebBFYCard :data="data" v-for="(data, index) in builtForYou" :key="index">
+            <template v-slot:svg>
+              <div v-html="data.svg"></div>
+            </template>
+          </WebBFYCard>
+        </div>
+      </template>
+      <WebFeatureCard />
+    </WebSection>
+    <WebSection
+      :data="sectionData[3]"
+      flexPosition="center"
+      maxWidth="1009px"
+      bigFont="text-display-regular bold"
+    >
+      <template v-slot:content>
+        <!-- Faq section here -->
+      </template>
+    </WebSection>
+
+    <!-- testimonials here -->
+
+    <WebSection :data="sectionData[4]" flexPosition="center">
+      <template v-slot:content>
+        <!-- Faq section here -->
+      </template>
+    </WebSection>
+    <WebSection :data="sectionData[5]" flexPosition="center" maxWidth="458px" />
     <WebFooter />
   </div>
 </template>
@@ -47,24 +69,61 @@ const builtForYou = ref([
     buttonText: "Start now",
   },
 ]);
-const dummyData = ref([
+const sectionData = ref([
   {
-    title: "Dummy Title",
-    header: "Dummy Header",
+    id: 0,
+    title: "Hassle-Free",
+    header: "Let’s manage your procurement process",
     snippet:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque euismod libero ut quam fringilla, et cursus nisl tincidunt.",
-    buttonText: "Click Me",
+      "We are a food procurement, supply-chain, and logistics powerhouse that take responsibilities off businesses and consumers and keeps the supply chain running.",
+    buttonText: "Start now",
+  },
+  {
+    id: 1,
+    title: "Built for you",
+    header: "Run your business with zero stress",
+    snippet: null,
+    buttonText: null,
+  },
+  {
+    id: 2,
+    title: "Quick steps",
+    header: "Place your first order",
+    snippet: null,
+    buttonText: null,
+  },
+  {
+    id: 3,
+    title: "Zero stress",
+    header: "Focus more on cooking, let’s go to the market for you",
+    snippet: null,
+    buttonText: "Start ordering",
+  },
+  {
+    id: 4,
+    title: "FAQ",
+    header: "Frequently asked questions",
+    snippet: null,
+    buttonText: "Start ordering",
+  },
+  {
+    id: 5,
+    title: "Let’s go!",
+    header: "Get started for free",
+    snippet:
+      "Start ordering on GoSource today to make the process of buying food items very easy for your business.",
+    buttonText: "Start now",
   },
 ]);
 </script>
 
 <style scoped>
 .bfy-wrap {
+  margin-top: 128px;
   display: flex;
   align-items: flex-start;
   gap: 40px;
   align-self: stretch;
-  max-width: 80%;
   margin-inline: auto;
 }
 </style>

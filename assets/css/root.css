@@ -281,6 +281,8 @@ p {
 /* Display */
 .text-display-regular {
     font-size: var(--display---display--regular);
+    letter-spacing: -2px;
+    line-height: normal;
 }
 
 .text-display-medium {
