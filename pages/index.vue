@@ -7,9 +7,13 @@
         </template>
       </WebBFYCard>
     </div>
+    <div class="accordion">
+      <WebAccordionWorks/>
+    </div>
     <WebSection :data="dummyData[0]" />
     <WebFeatureCard />
     <WebFooter />
+
   </div>
 </template>
 
@@ -59,6 +63,9 @@ const dummyData = ref([
 </script>
 
 <style scoped>
+.accordion{
+  border: 1px solid red;
+}
 .bfy-wrap {
   display: flex;
   align-items: flex-start;
