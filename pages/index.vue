@@ -7,7 +7,7 @@
         </template>
       </WebBFYCard>
     </div>
-    <WebSection />
+    <WebSection :data="dummyData[0]" />
     <WebFeatureCard />
     <WebFooter />
   </div>
@@ -45,6 +45,15 @@ const builtForYou = ref([
     snippet:
       "People you can trust to assist with your inquiries and provide solutions to your complaints. Your feedback is important to us.",
     buttonText: "Start now",
+  },
+]);
+const dummyData = ref([
+  {
+    title: "Dummy Title",
+    header: "Dummy Header",
+    snippet:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque euismod libero ut quam fringilla, et cursus nisl tincidunt.",
+    buttonText: "Click Me",
   },
 ]);
 </script>

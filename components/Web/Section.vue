@@ -36,7 +36,7 @@ defineProps({
   },
   flexPosition: {
     type: String,
-    default: "right",
+    default: "left",
   },
 });
 </script>
@@ -46,7 +46,7 @@ defineProps({
   display: flex;
   max-width: 1440px;
   width: 80%;
-  padding: 96px 150px;
+  /* padding: 96px 150px; */
   flex-direction: column;
   align-items: center;
   gap: 128px;
@@ -70,5 +70,8 @@ header {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+.left {
+    align-items: flex-start;
 }
 </style>
