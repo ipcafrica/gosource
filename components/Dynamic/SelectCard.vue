@@ -6,14 +6,6 @@
   >
     <div class="card-top">
       <img :src="card.svg" alt="Card Image" class="card-image" />
-      <!-- <svg
-        :class="{ selected: isSelected }"
-        viewBox="0 0 25 25"
-        width="20"
-        height="20"
-      >
-        <circle cx="12" cy="12" r="11" />
-      </svg> -->
       <svg
         class="circle"
         :class="{ selected: isSelected }"
@@ -51,10 +43,10 @@
     </div>
 
     <div class="card-content">
-      <h4 class="card-title heading-4-bold">
+      <h4 class="card-title bold text-heading-4-bold text-grey-700">
         {{ card.title }}
       </h4>
-      <p class="card-snippet body-small-regular">
+      <p class="card-snippet regular text-body-small-regular text-grey-500">
         {{ card.snippet }}
       </p>
     </div>
@@ -121,7 +113,7 @@ export default {
 
 .selected.circle {
   stroke: none;
-  fill: var(--supporting-500-base);
+  fill: var(--supporting-supporting-500-base);
   display: none;
 }
 
@@ -137,18 +129,18 @@ svg circle {
 }
 .card:hover {
   border: 1px solid var(--grey-300);
-  stroke: var(--grey-300);
-  opacity: 1;
+  /* stroke: var(--grey-300);
+  opacity: 1; */
 }
 
 .clicked {
-  border-color: var(--orange-300);
-  background-color: var(--orange-25);
+  border-color: var(--orange-orange-300);
+  background-color: var(--orange-orange-25);
  
 }
 
 .clicked:hover {
-  border: 1px solid var(--orange-300);
+  border: 1px solid var(--orange-orange-300);
 }
 
 .clicked h4 {
@@ -170,20 +162,13 @@ svg circle {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   .card {
     cursor: default;
     width: 100%;
   }
 
-  .heading-4-bold {
-    font-family: var(--graphikSemibold);
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 27px;
-    letter-spacing: -0.2px;
-  }
+
 }
 </style>
 <!-- 

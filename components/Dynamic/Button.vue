@@ -1,23 +1,23 @@
 <template>
   <button
-    @click="emitFunction"
-    class="btn"
+    @click="$emit('clickButton')"
+    class="button"
     :class="buttonClasses"
-    :style="buttonStyles"
     :disabled="disabled || isLoading"
   >
-    <div class="" v-if="showText && !isLoading">{{ buttonText }}</div>
+    <span v-if="showText && !isLoading"> {{ buttonText }} </span> 
     <slot v-if="!isLoading" name="svg"></slot>
     <DynamicLoader :size="size" :isLoading="isLoading"/>
   </button>
 </template>
-  
-  <script>
-export default {
-  props: {
+
+<script setup>
+import { ref, computed } from "vue";
+
+const { buttonText, size, type, icon, showText, disabled, isLoading } =
+  defineProps({
     buttonText: {
       type: String,
-      required: true,
     },
     size: {
       type: String,
@@ -39,104 +39,32 @@ export default {
       default: false,
     },
     isLoading: {
-        type: Boolean,
-        default: false,
-      },
-  },
-  computed: {
-    buttonClasses() {
-      return {
-        // Button size
-        small: this.size === "small",
-        standard: this.size === "standard",
-        large: this.size === "large",
-        micro: this.size === "micro",
-        // Button type
-        primary: this.type === "primary",
-        secondary: this.type === "secondary",
-        ghost: this.type === "ghost",
-        neutral: this.type === "neutral",
-        // icon position
-        "icon-left": this.icon === "icon-left",
-        "icon-right": this.icon === "icon-right",
-        "icon-button": this.showText === false,
-      };
+      type: Boolean,
+      default: false,
     },
-    buttonStyles() {
-      return {
-        // Define your CSS styles based on size
-      };
-    },
-  },
-  methods: {
-    emitFunction() {
-      this.$emit("clickButton");
-    },
-  },
-};
+  });
+
+const buttonClasses = computed(() => {
+  return {
+    "text-button-micro micro": size === "micro",
+    "text-button-small small": size === "small",
+    "text-button-medium medium": size === "medium",
+    "text-button-large large": size === "large",
+
+    // Button type
+    "primary-button": type === "primary",
+    "secondary-button": type === "secondary",
+    "neutral-outline": type === "outline",
+    "neutral-filled": type === "filled",
+    destructive: type === "destructive",
+    "link-primary": type === "link-primary",
+    "link-neutral": type === "link-neutral",
+
+    // icon position
+    "icon-left": icon === "left",
+    "icon-right": icon === "right",
+    "icon-button": !showText,
+  };
+});
+
 </script>
-
-<style scoped>
-button {
-  border-radius: 100px;
-  outline: 0px;
-  margin: 0px;
-  border: 0px;
-}
-button.large {
-  height: 48px;
-  padding: 0px 24px;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-}
-
-button.medium {
-  height: 40px;
-  padding: 0px 20px;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-}
-
-button.small {
-  height: 32px;
-  padding: 0px 16px;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-}
-
-button.micro {
-  height: 24px;
-  padding: 0px 12px;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-}
-button.primary {
-  color: var(--white);
-  background: var(--primary-500-base);
-  cursor:pointer;
-}
-button.primary:hover {
-  color: var(--white, #fff);
-  background: var(--primary-600-base);
-  cursor:pointer;
-}
-button.primary:focus,
-button.primary:active {
-  color: var(--white, #fff);
-  background-color: var(--primary-700);
-}
-button.primary:disabled {
-  background-color: var(--grey-300);
-  cursor: not-allowed;
-}
-button.icon-right {
-  flex-direction: row;
-}
-button.icon-left {
-  flex-direction: row-reverse;
-}
-</style>

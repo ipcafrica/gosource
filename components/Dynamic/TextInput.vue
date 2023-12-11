@@ -17,7 +17,7 @@
     </div>
   </template>
     
-  <script>
+  <!-- <script>
   export default {
     emits: ['updateValue'],
     props: {
@@ -55,7 +55,47 @@
       },
     },
   };
-  </script>
+  </script> -->
+    <script setup>
+    import { ref, defineProps, defineEmits } from 'vue';
+    
+    const props = defineProps({
+    label: {
+        type: String,
+        required: true,
+      },
+      msgType: {
+        type: String,
+        default: "",
+      },
+      msg: {
+        type: String,
+        default: "",
+      },
+      inValid: {
+        type: Boolean,
+        default: false,
+      },
+      value: {
+        type: String,
+        default: "",
+      },
+      ctaClicked: {
+        type: Boolean,
+        default: false,
+      },
+      type: {
+        type: String,
+        default: "text",
+      },
+      id: {
+        type: String,
+        default: "",
+      },
+    });
+    
+    const emits = defineEmits(['updateValue']);
+    </script>
     
   <style scoped>
   .message-container {
@@ -94,7 +134,7 @@
     transition: 0.3s ease-in-out;
     color: var(--grey-900-base);
     outline: none;
-    font-family: var(--InterRegular);
+    font-family: var(--primary---font--family);
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -109,7 +149,7 @@
     pointer-events: none;
     color: var(--grey-500);
     transition: 0.5s ease-in-out;
-    font-family: var(--InterRegular);
+    font-family: var(--primary---font--family);
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -128,13 +168,13 @@
   }
   
   .form-group input:hover {
-    border: 1px solid var(--primary-500-base);
+    border: 1px solid var(--primary-primary-500-base);
   }
   input:active,
   input:focus {
     border-radius: 12px;
     padding-top: 32px;
-    border: 1px solid var(--primary-500-base);
+    border: 1px solid var(--primary-primary-500-base);
     background: var(--White);
     box-shadow: 0px 0px 0px 3px #e7f6ec;
   }
