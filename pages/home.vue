@@ -1,10 +1,17 @@
 <template>
   <div>
-    <WebSection :data="sectionData[0]" flexPosition="left" align="start" maxWidth="499px">
-      <template v-slot:content>
-        <WebFeatureCard />
-      </template>
-    </WebSection>
+    <div class="bg-grey-100">
+      <WebSection
+        :data="sectionData[0]"
+        flexPosition="left"
+        align="start"
+        maxWidth="499px"
+      >
+        <template v-slot:content>
+          <WebFeatureCard />
+        </template>
+      </WebSection>
+    </div>
     <WebSection :data="sectionData[1]" flexPosition="center" maxWidth="458px">
       <template v-slot:content>
         <div class="bfy-wrap mt-128">
@@ -16,21 +23,21 @@
         </div>
       </template>
     </WebSection>
-    <WebSection :data="sectionData[2]" flexPosition="center">
-      <template v-slot:content>
-        <!-- Faq section here -->
-      </template>
-    </WebSection>
-    <WebSection
-      :data="sectionData[3]"
-      flexPosition="center"
-      maxWidth="1009px"
-      bigFont="text-display-regular bold"
-    >
-      <template v-slot:content>
-        <!-- Faq section here -->
-      </template>
-    </WebSection>
+    <div class="bg-grey-200">
+      <WebSection :data="sectionData[2]" flexPosition="center">
+        <template v-slot:content> </template>
+      </WebSection>
+    </div>
+    <div class="bg-supporting-900">
+      <WebSection
+        :data="sectionData[3]"
+        flexPosition="center"
+        maxWidth="1009px"
+        bigFont="text-white text-display-regular bold"
+      >
+        <template v-slot:content> </template>
+      </WebSection>
+    </div>
 
     <!-- testimonials here -->
 
@@ -39,7 +46,9 @@
         <!-- Faq section here -->
       </template>
     </WebSection>
-    <WebSection :data="sectionData[5]" flexPosition="center" maxWidth="458px" />
+    <div class="bg-grey-50">
+      <WebSection :data="sectionData[5]" flexPosition="center" maxWidth="458px" />
+    </div>
     <WebFooter />
   </div>
 </template>

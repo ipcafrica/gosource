@@ -7,7 +7,7 @@
     >
       <header class="base-font">{{ data.title }}</header>
       <div class="content" :class="[flexPosition]">
-        <h1 class="text-grey-900-base" :class="bigFont">
+        <h1 :class="bigFont">
           {{ data.header }}
         </h1>
         <p class="text-body-large-regular regular text-grey-700">
@@ -49,7 +49,7 @@ const { maxWidth, data, flexPosition, fontSize, bigFont } = defineProps({
   },
   bigFont: {
     type: String,
-    default: "text-heading-1-medium medium",
+    default: "text-grey-900-base text-heading-1-medium medium",
   },
   align: {
     type: String,

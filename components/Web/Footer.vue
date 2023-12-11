@@ -77,6 +77,7 @@ footer {
   flex-direction: column;
   align-items: center;
   gap: 72px;
+  padding-block: 96px;
 }
 .footer-container {
   display: flex;
