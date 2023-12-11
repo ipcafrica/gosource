@@ -190,6 +190,7 @@ const images = ref([
   height: 608px;
   border-radius: 24px;
   overflow: hidden;
+  background-color: rgba(145, 214, 168, 1);
 }
 
 .img img {
