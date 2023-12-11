@@ -1,6 +1,7 @@
 <template>
   <div>
     <WebNews />
+    <!-- logo -->
     <WebSection :data="null">
       <template v-slot:content>
         <div class="client">
@@ -13,6 +14,7 @@
         </div>
       </template>
     </WebSection>
+    <!-- Hassle-Free -->
     <div class="bg-grey-100">
       <WebSection
         :data="sectionData[0]"
@@ -21,10 +23,21 @@
         maxWidth="499px"
       >
         <template v-slot:content>
-          <WebFeatureCard />
+          <div class="feature-wrap mt-128">
+            <WebFeatureCard
+              :data="data"
+              v-for="(data, index) in featureCardData"
+              :key="index"
+            >
+              <template v-slot:svg>
+                <div v-html="data.svg"></div>
+              </template>
+            </WebFeatureCard>
+          </div>
         </template>
       </WebSection>
     </div>
+    <!-- Built for you -->
     <WebSection :data="sectionData[1]" flexPosition="center" maxWidth="458px">
       <template v-slot:content>
         <div class="bfy-wrap mt-128">
@@ -36,11 +49,13 @@
         </div>
       </template>
     </WebSection>
+    <!-- Quick steps -->
     <div class="bg-grey-200">
       <WebSection :data="sectionData[2]" flexPosition="center">
         <template v-slot:content> </template>
       </WebSection>
     </div>
+    <!-- Zero stress -->
     <div class="bg-supporting-900">
       <WebSection
         :data="sectionData[3]"
@@ -57,12 +72,13 @@
     </div>
 
     <!-- testimonials here -->
-
+    <!-- FAQ -->
     <WebSection :data="sectionData[4]" flexPosition="center">
       <template v-slot:content>
         <!-- Faq section here -->
       </template>
     </WebSection>
+    <!-- Let’s go! -->
     <div class="bg-grey-50">
       <WebSection :data="sectionData[5]" flexPosition="center" maxWidth="458px" />
     </div>
@@ -72,7 +88,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { food, car, credit, chat } from "../utils/svg";
+import { food, car, credit, chat, store, invoice, order, insight } from "../utils/svg";
 
 const builtForYou = ref([
   {
@@ -158,6 +174,63 @@ const images = ref([
   "/images/redkitchen.png",
   "/images/citysub.png",
 ]);
+const featureCardData = ref([
+  {
+    img: "/images/store.png",
+    svg: store,
+    svgName: "Store",
+    title: "All food items in one store",
+    snippet:
+      "Buy all your quality food items in bulk in one store without going to the market.",
+    buttonText: "Place an order",
+    color: "bg-wine-50",
+  },
+  {
+    img: "/images/woman.png",
+    svg: null,
+    svgName: null,
+    title: null,
+    snippet: null,
+    buttonText: null,
+    color: "",
+  },
+  {
+    img: "/images/invoice.png",
+    svg: invoice,
+    svgName: "Invoice",
+    title: "Instant order invoice",
+    snippet: "Get instant invoice immediately after you checkout.",
+    buttonText: "Get started",
+    color: "bg-primary-50",
+  },
+  {
+    img: "/images/orders.png",
+    svg: order,
+    svgName: "Orders",
+    title: "Track your orders",
+    snippet: "You can track the status of your order at every step of the way.",
+    buttonText: "Place an order",
+    color: "bg-purple-50",
+  },
+  {
+    img: "/images/man.png",
+    svg: null,
+    svgName: null,
+    title: null,
+    snippet: null,
+    buttonText: null,
+    color: "",
+  },
+  {
+    img: "/images/insight.png",
+    svg: insight,
+    svgName: "Insights",
+    title: "Get dashboard insights",
+    snippet: "You get to see an overview of how you spend and buy products.",
+    buttonText: "Let’s get started",
+    color: "bg-orange-25",
+  },
+]);
 </script>
 
 <style scoped>
@@ -181,6 +254,14 @@ const images = ref([
   align-self: stretch;
   margin-inline: auto;
 }
+
+.feature-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
 .mt-128 {
   margin-top: 128px;
 }

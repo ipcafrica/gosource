@@ -1533,6 +1533,9 @@ button.icon-left {
 }
 
 /* Foundation Orange */
+.bg-orange-25 {
+    background-color: var(--orange-orange-25);
+}
 .bg-orange-50 {
     background-color: var(--orange-orange-50);
 }

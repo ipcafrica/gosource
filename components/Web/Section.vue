@@ -38,7 +38,6 @@ import { caretRightWhite } from "../utils/svg";
 
 const { maxWidth, data, flexPosition, fontSize, bigFont } = defineProps({
   data: {
-    type: Object,
     required: true,
   },
   flexPosition: {
