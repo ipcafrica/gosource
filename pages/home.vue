@@ -188,7 +188,7 @@ const featureCardData = ref([
     color: "bg-wine-50",
   },
   {
-    img: "/images/woman.svg",
+    img: "/images/woman.png",
     svg: null,
     svgName: null,
     title: null,
@@ -215,7 +215,7 @@ const featureCardData = ref([
     color: "bg-purple-50",
   },
   {
-    img: "/images/man.svg",
+    img: "/images/man.png",
     svg: null,
     svgName: null,
     title: null,
