@@ -1,5 +1,5 @@
 <template>
-  <div class="card-wrapper">
+  <div class="card-wrapper" :class="{ noimg: !data.title }">
     <div class="image-container">
       <img :src="data.img" alt="" />
     </div>
@@ -72,7 +72,7 @@ defineProps({
   width: 100%;
   height: 100%;
   border-radius: 8px;
-  object-fit: contain;
+  object-fit: none;
   object-position: top;
   transition: all 0.5s ease-in-out;
 }
@@ -89,7 +89,7 @@ defineProps({
   border-radius: 8px;
   background: var(--White);
   bottom: 0;
-  height: 170px;
+  height: 184px;
   overflow: hidden;
   transition: all 0.3s;
 }
@@ -170,5 +170,48 @@ span.line {
 }
 .card-wrapper:hover .hamburger .line {
   background-color: var(--primary-primary-500-base);
+}
+
+@media (max-width: 1186px) {
+  .content-container {
+    height: 207px;
+  }
+
+  .card-wrapper:hover .content-container {
+    height: 246px;
+  }
+}
+
+@media (max-width: 960px) {
+  .content-container {
+    height: auto;
+  }
+  .card-wrapper:hover .content-container {
+    height: auto;
+  }
+
+  .image-container img {
+    object-fit: contain;
+  }
+
+  .noimg {
+    display: none;
+  }
+  .text-group {
+    max-width: 400px;
+  }
+}
+@media (max-width: 700px) {
+  h2 {
+    font-size: 24px;
+    line-height: 36px; /* 150% */
+    letter-spacing: -0.5px;
+  }
+  .content-container {
+    position: relative;
+  }
+  .card-wrapper {
+    height: auto;
+  }
 }
 </style>

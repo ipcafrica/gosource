@@ -243,6 +243,11 @@ const featureCardData = ref([
   align-items: center;
   gap: 32px;
 }
+
+.client h3 {
+  font-size: 24px;
+}
+
 .logos {
   width: 100%;
   display: flex;
@@ -252,20 +257,15 @@ const featureCardData = ref([
 .bfy-wrap {
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
   gap: 40px;
   align-self: stretch;
   margin-inline: auto;
 }
 
 .feature-wrap {
-  /* max-width: 1137px;
-  margin-inline: auto;
-  flex-wrap: wrap;
-  display: flex; */
-  /* gap: 40px; */
   display: grid;
-  /* grid-template-rows: repeat(3, 1fr); */
-  grid-template-columns: repeat(12, 1fr); /* Two columns */
+  grid-template-columns: repeat(12, 1fr);
   gap: 40px;
 }
 
@@ -303,5 +303,42 @@ const featureCardData = ref([
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+@media (max-width: 960px) {
+  .logos {
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .logos img {
+    max-width: 70px;
+  }
+
+  .feature-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+  .bfy-wrap {
+    justify-content: center;
+  }
+  .client h3 {
+    font-size: 20px;
+    line-height: 30px; /* 150% */
+    letter-spacing: -0.3px;
+  }
+  .img img {
+    object-position: right 80% bottom 0px;
+  }
+}
+
+@media (max-width: 700px) {
+  .feature-wrap {
+    gap: 20px;
+  }
+
+  .mt-128 {
+    margin-top: 48px;
+  }
 }
 </style>

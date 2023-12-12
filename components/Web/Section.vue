@@ -112,4 +112,39 @@ header {
   text-align: right;
   align-items: flex-end;
 }
+@media (max-width: 900px) {
+  h1 {
+    text-align: center;
+    font-size: 34px;
+    line-height: 44px; /* 129.412% */
+    letter-spacing: -1px;
+  }
+
+  p {
+    text-align: center;
+    font-size: 14px;
+    line-height: 21px; /* 150% */
+    letter-spacing: -0.2px;
+  }
+  .left h1,
+  .left p {
+    text-align: left;
+    align-items: flex-start;
+  }
+  .center h1,
+  .center p {
+    text-align: center;
+    align-items: center;
+  }
+  .right h1,
+  .right p {
+    text-align: right;
+    align-items: flex-end;
+  }
+}
+@media (max-width: 700px) {
+  .section-wrapper {
+    padding: 72px 0;
+  }
+}
 </style>
