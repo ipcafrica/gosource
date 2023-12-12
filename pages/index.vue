@@ -24,6 +24,7 @@
     </WebSection>
 
     <!-- testimonials here -->
+    <WebTestimonial />
 
     <WebSection :data="sectionData[4]" flexPosition="center">
       <template v-slot:content>
