@@ -24,15 +24,17 @@
       >
         <template v-slot:content>
           <div class="feature-wrap mt-128">
-            <WebFeatureCard
-              :data="data"
+            <div
               v-for="(data, index) in featureCardData"
               :key="index"
+              :class="'feature-item' + (index + 1)"
             >
-              <template v-slot:svg>
-                <div v-html="data.svg"></div>
-              </template>
-            </WebFeatureCard>
+              <WebFeatureCard :data="data" class="w-auto">
+                <template v-slot:svg>
+                  <div v-html="data.svg"></div>
+                </template>
+              </WebFeatureCard>
+            </div>
           </div>
         </template>
       </WebSection>
@@ -41,9 +43,9 @@
     <WebSection :data="sectionData[1]" flexPosition="center" maxWidth="458px">
       <template v-slot:content>
         <div class="bfy-wrap mt-128">
-          <WebBFYCard :data="data" v-for="(data, index) in builtForYou" :key="index">
+          <WebBFYCard :data="data" v-for="(data, index) in builtForYou" :key="index" class="bfy">
             <template v-slot:svg>
-              <div v-html="data.svg"></div>
+              <div v-html="data.svg" class="rotate-svg"></div>
             </template>
           </WebBFYCard>
         </div>
@@ -176,7 +178,7 @@ const images = ref([
 ]);
 const featureCardData = ref([
   {
-    img: "/images/store.png",
+    img: "/images/store.svg",
     svg: store,
     svgName: "Store",
     title: "All food items in one store",
@@ -195,7 +197,7 @@ const featureCardData = ref([
     color: "",
   },
   {
-    img: "/images/invoice.png",
+    img: "/images/invoice.svg",
     svg: invoice,
     svgName: "Invoice",
     title: "Instant order invoice",
@@ -204,7 +206,7 @@ const featureCardData = ref([
     color: "bg-primary-50",
   },
   {
-    img: "/images/orders.png",
+    img: "/images/orders.svg",
     svg: order,
     svgName: "Orders",
     title: "Track your orders",
@@ -222,7 +224,7 @@ const featureCardData = ref([
     color: "",
   },
   {
-    img: "/images/insight.png",
+    img: "/images/insight.svg",
     svg: insight,
     svgName: "Insights",
     title: "Get dashboard insights",
@@ -254,19 +256,47 @@ const featureCardData = ref([
   align-self: stretch;
   margin-inline: auto;
 }
+.bfy:hover .rotate-svg{
+  animation: 2s bell-vibrate ease-in-out;
+}
+
+
 
 .feature-wrap {
-  display: flex;
-  align-items: flex-start;
-  gap: 40px;
+  /* max-width: 1137px;
+  margin-inline: auto;
   flex-wrap: wrap;
+  display: flex; */
+  /* gap: 40px; */
+  display: grid;
+  /* grid-template-rows: repeat(3, 1fr); */
+  grid-template-columns: repeat(12, 1fr); /* Two columns */
+  gap: 40px;
+}
+
+.feature-item1 {
+  grid-column: 1 / span 8;
+}
+.feature-item2 {
+  grid-column: 9 / 13;
+}
+.feature-item3 {
+  grid-column: 1 / 7;
+}
+.feature-item4 {
+  grid-column: 7 / 13;
+}
+.feature-item5 {
+  grid-column: 1 / 5;
+}
+.feature-item6 {
+  grid-column: 5 / 13;
 }
 
 .mt-128 {
   margin-top: 128px;
 }
 .img {
-  max-width: 1140px;
   width: 100%;
   height: 608px;
   border-radius: 24px;
@@ -278,5 +308,15 @@ const featureCardData = ref([
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+@keyframes bell-vibrate {
+  0% { transform: rotate(0); }
+  4% { transform: rotate(8deg); }
+  8% { transform: rotate(-8deg); }
+  12% { transform: rotate(8deg); }
+  16% { transform: rotate(-8deg); }
+  20% { transform: rotate(0); }
+  100% { transform: rotate(0); }
 }
 </style>

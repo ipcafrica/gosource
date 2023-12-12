@@ -117,7 +117,8 @@ span.line {
   background-color: var(--primary-primary-500-base);
 }
 
-p {
+p,
+h5 {
   text-align: left;
 }
 </style>

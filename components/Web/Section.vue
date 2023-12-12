@@ -63,7 +63,7 @@ const dynamicmaxWidth = ref(maxWidth || "100%");
 <style scoped>
 .section-wrapper {
   display: flex;
-  max-width: 1440px;
+  max-width: 1140px;
   width: 80%;
   margin-inline: auto;
   padding: 96px 0;
@@ -111,5 +111,7 @@ header {
 .right {
   text-align: right;
   align-items: flex-end;
+}
+@media (max-width: 800px) {
 }
 </style>
