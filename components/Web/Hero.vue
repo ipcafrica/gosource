@@ -32,9 +32,7 @@
           </template>
         </DynamicButtonMain>
       </div>
-      <div class="">
-        <WebHeroSVG />
-      </div>
+      <WebHeroSVG class="svg" />
     </div>
   </main>
 </template>
@@ -49,16 +47,18 @@ main {
   display: flex;
   align-items: flex-end;
   max-width: 100%;
-  height: 642px;
+  min-height: 642px;
   background: var(--orange-orange-25);
 }
 .wrapper {
   width: fit-content;
   margin-inline: auto;
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .content-group {
+  margin-top: 28px;
   display: flex;
   max-width: 610px;
   margin-inline: auto;
@@ -82,5 +82,30 @@ p {
   font-weight: 300;
   line-height: 30px; /* 150% */
   letter-spacing: -0.3px;
+}
+@media (max-width: 1181px) {
+  .wrapper {
+    flex-direction: column;
+    gap: 64px;
+  }
+  .svg {
+    width: 100%;
+  }
+}
+@media (max-width: 900px) {
+  .content-group {
+    margin-top: 72px;
+  }
+  h1 {
+    font-size: 48px;
+    line-height: 64px; /* 133.333% */
+    letter-spacing: -2px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.2px;
+  }
 }
 </style>
