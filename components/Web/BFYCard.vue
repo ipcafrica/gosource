@@ -122,4 +122,9 @@ h5,
 p {
   text-align: left;
 }
+@media (max-width: 450px) {
+  .bfycard-wrapper {
+    max-width: 100%;
+  }
+}
 </style>

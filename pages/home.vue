@@ -40,7 +40,7 @@
       </WebSection>
     </div>
     <!-- Built for you -->
-    <WebSection :data="sectionData[1]" flexPosition="center" maxWidth="458px">
+    <WebSection :data="sectionData[1]" flexPosition="center" maxWidth="458px" left="left">
       <template v-slot:content>
         <div class="bfy-wrap mt-128">
           <WebBFYCard :data="data" v-for="(data, index) in builtForYou" :key="index">

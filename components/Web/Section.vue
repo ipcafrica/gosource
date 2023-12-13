@@ -3,11 +3,11 @@
     <div
       v-if="data"
       class="header-content"
-      :class="[flexPosition]"
+      :class="[flexPosition, left]"
       :style="{ 'max-width': dynamicmaxWidth }"
     >
       <header class="base-font">{{ data.title }}</header>
-      <div class="content" :class="[flexPosition]">
+      <div class="content" :class="[flexPosition, left]">
         <h1 :class="bigFont">
           {{ data.header }}
         </h1>
@@ -36,13 +36,16 @@
 import { ref } from "vue";
 import { caretRightWhite } from "../utils/svg";
 
-const { maxWidth, data, flexPosition, fontSize, bigFont } = defineProps({
+const { maxWidth, data, flexPosition, fontSize, bigFont, left } = defineProps({
   data: {
     required: true,
   },
   flexPosition: {
     type: String,
     default: "left",
+  },
+  left: {
+    type: String,
   },
   maxWidth: {
     type: String,
@@ -145,6 +148,15 @@ header {
 @media (max-width: 700px) {
   .section-wrapper {
     padding: 72px 0;
+  }
+}
+@media (max-width: 450px) {
+  .content.left h1,
+  .content.left p {
+    text-align: left;
+  }
+  .header-content.left {
+    align-items: flex-start;
   }
 }
 </style>
