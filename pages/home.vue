@@ -1,6 +1,7 @@
 <template>
   <div>
     <WebNews />
+    <WebHero />
     <!-- logo -->
     <WebSection :data="null">
       <template v-slot:content>

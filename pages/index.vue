@@ -27,7 +27,7 @@
 
     <WebSection :data="sectionData[4]" flexPosition="center">
       <template v-slot:content>
-        <!-- Faq section here -->
+        <WebFAQ />
       </template>
     </WebSection>
     <WebSection :data="sectionData[5]" flexPosition="center" maxWidth="458px" />
