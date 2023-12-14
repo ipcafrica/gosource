@@ -165,5 +165,9 @@ p {
     line-height: 21px; /* 150% */
     letter-spacing: -0.2px;
   }
+
+  .accordion-content .description {
+    padding: 0 12px;
+  }
 }
 </style>
