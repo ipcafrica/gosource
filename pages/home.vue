@@ -53,9 +53,11 @@
       </template>
     </WebSection>
     <!-- Quick steps -->
-    <div class="bg-grey-200">
+    <div class="">
       <WebSection :data="sectionData[2]" flexPosition="center">
-        <template v-slot:content> </template>
+        <template v-slot:content>
+          <WebQuickStep class="mt-128" :data="quickStep"/>
+        </template>
       </WebSection>
     </div>
     <!-- Zero stress -->
@@ -234,6 +236,21 @@ const featureCardData = ref([
     color: "bg-orange-25",
   },
 ]);
+
+const quickStep = ref([
+  {
+    title: "Create an account",
+    snippet: "Create an account for your business in less than 2minutes",
+  },
+  {
+    title: "Add to cart with ease",
+    snippet: "Add multiple items you want to buy in bulk in no time",
+  },
+  {
+    title: "Checkout with ease",
+    snippet: "Proceed to give us delivery informations and checkout very fast",
+  },
+]);
 </script>
 
 <style scoped>
@@ -259,7 +276,8 @@ const featureCardData = ref([
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 40px;
+  justify-content: space-between;
+  width: 100%;
   align-self: stretch;
   margin-inline: auto;
 }
