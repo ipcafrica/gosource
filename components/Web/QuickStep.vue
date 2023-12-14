@@ -26,12 +26,27 @@
 
 <script setup>
 import { quickStep } from "../utils/svg";
+import { ref, onMounted } from "vue";
 
 const {} = defineProps({
   data: {
     type: Object,
     required: true,
   },
+});
+
+const step = ref(1);
+
+onMounted(() => {
+  const intervalId = setInterval(() => {
+    // Update the value of 'step' every 3 seconds
+    step.value = (step.value % 3) + 1;
+  }, 3000);
+
+  // Clean up the interval when the component is unmounted
+  onBeforeUnmount(() => {
+    clearInterval(intervalId);
+  });
 });
 </script>
 
