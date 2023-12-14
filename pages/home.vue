@@ -56,7 +56,7 @@
     <div class="">
       <WebSection :data="sectionData[2]" flexPosition="center">
         <template v-slot:content>
-          <WebQuickStep class="mt-128" :data="quickStep"/>
+          <WebQuickStep class="mt-128" :data="quickStep" />
         </template>
       </WebSection>
     </div>

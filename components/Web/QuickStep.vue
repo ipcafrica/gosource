@@ -3,7 +3,7 @@
     <div class="wrapper">
       <div class="container" v-for="(data, index) in data" :key="index">
         <div class="progress-bar">
-          <div class="ring base-font currents bg-grey-200">{{ index + 1 }}</div>
+          <div class="ring base-font current bg-grey-200">{{ index + 1 }}</div>
           <div class="bar bg-grey-200" v-if="index !== 2"><span></span></div>
         </div>
         <div class="content-wrap">
@@ -18,11 +18,15 @@
         </div>
       </div>
     </div>
-    <div class="img-container"></div>
+    <div class="img-container">
+      <div class="" v-html="quickStep"></div>
+    </div>
   </div>
 </template>
 
 <script setup>
+import { quickStep } from "../utils/svg";
+
 const {} = defineProps({
   data: {
     type: Object,
@@ -76,8 +80,19 @@ p {
 }
 
 .bar {
+  position: relative;
   height: 100px;
   width: 3px;
+}
+
+.bar span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-primary-500-base);
+  transition: all 4s linear;
 }
 
 .ring.current {
