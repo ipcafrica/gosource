@@ -6,7 +6,7 @@
     <WebSection :data="null">
       <template v-slot:content>
         <div class="client">
-          <h3 class="heading-3-medium medium text-grey-900-base">
+          <h3 class="heading-3-medium medium text-grey-900">
             Trusted by 100+ businesses across the Nation
           </h3>
           <div class="logos">
@@ -78,7 +78,7 @@
     <!-- FAQ -->
     <WebSection :data="sectionData[4]" flexPosition="center">
       <template v-slot:content>
-        <!-- Faq section here -->
+        <WebFAQ />
       </template>
     </WebSection>
     <!-- Let’s go! -->
@@ -158,7 +158,7 @@ const sectionData = ref([
     title: "FAQ",
     header: "Frequently asked questions",
     snippet: null,
-    buttonText: "Start ordering",
+    buttonText: null,
   },
   {
     id: 5,

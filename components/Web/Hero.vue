@@ -15,20 +15,7 @@
           class="w-auto"
         >
           <template v-slot:svg>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-            >
-              <path
-                d="M7.4577 3.79223L7.45779 3.79232L7.4577 3.79223Z"
-                fill="#344054"
-                stroke="white"
-                stroke-width="2"
-              />
-            </svg>
+            <div v-html="caretRightWhite"></div>
           </template>
         </DynamicButtonMain>
       </div>
@@ -37,8 +24,8 @@
   </main>
 </template>
 
-<script>
-export default {};
+<script setup>
+import { caretRightWhite } from "../utils/svg";
 </script>
 
 <style scoped>
