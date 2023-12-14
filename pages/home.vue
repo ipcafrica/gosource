@@ -1,8 +1,20 @@
 <template>
   <div>
+    <div class="bg-grey-100">
+      <WebSection
+        :data="sectionData[0]"
+        flexPosition="left"
+        align="start"
+        maxWidth="499px"
+      >
+        <template v-slot:content>
+          <WebFeatureCard />
+        </template>
+      </WebSection>
+    </div>
     <WebSection :data="sectionData[1]" flexPosition="center" maxWidth="458px">
       <template v-slot:content>
-        <div class="bfy-wrap">
+        <div class="bfy-wrap mt-128">
           <WebBFYCard :data="data" v-for="(data, index) in builtForYou" :key="index">
             <template v-slot:svg>
               <div v-html="data.svg"></div>
@@ -10,34 +22,34 @@
           </WebBFYCard>
         </div>
       </template>
-      <WebFeatureCard />
     </WebSection>
-    <WebSection
-      :data="sectionData[3]"
-      flexPosition="center"
-      maxWidth="1009px"
-      bigFont="text-display-regular bold"
-    >
-      <template v-slot:content>
-        <!-- Faq section here -->
-        <div class="accordion">
-      <WebAccordionWorks/>
+    <div class="bg-grey-200">
+      <WebSection :data="sectionData[2]" flexPosition="center">
+        <template v-slot:content> </template>
+      </WebSection>
     </div>
-      </template>
-    </WebSection>
+    <div class="bg-supporting-900">
+      <WebSection
+        :data="sectionData[3]"
+        flexPosition="center"
+        maxWidth="1009px"
+        bigFont="text-white text-display-regular bold"
+      >
+        <template v-slot:content> </template>
+      </WebSection>
+    </div>
 
     <!-- testimonials here -->
 
     <WebSection :data="sectionData[4]" flexPosition="center">
       <template v-slot:content>
-        <div class="accordion">
-      <WebAccordionWorks/>
-    </div>
+        <!-- Faq section here -->
       </template>
     </WebSection>
-    <WebSection :data="sectionData[5]" flexPosition="center" maxWidth="458px" />
+    <div class="bg-grey-50">
+      <WebSection :data="sectionData[5]" flexPosition="center" maxWidth="458px" />
+    </div>
     <WebFooter />
-
   </div>
 </template>
 
@@ -124,18 +136,14 @@ const sectionData = ref([
 </script>
 
 <style scoped>
-.accordion{
-  margin-top: 32px;
-  /* border: 1px solid red; */
-  max-width: 100%;
-  width: 738px;
-}
 .bfy-wrap {
-  margin-top: 128px;
   display: flex;
   align-items: flex-start;
   gap: 40px;
   align-self: stretch;
   margin-inline: auto;
+}
+.mt-128 {
+  margin-top: 128px;
 }
 </style>

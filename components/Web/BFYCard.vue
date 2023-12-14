@@ -24,7 +24,6 @@
 
 <script setup>
 import { ref } from "vue";
-import { caretRight, arrowRight } from "../utils/svg";
 
 const isHovered = ref(false);
 

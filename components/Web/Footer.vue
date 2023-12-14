@@ -72,10 +72,12 @@ const FooterData = ref([
 footer {
   display: flex;
   max-width: 1440px;
+  margin-inline: auto;
   width: 100%;
   flex-direction: column;
   align-items: center;
   gap: 72px;
+  padding-block: 96px;
 }
 .footer-container {
   display: flex;
