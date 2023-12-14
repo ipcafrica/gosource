@@ -3,7 +3,7 @@
     <div class="wrapper">
       <div class="container" v-for="(data, index) in data" :key="index">
         <div class="progress-bar">
-          <div class="ring base-font current bg-grey-200">{{ index + 1 }}</div>
+          <div class="ring base-font bg-grey-200" :class="{ current: step < 3}">{{ index + 1 }}</div>
           <div class="bar bg-grey-200" v-if="index !== 2"><span></span></div>
         </div>
         <div class="content-wrap">
@@ -39,11 +39,8 @@ const step = ref(1);
 
 onMounted(() => {
   const intervalId = setInterval(() => {
-    // Update the value of 'step' every 3 seconds
     step.value = (step.value % 3) + 1;
-  }, 3000);
-
-  // Clean up the interval when the component is unmounted
+  }, 4000);
   onBeforeUnmount(() => {
     clearInterval(intervalId);
   });
