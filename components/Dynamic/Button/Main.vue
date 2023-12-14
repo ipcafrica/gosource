@@ -7,42 +7,42 @@
   >
     <span v-if="showText && !isLoading">{{ buttonText }}</span>
     <slot v-if="!isLoading" name="svg"></slot>
-    <DynamicLoader :size="size" :isLoading="isLoading"/>
+    <DynamicLoader :size="size" :isLoading="isLoading" />
   </button>
 </template>
 
 <script setup>
 import { ref, computed } from "vue";
 
-const { buttonText, size, type, icon, showText, disabled, isLoading } =
-  defineProps({
-    buttonText: {
-      type: String,
-    },
-    size: {
-      type: String,
-      required: true,
-    },
-    type: {
-      type: String,
-      required: true,
-    },
-    icon: {
-      type: String,
-    },
-    showText: {
-      type: Boolean,
-      default: true,
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    isLoading: {
-      type: Boolean,
-      default: false,
-    },
-  });
+const { buttonText, size, type, icon, showText, disabled, isLoading } = defineProps({
+  buttonText: {
+    type: String,
+  },
+  size: {
+    type: String,
+    required: true,
+  },
+  type: {
+    type: String,
+    required: true,
+  },
+  icon: {
+    type: String,
+    default: "icon-right",
+  },
+  showText: {
+    type: Boolean,
+    default: true,
+  },
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
+  isLoading: {
+    type: Boolean,
+    default: false,
+  },
+});
 
 const buttonClasses = computed(() => {
   return {
@@ -66,7 +66,6 @@ const buttonClasses = computed(() => {
     "icon-button": !showText,
   };
 });
-
 </script>
 
 <style scoped>

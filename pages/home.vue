@@ -1,11 +1,12 @@
 <template>
   <div>
     <WebNews />
+    <WebHero />
     <!-- logo -->
     <WebSection :data="null">
       <template v-slot:content>
         <div class="client">
-          <h3 class="heading-3-medium medium text-grey-900-base">
+          <h3 class="heading-3-medium medium text-grey-900">
             Trusted by 100+ businesses across the Nation
           </h3>
           <div class="logos">
@@ -24,21 +25,23 @@
       >
         <template v-slot:content>
           <div class="feature-wrap mt-128">
-            <WebFeatureCard
-              :data="data"
+            <div
               v-for="(data, index) in featureCardData"
               :key="index"
+              :class="'feature-item' + (index + 1)"
             >
-              <template v-slot:svg>
-                <div v-html="data.svg"></div>
-              </template>
-            </WebFeatureCard>
+              <WebFeatureCard :data="data" class="w-auto">
+                <template v-slot:svg>
+                  <div v-html="data.svg"></div>
+                </template>
+              </WebFeatureCard>
+            </div>
           </div>
         </template>
       </WebSection>
     </div>
     <!-- Built for you -->
-    <WebSection :data="sectionData[1]" flexPosition="center" maxWidth="458px">
+    <WebSection :data="sectionData[1]" flexPosition="center" maxWidth="458px" left="left">
       <template v-slot:content>
         <div class="bfy-wrap mt-128">
           <WebBFYCard :data="data" v-for="(data, index) in builtForYou" :key="index">
@@ -50,9 +53,11 @@
       </template>
     </WebSection>
     <!-- Quick steps -->
-    <div class="bg-grey-200">
+    <div class="">
       <WebSection :data="sectionData[2]" flexPosition="center">
-        <template v-slot:content> </template>
+        <template v-slot:content>
+          <WebQuickStep class="mt-128" :data="quickStep" />
+        </template>
       </WebSection>
     </div>
     <!-- Zero stress -->
@@ -75,7 +80,7 @@
     <!-- FAQ -->
     <WebSection :data="sectionData[4]" flexPosition="center">
       <template v-slot:content>
-        <!-- Faq section here -->
+        <WebFAQ />
       </template>
     </WebSection>
     <!-- Let’s go! -->
@@ -155,7 +160,7 @@ const sectionData = ref([
     title: "FAQ",
     header: "Frequently asked questions",
     snippet: null,
-    buttonText: "Start ordering",
+    buttonText: null,
   },
   {
     id: 5,
@@ -176,7 +181,7 @@ const images = ref([
 ]);
 const featureCardData = ref([
   {
-    img: "/images/store.png",
+    img: "/images/store.svg",
     svg: store,
     svgName: "Store",
     title: "All food items in one store",
@@ -195,7 +200,7 @@ const featureCardData = ref([
     color: "",
   },
   {
-    img: "/images/invoice.png",
+    img: "/images/invoice.svg",
     svg: invoice,
     svgName: "Invoice",
     title: "Instant order invoice",
@@ -204,7 +209,7 @@ const featureCardData = ref([
     color: "bg-primary-50",
   },
   {
-    img: "/images/orders.png",
+    img: "/images/orders.svg",
     svg: order,
     svgName: "Orders",
     title: "Track your orders",
@@ -222,13 +227,28 @@ const featureCardData = ref([
     color: "",
   },
   {
-    img: "/images/insight.png",
+    img: "/images/insight.svg",
     svg: insight,
     svgName: "Insights",
     title: "Get dashboard insights",
     snippet: "You get to see an overview of how you spend and buy products.",
     buttonText: "Let’s get started",
     color: "bg-orange-25",
+  },
+]);
+
+const quickStep = ref([
+  {
+    title: "Create an account",
+    snippet: "Create an account for your business in less than 2minutes",
+  },
+  {
+    title: "Add to cart with ease",
+    snippet: "Add multiple items you want to buy in bulk in no time",
+  },
+  {
+    title: "Checkout with ease",
+    snippet: "Proceed to give us delivery informations and checkout very fast",
   },
 ]);
 </script>
@@ -241,6 +261,11 @@ const featureCardData = ref([
   align-items: center;
   gap: 32px;
 }
+
+.client h3 {
+  font-size: 24px;
+}
+
 .logos {
   width: 100%;
   display: flex;
@@ -250,23 +275,42 @@ const featureCardData = ref([
 .bfy-wrap {
   display: flex;
   align-items: flex-start;
-  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
   align-self: stretch;
   margin-inline: auto;
 }
 
 .feature-wrap {
-  display: flex;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
   gap: 40px;
-  flex-wrap: wrap;
+}
+
+.feature-item1 {
+  grid-column: 1 / span 8;
+}
+.feature-item2 {
+  grid-column: 9 / 13;
+}
+.feature-item3 {
+  grid-column: 1 / 7;
+}
+.feature-item4 {
+  grid-column: 7 / 13;
+}
+.feature-item5 {
+  grid-column: 1 / 5;
+}
+.feature-item6 {
+  grid-column: 5 / 13;
 }
 
 .mt-128 {
   margin-top: 128px;
 }
 .img {
-  max-width: 1140px;
   width: 100%;
   height: 608px;
   border-radius: 24px;
@@ -278,5 +322,42 @@ const featureCardData = ref([
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+@media (max-width: 960px) {
+  .logos {
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .logos img {
+    max-width: 70px;
+  }
+
+  .feature-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+  .bfy-wrap {
+    justify-content: center;
+  }
+  .client h3 {
+    font-size: 20px;
+    line-height: 30px; /* 150% */
+    letter-spacing: -0.3px;
+  }
+  .img img {
+    object-position: right 80% bottom 0px;
+  }
+}
+
+@media (max-width: 700px) {
+  .feature-wrap {
+    gap: 20px;
+  }
+
+  .mt-128 {
+    margin-top: 48px;
+  }
 }
 </style>

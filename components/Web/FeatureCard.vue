@@ -1,5 +1,5 @@
 <template>
-  <div class="card-wrapper">
+  <div class="card-wrapper" :class="{ noimg: !data.title }">
     <div class="image-container">
       <img :src="data.img" alt="" />
     </div>
@@ -39,11 +39,17 @@ defineProps({
 </script>
 
 <style scoped>
+.text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
 .card-wrapper {
   position: relative;
   display: flex;
-  height: 608px;
-  width: auto;
+  height: 530px;
+  width: fit-content;
   padding: 6px;
   flex-direction: column;
   align-items: center;
@@ -56,8 +62,25 @@ defineProps({
   box-shadow: 0px 4px 8px 0px rgba(71, 83, 103, 0.1);
 }
 
+.image-container {
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  object-fit: none;
+  object-position: top;
+  transition: all 0.5s ease-in-out;
+}
+
 .content-container {
+  margin: 0;
   position: absolute;
+  width: 100%;
   display: flex;
   padding: 24px;
   flex-direction: column;
@@ -66,8 +89,7 @@ defineProps({
   border-radius: 8px;
   background: var(--White);
   bottom: 0;
-  height: 132px;
-  transform: scale(0.9);
+  height: 184px;
   overflow: hidden;
   transition: all 0.3s;
 }
@@ -75,7 +97,7 @@ defineProps({
 .tag {
   display: flex;
   height: 28px;
-  padding: 0px 8px;
+  padding: 6px 8px;
   justify-content: center;
   align-items: center;
   gap: 6px;
@@ -83,7 +105,12 @@ defineProps({
 }
 
 .card-wrapper:hover .content-container {
-  height: 230px;
+  height: 223px;
+}
+
+.card-wrapper:hover .image-container img {
+  border-radius: 8px;
+  scale: 1.06;
 }
 .cta {
   display: flex;
@@ -105,7 +132,7 @@ span.line {
   border-radius: 5px;
   background-color: var(--grey-700);
   display: block;
-  transition-delay: 0.5s;
+  transition-delay: 2s;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.5s ease-in-out;
@@ -143,5 +170,48 @@ span.line {
 }
 .card-wrapper:hover .hamburger .line {
   background-color: var(--primary-primary-500-base);
+}
+
+@media (max-width: 1186px) {
+  .content-container {
+    height: 207px;
+  }
+
+  .card-wrapper:hover .content-container {
+    height: 246px;
+  }
+}
+
+@media (max-width: 960px) {
+  .content-container {
+    height: auto;
+  }
+  .card-wrapper:hover .content-container {
+    height: auto;
+  }
+
+  .image-container img {
+    object-fit: contain;
+  }
+
+  .noimg {
+    display: none;
+  }
+  .text-group {
+    max-width: 400px;
+  }
+}
+@media (max-width: 700px) {
+  h2 {
+    font-size: 24px;
+    line-height: 36px; /* 150% */
+    letter-spacing: -0.5px;
+  }
+  .content-container {
+    position: relative;
+  }
+  .card-wrapper {
+    height: auto;
+  }
 }
 </style>
