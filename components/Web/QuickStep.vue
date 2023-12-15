@@ -18,11 +18,11 @@
         </div>
       </div>
     </div>
-    <div class="img-container">
-      <div class="" v-html="quickStep"></div>
-    </div>
+
+    <div class="svg" v-html="quickStep"></div>
   </div>
 </template>
+
 
 
 <script setup>
@@ -54,6 +54,10 @@ h5,
 p {
   text-align: left;
   transition: all var(--animation-duration) linear;
+}
+
+.mobile-setup {
+  display: none;
 }
 
 .quick-step-wrap {
@@ -143,5 +147,68 @@ p {
 }
 .current p {
   color: var(--grey-700);
+}
+
+.paginate span {
+  width: 16px;
+height: 16px;
+border-radius: 1000px;
+background: var(--grey-200, #E4E7EC);
+}
+
+@media (max-width: 1200px) {
+  .mobile-setup {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+  }
+  .quick-step-wrap {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 32px;
+  }
+  .svg {
+    width: auto;
+  }
+  .wrapper {
+    display: flex;
+  }
+
+  .progress-bar {
+    display: none;
+    overflow: hidden;
+    height: 0;
+    width: 0;
+  }
+  .content {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    align-items: center;
+  }
+  .content.current {
+    opacity: 1;
+    width: 100%;
+    height: auto;
+  }
+
+  .container {
+    min-height: auto;
+  }
+
+  h5,
+p {
+  text-align: center;
+}
+}
+</style>
+
+<style>
+.svg svg {
+  width: 100%;
+  height: auto;
 }
 </style>
