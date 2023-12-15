@@ -283,7 +283,7 @@ const quickStep = ref([
 ]);
 onMounted(() => {
   AOS.init({
-    duration: 800,
+    duration: 1000,
   });
 
   const lenis = new Lenis();
