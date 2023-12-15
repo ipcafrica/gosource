@@ -8,7 +8,7 @@
       9 popular markets in Lagos you need to visit if you need to buy pocket-friendly
       foodstuffs
     </p>
-    <div class="svg">
+    <div class="">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
