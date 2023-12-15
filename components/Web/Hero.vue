@@ -71,6 +71,9 @@ p {
   letter-spacing: -0.3px;
 }
 @media (max-width: 1181px) {
+  .content-group {
+    margin-top: 72px;
+  }
   .wrapper {
     flex-direction: column;
     gap: 64px;
@@ -80,9 +83,6 @@ p {
   }
 }
 @media (max-width: 900px) {
-  .content-group {
-    margin-top: 72px;
-  }
   h1 {
     font-size: 48px;
     line-height: 64px; /* 133.333% */

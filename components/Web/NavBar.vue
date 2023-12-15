@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <nav>
       <div class="logo-menu">
         <div class="logo">
@@ -43,6 +43,12 @@ defineProps({
 </script>
 
 <style scoped>
+.wrapper {
+    position: sticky;
+    top: 0;
+    background: var(--White);
+    z-index: 999;
+}
 nav {
   display: flex;
   max-width: 80%;
@@ -80,5 +86,14 @@ ul {
   display: flex;
   align-items: center;
   gap: 24px;
+}
+@media (max-width: 950px) {
+    .logo-menu {
+        width: auto;
+        max-width: auto;
+    }
+  ul {
+    display: none;
+  }
 }
 </style>
