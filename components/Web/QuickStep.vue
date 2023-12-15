@@ -138,9 +138,9 @@ p {
   max-width: 309.297px;
 }
 .current h5 {
-  color: var(--grey-grey-900-base);
+  color: var(--grey-900-base);
 }
 .current p {
-  color: var(--grey-grey-700);
+  color: var(--grey-700);
 }
 </style>
