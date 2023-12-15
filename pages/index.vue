@@ -1,8 +1,49 @@
 <template>
   <div>
-    <WebSection :data="sectionData[1]" flexPosition="center" maxWidth="458px">
+    <WebNews />
+    <WebHero />
+    <!-- logo -->
+    <WebSection :data="null">
       <template v-slot:content>
-        <div class="bfy-wrap">
+        <div class="client">
+          <h3 class="heading-3-medium medium text-grey-900">
+            Trusted by 100+ businesses across the Nation
+          </h3>
+          <div class="logos">
+            <img :src="image" alt="" v-for="(image, index) in images" :key="index" />
+          </div>
+        </div>
+      </template>
+    </WebSection>
+    <!-- Hassle-Free -->
+    <div class="bg-grey-100">
+      <WebSection
+        :data="sectionData[0]"
+        flexPosition="left"
+        align="start"
+        maxWidth="499px"
+      >
+        <template v-slot:content>
+          <div class="feature-wrap mt-128">
+            <div
+              v-for="(data, index) in featureCardData"
+              :key="index"
+              :class="'feature-item' + (index + 1)"
+            >
+              <WebFeatureCard :data="data" class="w-auto">
+                <template v-slot:svg>
+                  <div v-html="data.svg"></div>
+                </template>
+              </WebFeatureCard>
+            </div>
+          </div>
+        </template>
+      </WebSection>
+    </div>
+    <!-- Built for you -->
+    <WebSection :data="sectionData[1]" flexPosition="center" maxWidth="458px" left="left">
+      <template v-slot:content>
+        <div class="bfy-wrap mt-128">
           <WebBFYCard :data="data" v-for="(data, index) in builtForYou" :key="index">
             <template v-slot:svg>
               <div v-html="data.svg"></div>
@@ -10,35 +51,49 @@
           </WebBFYCard>
         </div>
       </template>
-      <WebFeatureCard />
     </WebSection>
-    <WebSection
-      :data="sectionData[3]"
-      flexPosition="center"
-      maxWidth="1009px"
-      bigFont="text-display-regular bold"
-    >
-      <template v-slot:content>
-        <!-- Faq section here -->
-      </template>
-    </WebSection>
+    <!-- Quick steps -->
+    <div class="">
+      <WebSection :data="sectionData[2]" flexPosition="center">
+        <template v-slot:content>
+          <WebQuickStep class="mt-128" :data="quickStep" />
+        </template>
+      </WebSection>
+    </div>
+    <!-- Zero stress -->
+    <div class="bg-supporting-900">
+      <WebSection
+        :data="sectionData[3]"
+        flexPosition="center"
+        maxWidth="1009px"
+        bigFont="text-white text-display-regular bold"
+      >
+        <template v-slot:content>
+          <div class="img mt-128">
+            <img src="/assets/images/zero-stress.png" alt="" />
+          </div>
+        </template>
+      </WebSection>
+    </div>
 
     <!-- testimonials here -->
-    <WebTestimonial />
-
+    <!-- FAQ -->
     <WebSection :data="sectionData[4]" flexPosition="center">
       <template v-slot:content>
         <WebFAQ />
       </template>
     </WebSection>
-    <WebSection :data="sectionData[5]" flexPosition="center" maxWidth="458px" />
+    <!-- Let’s go! -->
+    <div class="bg-grey-50">
+      <WebSection :data="sectionData[5]" flexPosition="center" maxWidth="458px" />
+    </div>
     <WebFooter />
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
-import { food, car, credit, chat } from "../utils/svg";
+import { food, car, credit, chat, store, invoice, order, insight } from "../utils/svg";
 
 const builtForYou = ref([
   {
@@ -105,7 +160,7 @@ const sectionData = ref([
     title: "FAQ",
     header: "Frequently asked questions",
     snippet: null,
-    buttonText: "Start ordering",
+    buttonText: null,
   },
   {
     id: 5,
@@ -116,15 +171,194 @@ const sectionData = ref([
     buttonText: "Start now",
   },
 ]);
+const images = ref([
+  "/images/papasgril.png",
+  "/images/wingbistro.svg",
+  "/images/spicycorner.png",
+  "/images/grillshark.png",
+  "/images/redkitchen.png",
+  "/images/citysub.png",
+]);
+const featureCardData = ref([
+  {
+    img: "/images/store.svg",
+    svg: store,
+    svgName: "Store",
+    title: "All food items in one store",
+    snippet:
+      "Buy all your quality food items in bulk in one store without going to the market.",
+    buttonText: "Place an order",
+    color: "bg-wine-50",
+  },
+  {
+    img: "/images/woman.png",
+    svg: null,
+    svgName: null,
+    title: null,
+    snippet: null,
+    buttonText: null,
+    color: "",
+  },
+  {
+    img: "/images/invoice.svg",
+    svg: invoice,
+    svgName: "Invoice",
+    title: "Instant order invoice",
+    snippet: "Get instant invoice immediately after you checkout.",
+    buttonText: "Get started",
+    color: "bg-primary-50",
+  },
+  {
+    img: "/images/orders.svg",
+    svg: order,
+    svgName: "Orders",
+    title: "Track your orders",
+    snippet: "You can track the status of your order at every step of the way.",
+    buttonText: "Place an order",
+    color: "bg-purple-50",
+  },
+  {
+    img: "/images/man.png",
+    svg: null,
+    svgName: null,
+    title: null,
+    snippet: null,
+    buttonText: null,
+    color: "",
+  },
+  {
+    img: "/images/insight.svg",
+    svg: insight,
+    svgName: "Insights",
+    title: "Get dashboard insights",
+    snippet: "You get to see an overview of how you spend and buy products.",
+    buttonText: "Let’s get started",
+    color: "bg-orange-25",
+  },
+]);
+
+const quickStep = ref([
+  {
+    title: "Create an account",
+    snippet: "Create an account for your business in less than 2minutes",
+  },
+  {
+    title: "Add to cart with ease",
+    snippet: "Add multiple items you want to buy in bulk in no time",
+  },
+  {
+    title: "Checkout with ease",
+    snippet: "Proceed to give us delivery informations and checkout very fast",
+  },
+]);
 </script>
 
 <style scoped>
+.client {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.client h3 {
+  font-size: 24px;
+}
+
+.logos {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .bfy-wrap {
-  margin-top: 128px;
   display: flex;
   align-items: flex-start;
-  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
   align-self: stretch;
   margin-inline: auto;
+}
+
+.feature-wrap {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 40px;
+}
+
+.feature-item1 {
+  grid-column: 1 / span 8;
+}
+.feature-item2 {
+  grid-column: 9 / 13;
+}
+.feature-item3 {
+  grid-column: 1 / 7;
+}
+.feature-item4 {
+  grid-column: 7 / 13;
+}
+.feature-item5 {
+  grid-column: 1 / 5;
+}
+.feature-item6 {
+  grid-column: 5 / 13;
+}
+
+.mt-128 {
+  margin-top: 128px;
+}
+.img {
+  width: 100%;
+  height: 608px;
+  border-radius: 24px;
+  overflow: hidden;
+  background-color: rgba(145, 214, 168, 1);
+}
+
+.img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 960px) {
+  .logos {
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .logos img {
+    max-width: 70px;
+  }
+
+  .feature-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+  .bfy-wrap {
+    justify-content: center;
+    gap: 48px;
+  }
+  .client h3 {
+    font-size: 20px;
+    line-height: 30px; /* 150% */
+    letter-spacing: -0.3px;
+  }
+  .img img {
+    object-position: right 80% bottom 0px;
+  }
+}
+
+@media (max-width: 700px) {
+  .feature-wrap {
+    gap: 20px;
+  }
+
+  .mt-128 {
+    margin-top: 48px;
+  }
 }
 </style>
