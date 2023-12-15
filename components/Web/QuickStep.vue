@@ -2,12 +2,12 @@
   <div class="quick-step-wrap">
     <div class="wrapper">
       <div class="container" v-for="(data, index) in data" :key="index">
-        <div class="progress-bar" :class="{ current: step === index + 1}">
+        <div class="progress-bar" :class="{ current: step === index + 1 }">
           <div class="ring base-font bg-grey-200">{{ index + 1 }}</div>
           <div class="bar bg-grey-200" v-if="index !== 2"><span></span></div>
         </div>
         <div class="content-wrap">
-          <div class="content" :class="{ current: step === index + 1}">
+          <div class="content" :class="{ current: step === index + 1 }">
             <h5 class="title text-heading-5-medium medium text-grey-200">
               {{ data.title }}
             </h5>
@@ -24,11 +24,12 @@
   </div>
 </template>
 
+
 <script setup>
 import { quickStep } from "../utils/svg";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 
-const { } = defineProps({
+const props = defineProps({
   data: {
     type: Object,
     required: true,
@@ -45,8 +46,8 @@ onMounted(() => {
     clearInterval(intervalId);
   });
 });
-
 </script>
+
 
 <style scoped>
 h5,
