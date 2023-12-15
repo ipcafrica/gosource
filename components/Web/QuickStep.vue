@@ -49,7 +49,7 @@ let intervalId;
 onMounted(() => {
   intervalId = setInterval(() => {
     step.value = (step.value % 3) + 1;
-  }, 4000);
+  }, 2500);
   onBeforeUnmount(() => {
     clearInterval(intervalId);
   });
@@ -113,6 +113,7 @@ p {
   flex-shrink: 0;
 
   border-radius: 80px;
+  transition: all 1s ease-in-out;
 }
 
 .bar {
@@ -128,7 +129,7 @@ p {
   width: 100%;
   height: 0;
   opacity: 1;
-  transition: height 4s linear;
+  transition: height 2.5s linear;
 }
 
 .current .bar span,

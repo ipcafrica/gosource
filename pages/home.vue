@@ -1,9 +1,9 @@
 <template>
   <div>
-    <WebNews />
-    <WebHero />
+    <WebNews data-aos="zoom-in-up" />
+    <WebHero data-aos="zoom-in-up" />
     <!-- logo -->
-    <WebSection :data="null">
+    <WebSection data-aos="zoom-in-up" :data="null">
       <template v-slot:content>
         <div class="client">
           <h3 class="heading-3-medium medium text-grey-900">
@@ -16,7 +16,7 @@
       </template>
     </WebSection>
     <!-- Hassle-Free -->
-    <div class="bg-grey-100">
+    <div data-aos="zoom-in-up" class="bg-grey-100">
       <WebSection
         :data="sectionData[0]"
         flexPosition="left"
@@ -41,7 +41,13 @@
       </WebSection>
     </div>
     <!-- Built for you -->
-    <WebSection :data="sectionData[1]" flexPosition="center" maxWidth="458px" left="left">
+    <WebSection
+      data-aos="zoom-in-up"
+      :data="sectionData[1]"
+      flexPosition="center"
+      maxWidth="458px"
+      left="left"
+    >
       <template v-slot:content>
         <div class="bfy-wrap mt-128">
           <WebBFYCard :data="data" v-for="(data, index) in builtForYou" :key="index">
@@ -53,7 +59,7 @@
       </template>
     </WebSection>
     <!-- Quick steps -->
-    <div class="">
+    <div class="" data-aos="zoom-in-up">
       <WebSection :data="sectionData[2]" flexPosition="center">
         <template v-slot:content>
           <WebQuickStep class="mt-128" :data="quickStep" />
@@ -61,7 +67,7 @@
       </WebSection>
     </div>
     <!-- Zero stress -->
-    <div class="bg-supporting-900">
+    <div class="bg-supporting-900" data-aos="zoom-in-up">
       <WebSection
         :data="sectionData[3]"
         flexPosition="center"
@@ -78,21 +84,23 @@
 
     <!-- testimonials here -->
     <!-- FAQ -->
-    <WebSection :data="sectionData[4]" flexPosition="center">
+    <WebSection :data="sectionData[4]" flexPosition="center" data-aos="zoom-in-up">
       <template v-slot:content>
         <WebFAQ />
       </template>
     </WebSection>
     <!-- Let’s go! -->
-    <div class="bg-grey-50">
+    <div class="bg-grey-50" data-aos="zoom-in-up">
       <WebSection :data="sectionData[5]" flexPosition="center" maxWidth="458px" />
     </div>
-    <WebFooter />
+    <WebFooter data-aos="zoom-in-up" />
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { food, car, credit, chat, store, invoice, order, insight } from "../utils/svg";
 
 const builtForYou = ref([
@@ -251,6 +259,11 @@ const quickStep = ref([
     snippet: "Proceed to give us delivery informations and checkout very fast",
   },
 ]);
+onMounted(() => {
+  AOS.init({
+  duration: 1200,
+});
+});
 </script>
 
 <style scoped>
