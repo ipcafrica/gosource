@@ -340,6 +340,7 @@ const quickStep = ref([
   }
   .bfy-wrap {
     justify-content: center;
+    gap: 48px;
   }
   .client h3 {
     font-size: 20px;
