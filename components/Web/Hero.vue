@@ -64,6 +64,7 @@ h1 {
 }
 
 p {
+  max-width: 566px;
   color: var(--grey-700);
   font-size: 20px;
   font-weight: 300;
