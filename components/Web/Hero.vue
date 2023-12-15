@@ -35,7 +35,6 @@ main {
   align-items: flex-end;
   max-width: 100%;
   min-height: 642px;
-  background: var(--orange-orange-25);
 }
 .wrapper {
   width: fit-content;

@@ -1,6 +1,7 @@
 <template>
   <div>
     <WebNews />
+    <WebNavBar :navData="navData" />
     <div class="bg-orange-25">
       <WebHero data-aos="zoom-in-up" ref="revealType" />
     </div>
@@ -125,6 +126,24 @@ import "aos/dist/aos.css";
 import Lenis from "@studio-freight/lenis";
 import { food, car, credit, chat, store, invoice, order, insight } from "../utils/svg";
 
+const navData = ref([
+  {
+    title: "Features",
+    link: "/",
+  },
+  {
+    title: "Blog",
+    link: "/",
+  },
+  {
+    title: "FAQs",
+    link: "/",
+  },
+  {
+    title: "Company",
+    link: "/",
+  },
+]);
 const builtForYou = ref([
   {
     svg: food,
@@ -266,7 +285,6 @@ const featureCardData = ref([
     color: "bg-orange-25",
   },
 ]);
-
 const quickStep = ref([
   {
     title: "Create an account",
