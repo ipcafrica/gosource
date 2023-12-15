@@ -1,5 +1,12 @@
 <template>
   <div class="quick-step-wrap">
+    <div class="paginate">
+      <span
+        v-for="(data, index) in data"
+        :key="index"
+        :class="{ current: step === index + 1 }"
+      ></span>
+    </div>
     <div class="wrapper">
       <div class="container" v-for="(data, index) in data" :key="index">
         <div class="progress-bar" :class="{ current: step === index + 1 }">
@@ -65,6 +72,10 @@ p {
   justify-content: space-between;
   align-items: flex-start;
   align-self: stretch;
+}
+
+.paginate {
+  display: none;
 }
 
 .container {
@@ -149,13 +160,6 @@ p {
   color: var(--grey-700);
 }
 
-.paginate span {
-  width: 16px;
-height: 16px;
-border-radius: 1000px;
-background: var(--grey-200, #E4E7EC);
-}
-
 @media (max-width: 1200px) {
   .mobile-setup {
     display: none;
@@ -200,8 +204,26 @@ background: var(--grey-200, #E4E7EC);
   }
 
   h5,
-p {
-  text-align: center;
+  p {
+    text-align: center;
+  }
+
+.paginate {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.paginate span.current {
+background: var(--grey-500);
+}
+
+.paginate span {
+  width: 16px;
+  height: 16px;
+  border-radius: 1000px;
+  background: var(--grey-200);
 }
 }
 </style>
