@@ -2,16 +2,16 @@
   <div class="quick-step-wrap">
     <div class="wrapper">
       <div class="container" v-for="(data, index) in data" :key="index">
-        <div class="progress-bar">
-          <div class="ring base-font bg-grey-200" :class="{ current: step < 3}">{{ index + 1 }}</div>
+        <div class="progress-bar" :class="{ current: step === index + 1}">
+          <div class="ring base-font bg-grey-200">{{ index + 1 }}</div>
           <div class="bar bg-grey-200" v-if="index !== 2"><span></span></div>
         </div>
         <div class="content-wrap">
-          <div class="content">
-            <h5 class="title text-heading-5-medium medium text-grey-900-base">
+          <div class="content" :class="{ current: step === index + 1}">
+            <h5 class="title text-heading-5-medium medium text-grey-200">
               {{ data.title }}
             </h5>
-            <p class="snippet text-body-large-regular regular text-grey-700">
+            <p class="snippet text-body-large-regular regular text-grey-200">
               {{ data.snippet }}
             </p>
           </div>
@@ -28,7 +28,7 @@
 import { quickStep } from "../utils/svg";
 import { ref, onMounted } from "vue";
 
-const {} = defineProps({
+const { } = defineProps({
   data: {
     type: Object,
     required: true,
@@ -45,25 +45,30 @@ onMounted(() => {
     clearInterval(intervalId);
   });
 });
+
 </script>
 
 <style scoped>
 h5,
 p {
   text-align: left;
+  transition: all var(--animation-duration) linear;
 }
+
 .quick-step-wrap {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   align-self: stretch;
 }
+
 .container {
   display: flex;
   align-items: flex-start;
   gap: 24px;
   min-height: 147px;
 }
+
 .progress-bar {
   display: flex;
   /* height: 329px; */
@@ -71,11 +76,13 @@ p {
   align-items: center;
   gap: 8px;
 }
+
 .ring {
   color: var(--White);
   font-size: 12.8px;
   font-weight: 600;
-  line-height: 19.2px; /* 150% */
+  line-height: 19.2px;
+  /* 150% */
   letter-spacing: -0.16px;
 
   display: flex;
@@ -102,12 +109,21 @@ p {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background: var(--primary-primary-500-base);
-  transition: all 4s linear;
+  height: 0;
+  opacity: 1;
+  transition: height 4s linear;
 }
 
-.ring.current {
+.current .bar span,
+.final .bar span,
+.complete .bar span {
+  height: 100%;
+  background: var(--primary-primary-500-base);
+}
+
+.current .ring,
+.final .ring,
+.complete .ring {
   background: var(--primary-primary-500-base);
 }
 
@@ -117,7 +133,14 @@ p {
   align-items: flex-start;
   gap: 8px;
 }
+
 .content p {
   max-width: 309.297px;
+}
+.current h5 {
+  color: var(--grey-grey-900-base);
+}
+.current p {
+  color: var(--grey-grey-700);
 }
 </style>
