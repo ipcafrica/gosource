@@ -1,27 +1,36 @@
 <template>
   <div>
-    <WebNews data-aos="zoom-in-up" />
-    <WebHero data-aos="zoom-in-up" />
+    <WebNews />
+    <div class="bg-orange-25">
+      <WebHero data-aos="zoom-in-up" ref="revealType" />
+    </div>
     <!-- logo -->
     <WebSection data-aos="zoom-in-up" :data="null">
       <template v-slot:content>
-        <div class="client">
+        <div class="client" data-aos="zoom-in-up">
           <h3 class="heading-3-medium medium text-grey-900">
             Trusted by 100+ businesses across the Nation
           </h3>
           <div class="logos">
-            <img :src="image" alt="" v-for="(image, index) in images" :key="index" />
+            <img
+              :src="image"
+              alt=""
+              v-for="(image, index) in images"
+              :key="index"
+              data-aos="zoom-in-up"
+            />
           </div>
         </div>
       </template>
     </WebSection>
     <!-- Hassle-Free -->
-    <div data-aos="zoom-in-up" class="bg-grey-100">
+    <div class="bg-grey-100">
       <WebSection
         :data="sectionData[0]"
         flexPosition="left"
         align="start"
         maxWidth="499px"
+        data-aos="zoom-in-up"
       >
         <template v-slot:content>
           <div class="feature-wrap mt-128">
@@ -29,6 +38,7 @@
               v-for="(data, index) in featureCardData"
               :key="index"
               :class="'feature-item' + (index + 1)"
+              data-aos="zoom-in-up"
             >
               <WebFeatureCard :data="data" class="w-auto">
                 <template v-slot:svg>
@@ -49,8 +59,13 @@
       left="left"
     >
       <template v-slot:content>
-        <div class="bfy-wrap mt-128">
-          <WebBFYCard :data="data" v-for="(data, index) in builtForYou" :key="index">
+        <div class="bfy-wrap mt-128" data-aos="zoom-in-up">
+          <WebBFYCard
+            :data="data"
+            v-for="(data, index) in builtForYou"
+            :key="index"
+            data-aos="zoom-in-up"
+          >
             <template v-slot:svg>
               <div v-html="data.svg"></div>
             </template>
@@ -62,21 +77,22 @@
     <div class="" data-aos="zoom-in-up">
       <WebSection :data="sectionData[2]" flexPosition="center">
         <template v-slot:content>
-          <WebQuickStep class="mt-128" :data="quickStep" />
+          <WebQuickStep class="mt-128" :data="quickStep" data-aos="zoom-in-up" />
         </template>
       </WebSection>
     </div>
     <!-- Zero stress -->
-    <div class="bg-supporting-900" data-aos="zoom-in-up">
+    <div class="bg-supporting-900">
       <WebSection
         :data="sectionData[3]"
         flexPosition="center"
         maxWidth="1009px"
         bigFont="text-white text-display-regular bold"
+        data-aos="zoom-in-up"
       >
         <template v-slot:content>
           <div class="img mt-128">
-            <img src="/assets/images/zero-stress.png" alt="" />
+            <img src="/assets/images/zero-stress.png" alt="" data-aos="zoom-in-up" />
           </div>
         </template>
       </WebSection>
@@ -86,21 +102,27 @@
     <!-- FAQ -->
     <WebSection :data="sectionData[4]" flexPosition="center" data-aos="zoom-in-up">
       <template v-slot:content>
-        <WebFAQ />
+        <WebFAQ data-aos="zoom-in-up" />
       </template>
     </WebSection>
     <!-- Let’s go! -->
     <div class="bg-grey-50" data-aos="zoom-in-up">
-      <WebSection :data="sectionData[5]" flexPosition="center" maxWidth="458px" />
+      <WebSection
+        :data="sectionData[5]"
+        flexPosition="center"
+        maxWidth="458px"
+        data-aos="zoom-in-up"
+      />
     </div>
     <WebFooter data-aos="zoom-in-up" />
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Lenis from "@studio-freight/lenis";
 import { food, car, credit, chat, store, invoice, order, insight } from "../utils/svg";
 
 const builtForYou = ref([
@@ -261,8 +283,21 @@ const quickStep = ref([
 ]);
 onMounted(() => {
   AOS.init({
-  duration: 1200,
-});
+    duration: 800,
+  });
+
+  const lenis = new Lenis();
+
+  lenis.on("scroll", (e) => {
+    // console.log(e);
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
 });
 </script>
 
