@@ -44,9 +44,10 @@ const props = defineProps({
 });
 
 const step = ref(1);
+let intervalId;
 
 onMounted(() => {
-  const intervalId = setInterval(() => {
+  intervalId = setInterval(() => {
     step.value = (step.value % 3) + 1;
   }, 4000);
   onBeforeUnmount(() => {
