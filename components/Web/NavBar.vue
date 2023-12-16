@@ -28,26 +28,38 @@
           type="filled"
           class="w-auto"
         />
+
+        <div class="menu" :class="{ active: active }" @click="handleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </nav>
   </div>
 </template>
 
 <script setup>
+import { ref } from "vue";
+
 defineProps({
   navData: {
     type: Array,
     required: true,
   },
 });
+const active = ref(false);
+const handleMenu = () => {
+  active.value = !active.value;
+};
 </script>
 
 <style scoped>
 .wrapper {
-    position: sticky;
-    top: 0;
-    background: var(--White);
-    z-index: 999;
+  position: sticky;
+  top: 0;
+  background: var(--White);
+  z-index: 999;
 }
 nav {
   display: flex;
@@ -87,12 +99,53 @@ ul {
   align-items: center;
   gap: 24px;
 }
+.menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 4px;
+  padding: 2px;
+  width: 24px;
+  height: 24px;
+}
+.menu span {
+  width: 22px;
+  height: 2px;
+  background: var(--grey-700);
+  border-radius: 4px;
+  transition: all calc(var(--animation-duration) / 3) linear;
+}
+.menu.active span {
+  position: absolute;
+}
+.active span:nth-child(1) {
+  top: 8px;
+  left: 1px;
+  width: 14px;
+  rotate: 45deg;
+}
+.active span:nth-child(2) {
+  rotate: -45deg;
+  top: 11px;
+  right: 0;
+  width: 24px;
+}
+.active span:nth-child(3) {
+  bottom: 7px;
+  right: 1px;
+  width: 14px;
+  rotate: 45deg;
+}
 @media (max-width: 950px) {
-    .logo-menu {
-        width: auto;
-        max-width: auto;
-    }
+  .logo-menu {
+    width: auto;
+    max-width: auto;
+  }
   ul {
+    display: none;
+  }
+  .cta .w-auto:first-child {
     display: none;
   }
 }
