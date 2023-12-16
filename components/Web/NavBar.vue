@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <nav>
+    <nav :class="{ active: active }">
       <div class="logo-menu">
         <div class="logo">
           <Logo />
@@ -42,6 +42,7 @@
         </div>
       </div>
     </nav>
+    <div class="bg-overlay"></div>
   </div>
 </template>
 
@@ -148,6 +149,14 @@ ul {
   width: 14px;
   rotate: 45deg;
 }
+.active + .bg-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #ff000000;
+  top: 0;
+  z-index: -1;
+}
 @media (max-width: 950px) {
   .cta-mobile {
     display: block;
@@ -157,9 +166,24 @@ ul {
     max-width: auto;
   }
   ul {
-    display: none;
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    height: auto;
+    padding: 0px 16px 32px 16px;
+    flex-direction: column;
+    align-items: center;
+    gap: 39px;
+    border-radius: 12px;
+    border: 1px solid var(--Grey-200);
+    background: var(--White);
+
+    /* Shadow/Shadow__XXLarge */
+    box-shadow: 0px 25px 50px 0px rgba(71, 83, 103, 0.25);
   }
-  .cta .w-auto:first-child, 
+  .cta .w-auto:first-child,
   .cta .w-auto:nth-child(2) {
     display: none;
   }

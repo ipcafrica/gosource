@@ -1,7 +1,7 @@
 <template>
   <div class="new-wrapper">
     <div class="new-tag">
-      <img src="/images/Confetti.png" alt="" />
+      <img src="/images/Confetti.png" alt="" style="width: 12px" />
       <span class="base-font text-button-micro text-white">New</span>
     </div>
     <p class="body-large-regular regular text-white">
@@ -70,11 +70,28 @@ svg {
 }
 
 @media (max-width: 960px) {
+  .new-wrapper {
+    height: 40px;
+    padding: 8px 24px;
+  }
   p {
     max-width: 60%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 12px;
+    line-height: 18px; /* 150% */
+  }
+
+  .new-tag {
+    height: 16px;
+    padding: 0px 8px;
+    gap: 3.333px;
+  }
+
+  .new-tag span {
+    font-size: 10px;
+    line-height: 10px; /* 100% */
   }
 }
 </style>
