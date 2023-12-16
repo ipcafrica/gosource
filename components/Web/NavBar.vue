@@ -6,12 +6,20 @@
           <Logo />
         </div>
         <ul>
+          <li style="height: 56px; margin-bottom: 7px;">
+            <Logo />
+            <div class="close-icon" @click="handleMenu()">
+              <div class="x-line"></div>
+              <div class="x-line"></div>
+            </div>
+          </li>
           <li v-for="(data, index) in navData" :key="index">
             <nuxt-link
               :to="data.link"
               class="base-font text-body-large-medium medium text-grey-700"
               >{{ data.title }}</nuxt-link
             >
+            <div v-html="caretRight"></div>
           </li>
         </ul>
       </div>
@@ -47,6 +55,7 @@
 </template>
 
 <script setup>
+import { caretRight, cancel } from "../utils/svg";
 import { ref } from "vue";
 
 defineProps({
@@ -104,6 +113,13 @@ ul {
   gap: 16px;
   flex-shrink: 0;
 }
+
+ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
 .cta {
   display: flex;
   align-items: center;
@@ -157,6 +173,33 @@ ul {
   top: 0;
   z-index: -1;
 }
+.close-icon {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.close-icon .x-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 1.5px;
+  border-radius: 6px;
+  background-color: #333;
+  transform-origin: center;
+}
+
+.close-icon .x-line:nth-child(1) {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close-icon .x-line:nth-child(2) {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
 @media (max-width: 950px) {
   .cta-mobile {
     display: block;
@@ -166,6 +209,9 @@ ul {
     max-width: auto;
   }
   ul {
+    display: none;
+  }
+  .active ul {
     position: fixed;
     top: 50px;
     left: 50%;
@@ -179,6 +225,7 @@ ul {
     border-radius: 12px;
     border: 1px solid var(--Grey-200);
     background: var(--White);
+    z-index: 9;
 
     /* Shadow/Shadow__XXLarge */
     box-shadow: 0px 25px 50px 0px rgba(71, 83, 103, 0.25);

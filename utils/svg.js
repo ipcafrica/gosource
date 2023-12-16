@@ -254,6 +254,11 @@ const svg = {
   </svg>
   
 `,
+cancel: `
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+  <path d="M12.3235 12.6766C12.3233 12.6764 12.3232 12.6763 12.3231 12.6762L12.3234 12.6765L12.3235 12.6766Z" fill="#344054" stroke="#344054" stroke-width="2"/>
+</svg>
+`,
 };
 
 export const {
@@ -272,4 +277,5 @@ export const {
   order,
   insight,
   quickStep,
+  cancel,
 } = svg;
