@@ -6,7 +6,7 @@
           <Logo />
         </div>
         <ul>
-          <li style="height: 56px; margin-bottom: 7px;">
+          <li style="height: 56px; margin-bottom: 7px;" class="mobile-logo">
             <Logo />
             <div class="close-icon" @click="handleMenu()">
               <div class="x-line"></div>
@@ -19,7 +19,7 @@
               class="base-font text-body-large-medium medium text-grey-700"
               >{{ data.title }}</nuxt-link
             >
-            <div v-html="caretRight"></div>
+            <div v-if="data.dropdown" v-html="caretRight" class="mobile-logo"></div>
           </li>
         </ul>
       </div>
@@ -118,6 +118,7 @@ ul li {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 8px;
   align-self: stretch;
 }
 .cta {
@@ -127,12 +128,15 @@ ul li {
 }
 .menu {
   position: relative;
-  display: flex;
+  display: none;
   align-items: center;
   flex-direction: column;
   gap: 4px;
   padding: 2px;
   width: 24px;
+}
+.mobile-logo {
+    display: none;
 }
 .menu.active {
   height: 24px;
@@ -188,7 +192,7 @@ ul li {
   width: 16px;
   height: 1.5px;
   border-radius: 6px;
-  background-color: #333;
+  background-color: var(--grey-700);
   transform-origin: center;
 }
 
@@ -201,6 +205,15 @@ ul li {
 }
 
 @media (max-width: 950px) {
+  ul {
+  max-width: 90%;
+}
+  .menu {
+    display: flex;
+  }
+  .active .mobile-logo {
+    display: flex;
+}
   .cta-mobile {
     display: block;
   }

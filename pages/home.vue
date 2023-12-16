@@ -130,6 +130,32 @@ const navData = ref([
   {
     title: "Features",
     link: "/",
+    dropdown: [
+      {
+        title: "Credit supply",
+        snippet: "Access to buy now pay later",
+        svg: "",
+        comingSoon: false,
+      },
+      {
+        title: "Instant invoice",
+        snippet: "Generate your invoice after checkout",
+        svg: "",
+        comingSoon: false,
+      },
+      {
+        title: "Dashboard insights",
+        snippet: "Get data and insights on your business",
+        svg: "",
+        comingSoon: false,
+      },
+      {
+        title: "Schedule order",
+        snippet: "Let us know when to deliver",
+        svg: "",
+        comingSoon: true,
+      },
+    ],
   },
   {
     title: "Blog",
@@ -142,6 +168,14 @@ const navData = ref([
   {
     title: "Company",
     link: "/",
+    dropdown: [
+      {
+        title: "",
+        snippet: "",
+        svg: "",
+        comingSoon: false,
+      },
+    ],
   },
 ]);
 const builtForYou = ref([
