@@ -472,6 +472,7 @@ p {
 .text-button-small {
     font-size: var(--buttons---button--small);
     line-height: var(--buttons---button--small);
+    font-weight: 600;
 }
 
 .text-button-micro {

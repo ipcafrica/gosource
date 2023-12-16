@@ -29,6 +29,12 @@
           class="w-auto"
         />
 
+        <DynamicButtonMain
+          buttonText="Sign up"
+          size="small"
+          type="filled"
+          class="w-auto cta-mobile"
+        />
         <div class="menu" :class="{ active: active }" @click="handleMenu()">
           <span></span>
           <span></span>
@@ -55,6 +61,9 @@ const handleMenu = () => {
 </script>
 
 <style scoped>
+.cta-mobile {
+  display: none;
+}
 .wrapper {
   position: sticky;
   top: 0;
@@ -107,6 +116,8 @@ ul {
   gap: 4px;
   padding: 2px;
   width: 24px;
+}
+.menu.active {
   height: 24px;
 }
 .menu span {
@@ -138,6 +149,9 @@ ul {
   rotate: 45deg;
 }
 @media (max-width: 950px) {
+  .cta-mobile {
+    display: block;
+  }
   .logo-menu {
     width: auto;
     max-width: auto;
@@ -145,7 +159,8 @@ ul {
   ul {
     display: none;
   }
-  .cta .w-auto:first-child {
+  .cta .w-auto:first-child, 
+  .cta .w-auto:nth-child(2) {
     display: none;
   }
 }
