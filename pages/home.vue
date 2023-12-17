@@ -124,35 +124,51 @@ import { ref, onMounted } from "vue";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Lenis from "@studio-freight/lenis";
-import { food, car, credit, chat, store, invoice, order, insight } from "../utils/svg";
+import {
+  food,
+  car,
+  credit,
+  chat,
+  store,
+  invoice,
+  order,
+  insight,
+  creditCard,
+  receipt,
+  chatBar,
+  timer,
+  house,
+  bag,
+  user,
+  chatCircle,
+} from "../utils/svg";
 
 const navData = ref([
   {
     title: "Features",
-    link: "/",
     dropdown: [
       {
         title: "Credit supply",
         snippet: "Access to buy now pay later",
-        svg: "",
+        svg: creditCard,
         comingSoon: false,
       },
       {
         title: "Instant invoice",
         snippet: "Generate your invoice after checkout",
-        svg: "",
+        svg: receipt,
         comingSoon: false,
       },
       {
         title: "Dashboard insights",
         snippet: "Get data and insights on your business",
-        svg: "",
+        svg: chatBar,
         comingSoon: false,
       },
       {
         title: "Schedule order",
         snippet: "Let us know when to deliver",
-        svg: "",
+        svg: timer,
         comingSoon: true,
       },
     ],
@@ -167,12 +183,25 @@ const navData = ref([
   },
   {
     title: "Company",
-    link: "/",
     dropdown: [
       {
-        title: "",
-        snippet: "",
-        svg: "",
+        title: "About us",
+        svg: house,
+        comingSoon: false,
+      },
+      {
+        title: "Careers",
+        svg: bag,
+        comingSoon: false,
+      },
+      {
+        title: "Customers",
+        svg: user,
+        comingSoon: false,
+      },
+      {
+        title: "Contact us",
+        svg: chatCircle,
         comingSoon: false,
       },
     ],

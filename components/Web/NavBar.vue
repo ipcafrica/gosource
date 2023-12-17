@@ -6,20 +6,55 @@
           <Logo />
         </div>
         <ul>
-          <li style="height: 56px; margin-bottom: 7px;" class="mobile-logo">
-            <Logo />
-            <div class="close-icon" @click="handleMenu()">
-              <div class="x-line"></div>
-              <div class="x-line"></div>
+          <li style="height: 56px; margin-bottom: 7px" class="mobile-logo">
+            <div class="nav-menu">
+              <Logo />
+              <div class="close-icon" @click="toggleActive()">
+                <div class="x-line"></div>
+                <div class="x-line"></div>
+              </div>
             </div>
           </li>
-          <li v-for="(data, index) in navData" :key="index">
-            <nuxt-link
-              :to="data.link"
-              class="base-font text-body-large-medium medium text-grey-700"
-              >{{ data.title }}</nuxt-link
-            >
-            <div v-if="data.dropdown" v-html="caretRight" class="mobile-logo"></div>
+          <li
+            v-for="(data, index) in navData"
+            :key="index"
+            @click="toggleDropdown(data.title)"
+          >
+            <div class="nav-menu">
+              <nuxt-link
+                :to="data.link"
+                v-if="data.link"
+                class="base-font text-body-large-medium medium text-grey-700"
+              >
+                {{ data.title }}
+              </nuxt-link>
+              <div
+                class="base-font text-body-large-medium medium text-grey-700"
+                v-if="!data.link"
+              >
+                {{ data.title }}
+              </div>
+              <div
+                v-if="data.dropdown"
+                v-html="caretRight"
+                class="mobile-logo caretRight"
+                :class="{
+                  open:
+                    (feature && data.title === 'Features') ||
+                    (company && data.title === 'Company'),
+                }"
+              ></div>
+            </div>
+            <WebNavDropdownFeature
+              class="mobile-logo"
+              :data="data.dropdown"
+              v-if="feature && data.title === 'Features'"
+            />
+            <WebNavDropdownCompany
+              class="mobile-logo"
+              :data="data.dropdown"
+              v-if="company && data.title === 'Company'"
+            />
           </li>
         </ul>
       </div>
@@ -43,7 +78,7 @@
           type="filled"
           class="w-auto cta-mobile"
         />
-        <div class="menu" :class="{ active: active }" @click="handleMenu()">
+        <div class="menu" :class="{ active: active }" @click="toggleActive()">
           <span></span>
           <span></span>
           <span></span>
@@ -65,8 +100,28 @@ defineProps({
   },
 });
 const active = ref(false);
-const handleMenu = () => {
+const feature = ref(false);
+const company = ref(false);
+
+const toggleActive = () => {
   active.value = !active.value;
+};
+const toggleDropdown = (arg) => {
+  // console.log(arg);
+  switch (arg) {
+    case "Features":
+      feature.value = !feature.value;
+      company.value = false;
+      break;
+    case "Company":
+      company.value = !company.value;
+      feature.value = false;
+      break;
+    default:
+      feature.value = false;
+      company.value = false;
+      break;
+  }
 };
 </script>
 
@@ -112,9 +167,16 @@ ul {
   align-items: center;
   gap: 16px;
   flex-shrink: 0;
+  transition: all calc(var(--animation-duration) * 2) ease;
 }
 
-ul li {
+li {
+  width: 100%;
+}
+
+ul li .nav-menu {
+  cursor: pointer;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -136,7 +198,7 @@ ul li {
   width: 24px;
 }
 .mobile-logo {
-    display: none;
+  display: none;
 }
 .menu.active {
   height: 24px;
@@ -204,16 +266,25 @@ ul li {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
+.caretRight {
+  transition: all calc(var(--animation-duration) / 2) ease;
+}
+
+.open {
+  rotate: 90deg;
+}
+
 @media (max-width: 950px) {
   ul {
-  max-width: 90%;
-}
+    max-width: 90%;
+    overflow-y: scroll;
+  }
   .menu {
     display: flex;
   }
   .active .mobile-logo {
     display: flex;
-}
+  }
   .cta-mobile {
     display: block;
   }
@@ -245,6 +316,11 @@ ul li {
   }
   .cta .w-auto:first-child,
   .cta .w-auto:nth-child(2) {
+    display: none;
+  }
+}
+@media (max-width: 364px) {
+  .cta .w-auto:nth-child(3) {
     display: none;
   }
 }
