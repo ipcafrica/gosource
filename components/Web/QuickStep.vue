@@ -113,7 +113,7 @@ p {
   flex-shrink: 0;
 
   border-radius: 80px;
-  transition: all 1s ease-in-out;
+  transition: all var(--animation-duration) ease-in-out;
 }
 
 .bar {
