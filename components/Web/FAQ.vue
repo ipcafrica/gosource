@@ -23,7 +23,7 @@ import { ref } from "vue";
 const accordionContent = ref([
   {
     title: "What do you mean by Accordion?",
-    description: "Lorem ipsum, ...",
+    description: "In the dynamic landscape of modern business, the demand for streamlined and efficient processes has never been more critical. One area that often faces complexities is food procurement, supply-chain management, and logistics.",
     open: false,
   },
   {
@@ -59,7 +59,7 @@ const toggleAccordion = (index) => {
   max-width: 530px;
   width: 100%;
   background: #fff;
-  margin: 0 15px;
+  margin:  15px;
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);

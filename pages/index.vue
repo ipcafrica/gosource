@@ -28,10 +28,14 @@
     <WebSection :data="sectionData[4]" flexPosition="center">
       <template v-slot:content>
         <WebFAQ />
+        <div class="accordion">
+          <WebFaqMain/>
+        </div>
       </template>
     </WebSection>
     <WebSection :data="sectionData[5]" flexPosition="center" maxWidth="458px" />
     <WebFooter />
+    <!-- <WaitlistSuccess-page @cliclickButton="nextModal"/> -->
   </div>
 </template>
 
@@ -118,6 +122,12 @@ const sectionData = ref([
 </script>
 
 <style scoped>
+.accordion{
+  margin-top: 32px;
+  /* border: 1px solid red; */
+  max-width: 738px;
+  width: 100%;
+}
 .bfy-wrap {
   margin-top: 128px;
   display: flex;
