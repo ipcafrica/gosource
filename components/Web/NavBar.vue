@@ -238,10 +238,9 @@ ul li .nav-menu {
   position: fixed;
   width: 100%;
   height: 100vh;
-  background: rgba(255, 255, 255, 0.864);
+  background: rgba(255, 255, 255, 0);
   top: 0;
   z-index: -1;
-  cursor: none;
 }
 .close-icon {
   display: inline-block;
