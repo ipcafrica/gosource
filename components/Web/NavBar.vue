@@ -167,7 +167,6 @@ ul {
   align-items: center;
   gap: 16px;
   flex-shrink: 0;
-  transition: all calc(var(--animation-duration) * 2) ease;
 }
 
 li {

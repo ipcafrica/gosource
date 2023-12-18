@@ -1,9 +1,11 @@
 <template>
   <div class="drop-wrap">
-    <div class="" v-for="(data, index) in data" :key="index">
-      <div class="svg-group">
-        <div v-html="data.svg"></div>
-        <p class="body-small-medium medium text-grey-700">{{ data.title }}</p>
+    <div class="wrapper">
+      <div class="wrap" v-for="(data, index) in data" :key="index">
+        <div class="svg-group">
+          <div v-html="data.svg"></div>
+          <p class="body-small-medium medium text-grey-700">{{ data.title }}</p>
+        </div>
       </div>
     </div>
     <div class="blog-wrap">
@@ -38,7 +40,7 @@ defineProps({
   padding: 0px 8px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
+  gap: 24px;
   align-self: stretch;
 }
 
@@ -50,11 +52,17 @@ defineProps({
 }
 
 .blog-wrap {
-  margin-top: 8px;
   width: 100%;
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
 }
 
 .img {
