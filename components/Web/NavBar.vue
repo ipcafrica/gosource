@@ -56,6 +56,18 @@
               v-if="company && data.title === 'Company'"
             />
           </li>
+          <div class=" cta mobile-logo">
+            <DynamicButtonMain
+              buttonText="Sign up"
+              size="medium"
+              type="filled"
+            />
+            <DynamicButtonMain
+              buttonText="Log in"
+              size="medium"
+              type="link-neutral"
+            />
+          </div>
         </ul>
       </div>
       <div class="cta">
@@ -316,6 +328,11 @@ ul li .nav-menu {
   .cta .w-auto:first-child,
   .cta .w-auto:nth-child(2) {
     display: none;
+  }
+
+  ul .cta {
+    flex-direction: column;
+    width: 100%;
   }
 }
 @media (max-width: 364px) {
