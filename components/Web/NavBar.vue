@@ -56,17 +56,9 @@
               v-if="company && data.title === 'Company'"
             />
           </li>
-          <div class=" cta mobile-logo">
-            <DynamicButtonMain
-              buttonText="Sign up"
-              size="medium"
-              type="filled"
-            />
-            <DynamicButtonMain
-              buttonText="Log in"
-              size="medium"
-              type="link-neutral"
-            />
+          <div class="cta mobile-logo">
+            <DynamicButtonMain buttonText="Sign up" size="medium" type="filled" />
+            <DynamicButtonMain buttonText="Log in" size="medium" type="link-neutral" />
           </div>
         </ul>
       </div>
@@ -246,9 +238,10 @@ ul li .nav-menu {
   position: fixed;
   width: 100%;
   height: 100vh;
-  background: #ff000000;
+  background: rgba(255, 255, 255, 0.864);
   top: 0;
   z-index: -1;
+  cursor: none;
 }
 .close-icon {
   display: inline-block;
@@ -288,7 +281,7 @@ ul li .nav-menu {
 @media (max-width: 950px) {
   ul {
     max-width: 90%;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
   .menu {
     display: flex;
@@ -312,6 +305,7 @@ ul li .nav-menu {
     left: 50%;
     transform: translateX(-50%);
     display: flex;
+    max-height: 90vh;
     height: auto;
     padding: 0px 16px 32px 16px;
     flex-direction: column;
@@ -321,9 +315,20 @@ ul li .nav-menu {
     border: 1px solid var(--Grey-200);
     background: var(--White);
     z-index: 9;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: transparent transparent; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
 
     /* Shadow/Shadow__XXLarge */
     box-shadow: 0px 25px 50px 0px rgba(71, 83, 103, 0.25);
+  }
+  ::-webkit-scrollbar {
+    width: 1px; /* Adjust the width as needed */
+    background: white !important;
+  }
+
+  .active ul::-webkit-scrollbar-thumb {
+    background-color: transparent;
   }
   .cta .w-auto:first-child,
   .cta .w-auto:nth-child(2) {
