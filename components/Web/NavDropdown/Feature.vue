@@ -22,18 +22,29 @@ defineProps({
 
 <style scoped>
 .drop-wrap {
-  margin-top: 16px;
+  position: absolute;
+  margin-top: 12px;
   display: flex;
-  padding: 0px 8px;
+  padding: 12px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
-  align-self: stretch;
+  gap: 8px;
+  max-width: 420px;
+  width: 100%;
+
+  border-radius: 16px;
+  border: 1px solid var(--grey-200);
+  background: var(--White);
+
+  /* Shadow/Shadow__XXLarge */
+  box-shadow: 0px 25px 50px 0px rgba(71, 83, 103, 0.25);
 }
 .svg-group {
   display: flex;
-  align-items: center;
-  gap: 16px;
+padding: 12px;
+align-items: center;
+gap: 16px;
+align-self: stretch;
 }
 
 .content {
@@ -41,5 +52,18 @@ defineProps({
   flex-direction: column;
   align-items: flex-start;
   gap: 2px;
+}
+
+@media (max-width: 950px) {
+  .drop-wrap {
+    position: relative;
+    margin-top: 16px;
+    padding: 0px 8px;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .svg-group {
+    padding: 0;
+  }
 }
 </style>

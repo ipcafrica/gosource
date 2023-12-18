@@ -3,12 +3,12 @@
     <WebNews />
     <WebNavBar :navData="navData" />
     <div class="bg-orange-25">
-      <WebHero data-aos="zoom-in-up" ref="revealType" />
+      <WebHero data-aos="fade-zoom-in" ref="revealType" />
     </div>
     <!-- logo -->
-    <WebSection data-aos="zoom-in-up" :data="null">
+    <WebSection data-aos="fade-zoom-in" :data="null">
       <template v-slot:content>
-        <div class="client" data-aos="zoom-in-up">
+        <div class="client" data-aos="fade-zoom-in">
           <h3 class="heading-3-medium medium text-grey-900">
             Trusted by 100+ businesses across the Nation
           </h3>
@@ -18,7 +18,7 @@
               alt=""
               v-for="(image, index) in images"
               :key="index"
-              data-aos="zoom-in-up"
+              data-aos="fade-zoom-in"
             />
           </div>
         </div>
@@ -31,7 +31,7 @@
         flexPosition="left"
         align="start"
         maxWidth="499px"
-        data-aos="zoom-in-up"
+        data-aos="fade-zoom-in"
       >
         <template v-slot:content>
           <div class="feature-wrap mt-128">
@@ -39,7 +39,7 @@
               v-for="(data, index) in featureCardData"
               :key="index"
               :class="'feature-item' + (index + 1)"
-              data-aos="zoom-in-up"
+              data-aos="fade-zoom-in"
             >
               <WebFeatureCard :data="data" class="w-auto">
                 <template v-slot:svg>
@@ -53,19 +53,19 @@
     </div>
     <!-- Built for you -->
     <WebSection
-      data-aos="zoom-in-up"
+      data-aos="fade-zoom-in"
       :data="sectionData[1]"
       flexPosition="center"
       maxWidth="458px"
       left="left"
     >
       <template v-slot:content>
-        <div class="bfy-wrap mt-128" data-aos="zoom-in-up">
+        <div class="bfy-wrap mt-128" data-aos="fade-zoom-in">
           <WebBFYCard
             :data="data"
             v-for="(data, index) in builtForYou"
             :key="index"
-            data-aos="zoom-in-up"
+            data-aos="fade-zoom-in"
           >
             <template v-slot:svg>
               <div v-html="data.svg"></div>
@@ -75,10 +75,10 @@
       </template>
     </WebSection>
     <!-- Quick steps -->
-    <div class="" data-aos="zoom-in-up">
+    <div class="" data-aos="fade-zoom-in">
       <WebSection :data="sectionData[2]" flexPosition="center">
         <template v-slot:content>
-          <WebQuickStep class="mt-128" :data="quickStep" data-aos="zoom-in-up" />
+          <WebQuickStep class="mt-128" :data="quickStep" data-aos="fade-zoom-in" />
         </template>
       </WebSection>
     </div>
@@ -89,11 +89,11 @@
         flexPosition="center"
         maxWidth="1009px"
         bigFont="text-white text-display-regular bold"
-        data-aos="zoom-in-up"
+        data-aos="fade-zoom-in"
       >
         <template v-slot:content>
           <div class="img mt-128">
-            <img src="/assets/images/zero-stress.png" alt="" data-aos="zoom-in-up" />
+            <img src="/assets/images/zero-stress.png" alt="" data-aos="fade-zoom-in" />
           </div>
         </template>
       </WebSection>
@@ -101,21 +101,22 @@
 
     <!-- testimonials here -->
     <!-- FAQ -->
-    <WebSection :data="sectionData[4]" flexPosition="center" data-aos="zoom-in-up">
+    <WebSection :data="sectionData[4]" flexPosition="center" data-aos="fade-zoom-in">
       <template v-slot:content>
-        <WebFAQ data-aos="zoom-in-up" />
+        <WebFAQ data-aos="fade-zoom-in" />
       </template>
     </WebSection>
     <!-- Let’s go! -->
-    <div class="bg-grey-50" data-aos="zoom-in-up">
+    <div class="bg-grey-50" data-aos="fade-zoom-in">
       <WebSection
         :data="sectionData[5]"
         flexPosition="center"
-        maxWidth="458px"
-        data-aos="zoom-in-up"
+        maxWidth="616px"
+        bigFont="text-display-regular bold"
+        data-aos="fade-zoom-in"
       />
     </div>
-    <WebFooter data-aos="zoom-in-up" />
+    <WebFooter data-aos="fade-zoom-in" />
   </div>
 </template>
 
@@ -365,6 +366,7 @@ const quickStep = ref([
 onMounted(() => {
   AOS.init({
     duration: 1300,
+    offset: 200,
   });
 
   const lenis = new Lenis();

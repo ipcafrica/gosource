@@ -35,13 +35,22 @@ defineProps({
 
 <style scoped>
 .drop-wrap {
-  margin-top: 16px;
+  margin-top: 12px;
+  position: absolute;
   display: flex;
-  padding: 0px 8px;
+  max-width: 400px;
+  width: 100%;
+  padding: 12px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
-  align-self: stretch;
+  gap: 40px;
+
+  border-radius: 16px;
+  border: 1px solid var(--Grey-100, #f0f2f5);
+  background: var(--White, #fff);
+
+  /* Shadow/Shadow__XXLarge */
+  box-shadow: 0px 25px 50px 0px rgba(71, 83, 103, 0.25);
 }
 
 .svg-group {
@@ -60,9 +69,14 @@ defineProps({
 
 .wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
   gap: 16px;
+  flex-wrap: wrap;
+}
+
+.wrap {
+  width: 47%;
 }
 
 .img {
@@ -87,5 +101,17 @@ defineProps({
   font-size: 12px;
   font-weight: 300;
   line-height: 18px;
+}
+@media (max-width: 950px) {
+  .drop-wrap {
+    position: relative;
+    margin-top: 16px;
+    padding: 0px 8px;
+    gap: 24px;
+  }
+
+  .wrapper {
+    flex-direction: column;
+  }
 }
 </style>

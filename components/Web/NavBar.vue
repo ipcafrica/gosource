@@ -19,6 +19,8 @@
             v-for="(data, index) in navData"
             :key="index"
             @click="toggleDropdown(data.title)"
+            @mouseleave="toggleDropdownHoverLeave(data.title)"
+            @mouseover="toggleDropdownHover(data.title)"
           >
             <div class="nav-menu">
               <nuxt-link
@@ -47,11 +49,13 @@
             </div>
             <WebNavDropdownFeature
               class="mobile-logo"
+              :class="{ feature: feature }"
               :data="data.dropdown"
               v-if="feature && data.title === 'Features'"
             />
             <WebNavDropdownCompany
               class="mobile-logo"
+              :class="{ company: company }"
               :data="data.dropdown"
               v-if="company && data.title === 'Company'"
             />
@@ -119,6 +123,40 @@ const toggleDropdown = (arg) => {
       break;
     case "Company":
       company.value = !company.value;
+      feature.value = false;
+      break;
+    default:
+      feature.value = false;
+      company.value = false;
+      break;
+  }
+};
+const toggleDropdownHoverLeave = (arg) => {
+  // console.log(arg);
+  // switch (arg) {
+  //   case "Features":
+  //     feature.value = false;
+  //     // company.value = false;
+  //     break;
+  //   case "Company":
+  //     company.value = false;
+  //     // feature.value = false;
+  //     break;
+  //   default:
+  //     feature.value = false;
+  //     company.value = false;
+  //     break;
+  // }
+};
+const toggleDropdownHover = (arg) => {
+  // console.log(arg);
+  switch (arg) {
+    case "Features":
+      feature.value = true;
+      company.value = false;
+      break;
+    case "Company":
+      company.value = true;
       feature.value = false;
       break;
     default:
@@ -277,6 +315,13 @@ ul li .nav-menu {
   rotate: 90deg;
 }
 
+.mobile-logo.feature {
+  display: flex;
+}
+.mobile-logo.company {
+  display: flex;
+}
+
 @media (max-width: 950px) {
   ul {
     max-width: 90%;
@@ -311,7 +356,7 @@ ul li .nav-menu {
     align-items: center;
     gap: 39px;
     border-radius: 12px;
-    border: 1px solid var(--Grey-200);
+    border: 1px solid var(--grey-200);
     background: var(--White);
     z-index: 9;
     scrollbar-width: thin; /* For Firefox */
