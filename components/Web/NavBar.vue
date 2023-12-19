@@ -26,6 +26,7 @@
             v-for="(data, index) in navData"
             :key="index"
             @click="toggleDropdown(data.title)"
+            @mouseover="toggleDropdown(data.title)"
           >
             <div class="nav-menu">
               <nuxt-link
@@ -98,7 +99,11 @@
         </div>
       </div>
     </nav>
-    <div class="bg-overlay"></div>
+    <div
+      class="bg-overlay"
+      :class="{ feature: feature, company: company }"
+      @mouseover="closeDropdown"
+    ></div>
   </div>
 </template>
 
@@ -123,11 +128,13 @@ const toggleDropdown = (arg) => {
   // console.log(arg);
   switch (arg) {
     case "Features":
-      feature.value = !feature.value;
+      feature.value = true;
+      // feature.value = !feature.value;
       company.value = false;
       break;
     case "Company":
-      company.value = !company.value;
+      company.value = true;
+      // company.value = !company.value;
       feature.value = false;
       break;
     default:
@@ -135,6 +142,11 @@ const toggleDropdown = (arg) => {
       company.value = false;
       break;
   }
+};
+
+const closeDropdown = () => {
+  feature.value = false;
+  company.value = false;
 };
 const toggleDropdownHoverLeave = (arg) => {
   // console.log(arg);
@@ -323,6 +335,15 @@ ul li .nav-menu {
   display: flex;
 }
 
+.bg-overlay.feature,
+.bg-overlay.company {
+  position: absolute;
+  height: 100vh;
+  background: none;
+  width: 100%;
+  z-index: -1;
+}
+
 @media (max-width: 950px) {
   ul {
     max-width: 90%;
@@ -388,7 +409,6 @@ ul li .nav-menu {
   li {
     width: 100%;
   }
-
 }
 @media (max-width: 364px) {
   .cta .w-auto:nth-child(3) {
