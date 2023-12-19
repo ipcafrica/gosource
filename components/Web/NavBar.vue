@@ -15,12 +15,17 @@
               </div>
             </div>
           </li>
-          <li
+          <!-- <li
             v-for="(data, index) in navData"
             :key="index"
             @click="toggleDropdown(data.title)"
             @mouseleave="toggleDropdownHoverLeave(data.title)"
             @mouseover="toggleDropdownHover(data.title)"
+          > -->
+          <li
+            v-for="(data, index) in navData"
+            :key="index"
+            @click="toggleDropdown(data.title)"
           >
             <div class="nav-menu">
               <nuxt-link
@@ -150,20 +155,20 @@ const toggleDropdownHoverLeave = (arg) => {
 };
 const toggleDropdownHover = (arg) => {
   // console.log(arg);
-  switch (arg) {
-    case "Features":
-      feature.value = true;
-      company.value = false;
-      break;
-    case "Company":
-      company.value = true;
-      feature.value = false;
-      break;
-    default:
-      feature.value = false;
-      company.value = false;
-      break;
-  }
+  // switch (arg) {
+  //   case "Features":
+  //     feature.value = true;
+  //     company.value = false;
+  //     break;
+  //   case "Company":
+  //     company.value = true;
+  //     feature.value = false;
+  //     break;
+  //   default:
+  //     feature.value = false;
+  //     company.value = false;
+  //     break;
+  // }
 };
 </script>
 
@@ -209,10 +214,6 @@ ul {
   align-items: center;
   gap: 16px;
   flex-shrink: 0;
-}
-
-li {
-  width: 100%;
 }
 
 ul li .nav-menu {
@@ -383,6 +384,10 @@ ul li .nav-menu {
     flex-direction: column;
     width: 100%;
   }
+
+li {
+  width: 100%;
+}
 }
 @media (max-width: 364px) {
   .cta .w-auto:nth-child(3) {
