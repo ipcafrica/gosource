@@ -15,20 +15,7 @@
           class="w-auto"
         >
           <template v-slot:svg>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-            >
-              <path
-                d="M7.4577 3.79223L7.45779 3.79232L7.4577 3.79223Z"
-                fill="#344054"
-                stroke="white"
-                stroke-width="2"
-              />
-            </svg>
+            <div v-html="caretRightWhite"></div>
           </template>
         </DynamicButtonMain>
       </div>
@@ -37,8 +24,8 @@
   </main>
 </template>
 
-<script>
-export default {};
+<script setup>
+import { caretRightWhite } from "../utils/svg";
 </script>
 
 <style scoped>
@@ -48,7 +35,6 @@ main {
   align-items: flex-end;
   max-width: 100%;
   min-height: 642px;
-  background: var(--orange-orange-25);
 }
 .wrapper {
   width: fit-content;
@@ -77,6 +63,7 @@ h1 {
 }
 
 p {
+  max-width: 566px;
   color: var(--grey-700);
   font-size: 20px;
   font-weight: 300;
@@ -84,6 +71,9 @@ p {
   letter-spacing: -0.3px;
 }
 @media (max-width: 1181px) {
+  .content-group {
+    margin-top: 72px;
+  }
   .wrapper {
     flex-direction: column;
     gap: 64px;
@@ -93,9 +83,6 @@ p {
   }
 }
 @media (max-width: 900px) {
-  .content-group {
-    margin-top: 72px;
-  }
   h1 {
     font-size: 48px;
     line-height: 64px; /* 133.333% */

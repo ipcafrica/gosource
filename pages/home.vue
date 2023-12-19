@@ -1,16 +1,25 @@
 <template>
   <div>
     <WebNews />
-    <WebHero />
+    <WebNavBar :navData="navData" />
+    <div class="bg-orange-25">
+      <WebHero data-aos="zoom-in-up" ref="revealType" />
+    </div>
     <!-- logo -->
-    <WebSection :data="null">
+    <WebSection data-aos="zoom-in-up" :data="null">
       <template v-slot:content>
-        <div class="client">
-          <h3 class="heading-3-medium medium text-grey-900-base">
+        <div class="client" data-aos="zoom-in-up">
+          <h3 class="heading-3-medium medium text-grey-900">
             Trusted by 100+ businesses across the Nation
           </h3>
           <div class="logos">
-            <img :src="image" alt="" v-for="(image, index) in images" :key="index" />
+            <img
+              :src="image"
+              alt=""
+              v-for="(image, index) in images"
+              :key="index"
+              data-aos="zoom-in-up"
+            />
           </div>
         </div>
       </template>
@@ -22,6 +31,7 @@
         flexPosition="left"
         align="start"
         maxWidth="499px"
+        data-aos="zoom-in-up"
       >
         <template v-slot:content>
           <div class="feature-wrap mt-128">
@@ -29,6 +39,7 @@
               v-for="(data, index) in featureCardData"
               :key="index"
               :class="'feature-item' + (index + 1)"
+              data-aos="zoom-in-up"
             >
               <WebFeatureCard :data="data" class="w-auto">
                 <template v-slot:svg>
@@ -41,10 +52,21 @@
       </WebSection>
     </div>
     <!-- Built for you -->
-    <WebSection :data="sectionData[1]" flexPosition="center" maxWidth="458px" left="left">
+    <WebSection
+      data-aos="zoom-in-up"
+      :data="sectionData[1]"
+      flexPosition="center"
+      maxWidth="458px"
+      left="left"
+    >
       <template v-slot:content>
-        <div class="bfy-wrap mt-128">
-          <WebBFYCard :data="data" v-for="(data, index) in builtForYou" :key="index">
+        <div class="bfy-wrap mt-128" data-aos="zoom-in-up">
+          <WebBFYCard
+            :data="data"
+            v-for="(data, index) in builtForYou"
+            :key="index"
+            data-aos="zoom-in-up"
+          >
             <template v-slot:svg>
               <div v-html="data.svg"></div>
             </template>
@@ -53,9 +75,11 @@
       </template>
     </WebSection>
     <!-- Quick steps -->
-    <div class="bg-grey-200">
+    <div class="" data-aos="zoom-in-up">
       <WebSection :data="sectionData[2]" flexPosition="center">
-        <template v-slot:content> </template>
+        <template v-slot:content>
+          <WebQuickStep class="mt-128" :data="quickStep" data-aos="zoom-in-up" />
+        </template>
       </WebSection>
     </div>
     <!-- Zero stress -->
@@ -65,10 +89,11 @@
         flexPosition="center"
         maxWidth="1009px"
         bigFont="text-white text-display-regular bold"
+        data-aos="zoom-in-up"
       >
         <template v-slot:content>
           <div class="img mt-128">
-            <img src="/assets/images/zero-stress.png" alt="" />
+            <img src="/assets/images/zero-stress.png" alt="" data-aos="zoom-in-up" />
           </div>
         </template>
       </WebSection>
@@ -76,23 +101,112 @@
 
     <!-- testimonials here -->
     <!-- FAQ -->
-    <WebSection :data="sectionData[4]" flexPosition="center">
+    <WebSection :data="sectionData[4]" flexPosition="center" data-aos="zoom-in-up">
       <template v-slot:content>
-        <!-- Faq section here -->
+        <WebFAQ data-aos="zoom-in-up" />
       </template>
     </WebSection>
     <!-- Let’s go! -->
-    <div class="bg-grey-50">
-      <WebSection :data="sectionData[5]" flexPosition="center" maxWidth="458px" />
+    <div class="bg-grey-50" data-aos="zoom-in-up">
+      <WebSection
+        :data="sectionData[5]"
+        flexPosition="center"
+        maxWidth="458px"
+        data-aos="zoom-in-up"
+      />
     </div>
-    <WebFooter />
+    <WebFooter data-aos="zoom-in-up" />
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { food, car, credit, chat, store, invoice, order, insight } from "../utils/svg";
+import { ref, onMounted } from "vue";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Lenis from "@studio-freight/lenis";
+import {
+  food,
+  car,
+  credit,
+  chat,
+  store,
+  invoice,
+  order,
+  insight,
+  creditCard,
+  receipt,
+  chatBar,
+  timer,
+  house,
+  bag,
+  user,
+  chatCircle,
+} from "../utils/svg";
 
+const navData = ref([
+  {
+    title: "Features",
+    dropdown: [
+      {
+        title: "Credit supply",
+        snippet: "Access to buy now pay later",
+        svg: creditCard,
+        comingSoon: false,
+      },
+      {
+        title: "Instant invoice",
+        snippet: "Generate your invoice after checkout",
+        svg: receipt,
+        comingSoon: false,
+      },
+      {
+        title: "Dashboard insights",
+        snippet: "Get data and insights on your business",
+        svg: chatBar,
+        comingSoon: false,
+      },
+      {
+        title: "Schedule order",
+        snippet: "Let us know when to deliver",
+        svg: timer,
+        comingSoon: true,
+      },
+    ],
+  },
+  {
+    title: "Blog",
+    link: "/",
+  },
+  {
+    title: "FAQs",
+    link: "/",
+  },
+  {
+    title: "Company",
+    dropdown: [
+      {
+        title: "About us",
+        svg: house,
+        comingSoon: false,
+      },
+      {
+        title: "Careers",
+        svg: bag,
+        comingSoon: false,
+      },
+      {
+        title: "Customers",
+        svg: user,
+        comingSoon: false,
+      },
+      {
+        title: "Contact us",
+        svg: chatCircle,
+        comingSoon: false,
+      },
+    ],
+  },
+]);
 const builtForYou = ref([
   {
     svg: food,
@@ -158,7 +272,7 @@ const sectionData = ref([
     title: "FAQ",
     header: "Frequently asked questions",
     snippet: null,
-    buttonText: "Start ordering",
+    buttonText: null,
   },
   {
     id: 5,
@@ -234,6 +348,38 @@ const featureCardData = ref([
     color: "bg-orange-25",
   },
 ]);
+const quickStep = ref([
+  {
+    title: "Create an account",
+    snippet: "Create an account for your business in less than 2minutes",
+  },
+  {
+    title: "Add to cart with ease",
+    snippet: "Add multiple items you want to buy in bulk in no time",
+  },
+  {
+    title: "Checkout with ease",
+    snippet: "Proceed to give us delivery informations and checkout very fast",
+  },
+]);
+onMounted(() => {
+  AOS.init({
+    duration: 1300,
+  });
+
+  const lenis = new Lenis();
+
+  lenis.on("scroll", (e) => {
+    // console.log(e);
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
+});
 </script>
 
 <style scoped>
@@ -259,7 +405,8 @@ const featureCardData = ref([
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 40px;
+  justify-content: space-between;
+  width: 100%;
   align-self: stretch;
   margin-inline: auto;
 }
@@ -322,6 +469,7 @@ const featureCardData = ref([
   }
   .bfy-wrap {
     justify-content: center;
+    gap: 48px;
   }
   .client h3 {
     font-size: 20px;

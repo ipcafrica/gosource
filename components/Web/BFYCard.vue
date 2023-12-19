@@ -45,7 +45,7 @@ function handleMouseLeave() {
 
 <style scoped>
 .bfycard-wrapper {
-  max-width: 225px;
+  max-width: 255px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -121,6 +121,11 @@ span.line {
 h5,
 p {
   text-align: left;
+}
+@media (max-width: 700px) {
+  .bfycard-wrapper {
+    max-width: 100%;
+  }
 }
 @media (max-width: 450px) {
   .bfycard-wrapper {

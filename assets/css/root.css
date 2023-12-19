@@ -385,6 +385,10 @@ p {
     font-size: var(--h4---heading-4--regular);
     line-height: calc(var(--h4---heading-4--regular) * var(--base-line---height));
 }
+.text-heading-4-meduim {
+    font-size: var(--h4---heading-4--medium);
+    line-height: calc(var(--h4---heading-4--regular) * var(--base-line---height));
+}
 
 .text-heading-4-bold {
     font-size: var(--h4---heading-4--regular);
@@ -468,6 +472,7 @@ p {
 .text-button-small {
     font-size: var(--buttons---button--small);
     line-height: var(--buttons---button--small);
+    font-weight: 600;
 }
 
 .text-button-micro {

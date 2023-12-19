@@ -151,6 +151,9 @@ header {
   }
 }
 @media (max-width: 450px) {
+  .section-wrapper {
+    width: 90%;
+  }
   .content.left h1,
   .content.left p {
     text-align: left;
