@@ -385,9 +385,10 @@ ul li .nav-menu {
     width: 100%;
   }
 
-li {
-  width: 100%;
-}
+  li {
+    width: 100%;
+  }
+
 }
 @media (max-width: 364px) {
   .cta .w-auto:nth-child(3) {

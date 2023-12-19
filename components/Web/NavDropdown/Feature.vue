@@ -101,5 +101,9 @@ defineProps({
   .svg-group {
     padding: 0;
   }
+  
+  .dropdown-list {
+    padding: 12px;
+  }
 }
 </style>
