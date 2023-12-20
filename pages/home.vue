@@ -98,8 +98,10 @@
         </template>
       </WebSection>
     </div>
-
     <!-- testimonials here -->
+    <section class="bg-grey-50">
+      <WebTestimonial data-aos="fade-zoom-in" class="section-wrapper"/>
+    </section>
     <!-- FAQ -->
     <WebSection :data="sectionData[4]" flexPosition="center" data-aos="fade-zoom-in">
       <template v-slot:content>
@@ -359,7 +361,7 @@ const quickStep = ref([
     snippet: "Add multiple items you want to buy in bulk in no time",
   },
   {
-    title: "Checkout with ease",
+    title: "Swift checkout",
     snippet: "Proceed to give us delivery informations and checkout very fast",
   },
 ]);

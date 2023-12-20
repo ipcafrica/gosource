@@ -63,7 +63,7 @@ const { maxWidth, data, flexPosition, fontSize, bigFont, left } = defineProps({
 const dynamicmaxWidth = ref(maxWidth || "100%");
 </script>
 
-<style scoped>
+<style>
 .section-wrapper {
   display: flex;
   max-width: 1140px;
@@ -72,7 +72,9 @@ const dynamicmaxWidth = ref(maxWidth || "100%");
   padding: 96px 0;
   flex-direction: column;
 }
+</style>
 
+<style scoped>
 .section-wrapper.center {
   align-items: center;
 }
