@@ -17,18 +17,17 @@
       <p class="body-small-regular regular text-grey-500">{{ data.position }}</p>
     </div>
 
-    <h1>{{ activeIndex }}</h1>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, watch } from "vue";
-const { data, activeIndex } = defineProps({
+const { data, Index } = defineProps({
   data: {
     type: Object,
     required: true,
   },
-  activeIndex: {
+  Index: {
     type: Number,
   },
 });
@@ -41,12 +40,10 @@ onMounted(() => {
 });
 
 // Watch for changes in the Index prop
-watch(
-  () => activeIndex,
-  () => {
-    splitTextIntoLetters();
-  }
-);
+watch(() => Index, () => {
+  resetColors();
+  splitTextIntoLetters();
+});
 
 const splitTextIntoLetters = () => {
   const text = snippet;
@@ -59,6 +56,12 @@ const splitTextIntoLetters = () => {
 
   animateText();
 };
+
+function resetColors() {
+  lettersArray.value.forEach((letter) => {
+    letter.color = "var(--grey-500)";
+  });
+}
 
 function animateText() {
   let index = 0;

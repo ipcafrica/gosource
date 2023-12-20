@@ -9,6 +9,7 @@
       <WebTestimonials :data="data" :activeIndex="activeIndex"/>
     </SwiperSlide>
     <!-- ... other slides -->
+    <h1>{{ activeIndex }}</h1>
   </Swiper>
 </template>
 

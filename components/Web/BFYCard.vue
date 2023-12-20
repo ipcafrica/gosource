@@ -7,7 +7,7 @@
     <slot name="svg" />
     <div class="content">
       <h5 class="text-heading-5-medium medium text-grey-900-base">{{ data.heading }}</h5>
-      <p class="text-body-small-regular regular text-grey-700">{{ data.snippet }}</p>
+      <p class="text-body-small-regular regular text-grey-700 line-spacing">{{ data.snippet }}</p>
     </div>
     <div class="cta">
       <span class="base-font text-button-small medium text-grey-700">{{
@@ -121,6 +121,10 @@ span.line {
 h5,
 p {
   text-align: left;
+}
+
+.line-spacing {
+  letter-spacing: -0.1;
 }
 @media (max-width: 700px) {
   .bfycard-wrapper {
