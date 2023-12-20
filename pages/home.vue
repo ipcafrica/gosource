@@ -100,7 +100,7 @@
     </div>
     <!-- testimonials here -->
     <section class="bg-grey-50">
-      <WebTestimonial data-aos="fade-zoom-in" class="section-wrapper"/>
+      <WebTestimonial data-aos="fade-zoom-in" style="padding: 96px 24px ;"/>
     </section>
     <!-- FAQ -->
     <WebSection :data="sectionData[4]" flexPosition="center" data-aos="fade-zoom-in">

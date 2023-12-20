@@ -3,21 +3,80 @@
     <div class="brand">
       <img :src="data.img" alt="" />
     </div>
-    <div class="testimony base-font">{{ data.testimony }}</div>
+    <div class="testimony base-font">
+      <span
+        v-for="(letter, index) in lettersArray"
+        :key="index"
+        :style="{ color: letter.color }"
+      >
+        {{ letter.value }}
+      </span>
+    </div>
     <div class="name">
       <h5 class="heading-5-edium medium text-grey-900-base">{{ data.name }}</h5>
       <p class="body-small-regular regular text-grey-500">{{ data.position }}</p>
     </div>
+
+    <h1>{{ activeIndex }}</h1>
   </div>
 </template>
 
 <script setup>
-defineProps({
+import { ref, onMounted, watch } from "vue";
+const { data, activeIndex } = defineProps({
   data: {
     type: Object,
     required: true,
   },
+  activeIndex: {
+    type: Number,
+  },
 });
+
+const lettersArray = ref([]);
+const snippet = data.testimony;
+
+onMounted(() => {
+  splitTextIntoLetters();
+});
+
+// Watch for changes in the Index prop
+watch(
+  () => activeIndex,
+  () => {
+    splitTextIntoLetters();
+  }
+);
+
+const splitTextIntoLetters = () => {
+  const text = snippet;
+  const textArray = text.split("");
+
+  lettersArray.value = textArray.map((letter, index) => ({
+    value: letter,
+    color: "var(--grey-500)", // Initial color, you can adjust this
+  }));
+
+  animateText();
+};
+
+function animateText() {
+  let index = 0;
+
+  function updateColor() {
+    lettersArray.value[index].color = "var(--grey-900-base)";
+  }
+
+  function animate() {
+    if (index < lettersArray.value.length) {
+      updateColor();
+      index++;
+      setTimeout(animate, 100); // Adjust the delay as needed
+    }
+  }
+
+  animate();
+}
 </script>
 
 <style scoped>
@@ -47,6 +106,7 @@ defineProps({
   font-weight: 500;
   line-height: 51px; /* 150% */
   letter-spacing: -1px;
+  transition: all 0.2s ease;
 }
 @media (max-width: 960px) {
   .testimony {
