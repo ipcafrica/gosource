@@ -16,10 +16,10 @@
     </div>
 
     <div class="card-content">
-      <h4 class="card-title bold text-heading-4-bold text-grey-700">
+      <h3 class="card-title bold text-heading-3-bold text-grey-700">
         {{ card.title }}
-      </h4>
-      <p class="card-snippet regular text-body-small-regular text-grey-500">
+      </h3>
+      <p class="card-snippet regular text-body-large-regular text-grey-500">
         {{ card.snippet }}
       </p>
     </div>
@@ -81,11 +81,21 @@ export default {
 }
 
 .card-title {
-  color: var(--grey-700);
+color: var(--grey-700);
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+line-height: 30px;
+letter-spacing: -0.3px;
 }
 
 .card-snippet {
-  color: var(--grey-500);
+color: var(--grey-500);
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 21px;
+letter-spacing: -0.2px;
 }
 
 .selected.circle {

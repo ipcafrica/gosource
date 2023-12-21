@@ -1,6 +1,7 @@
 <template>
   <div>
-    <WebTestify/>
+    <WebTestimony/>
+    <!-- <Testimonial/> -->
   </div>
   </template>
   
@@ -9,5 +10,8 @@
   </script>
   
   <style scoped>
+  div{
+    margin: 0px;
+  }
   </style>
   

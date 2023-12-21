@@ -464,10 +464,11 @@ export default {
 @media screen and (max-width: 675px) {
 
   .track {
-    margin: 124px 0px 0px 0px;
+    margin: 88px 0px 0px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* border: 1px solid red; */
   }
 
   .container {
