@@ -102,6 +102,9 @@
     <section class="bg-grey-50">
       <WebTestimonial data-aos="fade-zoom-in" style="padding: 96px 24px ;"/>
     </section>
+    <section class="bg-grey-50">
+      <WebTestimonies data-aos="fade-zoom-in" :data="testimonials" style="padding: 96px 24px ;"/>
+    </section>
     <!-- FAQ -->
     <WebSection :data="sectionData[4]" flexPosition="center" data-aos="fade-zoom-in">
       <template v-slot:content>
@@ -365,6 +368,31 @@ const quickStep = ref([
     snippet: "Proceed to give us delivery informations and checkout very fast",
   },
 ]);
+const testimonials = ref([
+    {
+      img: "/images/spicy-corner.png",
+      testimony:
+        "We no longer have to deal with multiple suppliers or chasing people with phone calls to supply us on time. Take take out orders and we expect delivery within 24hours. The service and experience is brilliant.",
+      name: "Busayo",
+      position: "Co-founder, Spicy Corner",
+    },
+    {
+      img: "/images/redg.png",
+      testimony:
+        "GoSource is efficient, cost effective and most importantly their staff are always ready to proffer solutions to the regular issues Lagos will present you with. As a small business owner this is invaluable.",
+      name: "Seun Adebajo",
+      position: "Co-founder, Red Gourmet Kitchen",
+    },
+    {
+      img: "/images/citysub.png",
+      testimony:
+        "GoSource has shown they love my business and it’s clear from the way they operate. They also provide the logistics service we use daily. It has given us time to focus on selling great food to our customers.",
+      name: "Demi Odunubi",
+      position: "Co-founder, City Subs",
+    },
+  ]);
+  
+
 onMounted(() => {
   AOS.init({
     duration: 1300,

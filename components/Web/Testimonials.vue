@@ -13,21 +13,21 @@
       </span>
     </div>
     <div class="name">
-      <h5 class="heading-5-edium medium text-grey-900-base">{{ data.name }}</h5>
+      <h1 class="heading-1-medium medium" style="color: red; font-size: 72px;">{{ step }}</h1>
+      <h5 class="heading-5-medium medium text-grey-900-base">{{ data.name }}</h5>
       <p class="body-small-regular regular text-grey-500">{{ data.position }}</p>
     </div>
-
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from "vue";
-const { data, Index } = defineProps({
+import { ref, onMounted, watch  } from "vue";
+const { data, step } = defineProps({
   data: {
     type: Object,
     required: true,
   },
-  Index: {
+  step: {
     type: Number,
   },
 });
@@ -36,12 +36,6 @@ const lettersArray = ref([]);
 const snippet = data.testimony;
 
 onMounted(() => {
-  splitTextIntoLetters();
-});
-
-// Watch for changes in the Index prop
-watch(() => Index, () => {
-  resetColors();
   splitTextIntoLetters();
 });
 

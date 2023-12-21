@@ -1,6 +1,6 @@
 <template>
-  <div class="wrapper">
-    <nav :class="{ active: active }">
+  <div class="wrapper" :class="{ active: active }">
+    <nav>
       <div class="logo-menu">
         <div class="logo">
           <Logo />
@@ -25,7 +25,7 @@
           <li
             v-for="(data, index) in navData"
             :key="index"
-            @click="toggleDropdown(data.title)"
+            @click="toggleDropdownClick(data.title)"
             @mouseover="toggleDropdown(data.title)"
           >
             <div class="nav-menu">
@@ -144,6 +144,24 @@ const toggleDropdown = (arg) => {
   }
 };
 
+const toggleDropdownClick = (arg) => {
+// console.log(arg);
+switch (arg) {
+    case "Features":
+      feature.value = !feature.value;
+      company.value = false;
+      break;
+    case "Company":
+      company.value = !company.value;
+      feature.value = false;
+      break;
+    default:
+      feature.value = false;
+      company.value = false;
+      break;
+  }
+}
+
 const closeDropdown = () => {
   feature.value = false;
   company.value = false;
@@ -256,6 +274,7 @@ ul li .nav-menu {
 }
 .menu.active {
   height: 24px;
+  display: none;
 }
 .menu span {
   width: 22px;
@@ -366,12 +385,12 @@ ul li .nav-menu {
     display: none;
   }
   .active ul {
-    position: fixed;
-    top: 50px;
+    position: absolute;
+    top: 14px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    max-height: 90vh;
+    /* max-height: 90vh; */
     height: auto;
     padding: 0px 16px 32px 16px;
     flex-direction: column;
@@ -408,6 +427,10 @@ ul li .nav-menu {
 
   li {
     width: 100%;
+  }
+
+  .wrapper.active {
+    position: relative;
   }
 }
 @media (max-width: 364px) {

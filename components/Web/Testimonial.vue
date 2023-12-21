@@ -6,18 +6,21 @@
     @slideChange="onSlideChange"
   >
     <SwiperSlide v-for="(data, index) in testimonials" :key="index">
-      <WebTestimonials :data="data" :activeIndex="activeIndex"/>
+      <WebTestimonials :data="data" :step="activeIndex"/>
     </SwiperSlide>
     <!-- ... other slides -->
     <h1>{{ activeIndex }}</h1>
+    <textarea v-model="textContent"/>
+    <p>{{ activeIndex }}</p>
   </Swiper>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watchEffect } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 
+const step = ref(0)
 const testimonials = ref([
   {
     img: "/images/spicy-corner.png",
@@ -43,17 +46,26 @@ const testimonials = ref([
 ]);
 const activeIndex = ref(0)
 const swiperInstance = ref(null);
+const textContent = ref('');
+
+const hello = () => {
+}
+
+watchEffect(async () => {
+  hello();
+})
 
 const onSwiper = (swiper) => {
-  // console.log(swiper);
   swiperInstance.value = swiper;
+  activeIndex.value = swiperInstance.value.activeIndex;
 };
 
 const onSlideChange = () => {
   activeIndex.value = swiperInstance.value.activeIndex;
+  // step.value++
 };
 
 onMounted(() => {
-  // console.log(swiperInstance.value);
+  console.log(swiperInstance.value);
 });
 </script>
