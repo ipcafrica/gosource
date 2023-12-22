@@ -104,7 +104,7 @@ onUnmounted(() => {
 }
 
 .testimonial-container {
-  width: 823px;
+  width: 57%;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -113,7 +113,7 @@ onUnmounted(() => {
 }
 
 .testimonial .user-testimony {
-  width: 823px;
+  width: 57%;
   text-align: center;
   color: var(--grey-900-base);
   text-align: center;
@@ -147,13 +147,7 @@ onUnmounted(() => {
 
 }
 
-.testimonial img {
-  /* background: red; */
-  /* width: auto; */
-  height: 100px;
-  /* border: 1px solid red; */
 
-}
 
 .pagination-dots {
   position: absolute;
@@ -176,6 +170,74 @@ onUnmounted(() => {
   opacity: 1;
   width: 44px;
   height: 44px;
+}
+@media screen and (max-width: 1700px) {
+  .testimonial-container{
+    width: 70%;
+  }
+  .testimonial .user-testimony{
+    width: 70%;
+  }
+}
+@media screen and (max-width: 1500px) {
+  .testimonial-container{
+    width: 75%;
+  }
+  .testimonial .user-testimony{
+    width: 75%;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .testimonial-container{
+    width: 80%;
+  }
+  .testimonial .user-testimony{
+    width: 80%;
+  }
+}
+@media screen and (max-width: 675px) {
+  .testimonial-container{
+    width: 87%;
+  }
+  .testimonial .user-testimony{
+    width: 87%;
+text-align: center;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: 30px;
+letter-spacing: -0.3px;
+  }
+  .testimonial img {
+  /* background: red; */
+  width: 200px;
+  height: 100px;
+  /* border: 1px solid red; */
+
+}
+.testimonial {
+  display: flex;
+  flex: 0 0 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+
+
+}
+.details p{
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 24px;
+letter-spacing: -0.2px;
+}
+.details span{
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: 18px; 
+}
 }
 </style>
     
