@@ -102,9 +102,9 @@
     <section class="bg-grey-50">
       <WebTestimonial data-aos="fade-zoom-in" style="padding: 96px 24px ;"/>
     </section>
-    <section class="bg-grey-50">
+    <!-- <section class="bg-grey-50">
       <WebTestimonies data-aos="fade-zoom-in" :data="testimonials" style="padding: 96px 24px ;"/>
-    </section>
+    </section> -->
     <!-- FAQ -->
     <WebSection :data="sectionData[4]" flexPosition="center" data-aos="fade-zoom-in">
       <template v-slot:content>

@@ -8,19 +8,15 @@
     <SwiperSlide v-for="(data, index) in testimonials" :key="index">
       <WebTestimonials :data="data" :step="activeIndex"/>
     </SwiperSlide>
-    <!-- ... other slides -->
-    <h1>{{ activeIndex }}</h1>
-    <textarea v-model="textContent"/>
-    <p>{{ activeIndex }}</p>
   </Swiper>
 </template>
 
 <script setup>
-import { ref, onMounted, watchEffect } from "vue";
+import { ref, onMounted } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 
-const step = ref(0)
+
 const testimonials = ref([
   {
     img: "/images/spicy-corner.png",
@@ -48,13 +44,6 @@ const activeIndex = ref(0)
 const swiperInstance = ref(null);
 const textContent = ref('');
 
-const hello = () => {
-}
-
-watchEffect(async () => {
-  hello();
-})
-
 const onSwiper = (swiper) => {
   swiperInstance.value = swiper;
   activeIndex.value = swiperInstance.value.activeIndex;
@@ -66,6 +55,5 @@ const onSlideChange = () => {
 };
 
 onMounted(() => {
-  console.log(swiperInstance.value);
 });
 </script>

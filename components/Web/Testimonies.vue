@@ -5,14 +5,18 @@
     @swiper="onSwiper"
     @slideChange="onSlideChange"
   >
-    <SwiperSlide v-for="(data, index) in data" :key="index">
+    <SwiperSlide
+      v-for="(data, index) in data"
+      :key="index"
+      :ref="(el) => (itemsRefs[index] = el)"
+    >
       <div class="wrapper">
         <div class="brand">
           <img :src="data.img" alt="" />
         </div>
         <div class="testimony base-font">
           <span
-            v-for="(letter, index) in lettersArray"
+            v-for="(letter, index) in splitTextIntoLetters(data.testimony)"
             :key="index"
             :style="{ color: letter.color }"
           >
@@ -29,7 +33,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watchEffect } from "vue";
+import { ref } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 
@@ -40,71 +44,35 @@ const { data } = defineProps({
   },
 });
 
-const step = ref(0);
 const activeIndex = ref(0);
 const swiperInstance = ref(null);
-const lettersArray = ref([]);
-const snippet = data[step.value].testimony;
-
-const hello = () => {};
-
-watchEffect(async () => {
-  hello();
-});
+const itemsRefs = ref([]);
 
 const onSwiper = (swiper) => {
   swiperInstance.value = swiper;
-  activeIndex.value = swiperInstance.value.activeIndex;
-  console.log(snippet);
 };
 
-const splitTextIntoLetters = () => {
-  const text = snippet;
-  const textArray = text.split("");
+const splitTextIntoLetters = (arg) => {
+  if (arg) {
+    const text = arg;
+    const textArray = text.split("");
+    const testimony = textArray.map((letter, index) => ({
+      value: letter,
+      color: "var(--grey-500)",
+    }));
 
-  lettersArray.value = textArray.map((letter, index) => ({
-    value: letter,
-    color: "var(--grey-500)", // Initial color, you can adjust this
-  }));
-
-  animateText();
+    return testimony;
+  }
 };
-
-function resetColors() {
-  lettersArray.value.forEach((letter) => {
-    letter.color = "var(--grey-500)";
-  });
-}
-
-function animateText() {
-  let index = 0;
-
-  function updateColor() {
-    lettersArray.value[index].color = "var(--grey-900-base)";
-  }
-
-  function animate() {
-    if (index < lettersArray.value.length) {
-      updateColor();
-      index++;
-      setTimeout(animate, 100); // Adjust the delay as needed
-    }
-  }
-
-  animate();
-}
 
 const onSlideChange = () => {
   activeIndex.value = swiperInstance.value.activeIndex;
-  step.value++;
-  console.log(snippet);
-  // step.value++
-};
+  //   console.log(activeIndex.value);
 
-onMounted(() => {
-  console.log(swiperInstance.value);
-  splitTextIntoLetters();
-});
+  itemsRefs.forEach((itemRef, index) => {
+    console.log(`Item ${index + 1}:`, itemRef);
+  });
+};
 </script>
 
 <style scoped>
