@@ -389,5 +389,6 @@ export const {
   invoice,
   order,
   insight,
-  success
+  success,
+  quickStep
 } = svg;
