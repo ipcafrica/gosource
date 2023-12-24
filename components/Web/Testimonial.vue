@@ -18,7 +18,6 @@
         <img :src="data.picture" alt="" />
       </div>
     </div>
-    <h1>{{ activeIndex }}</h1>
   </Swiper>
 </template>
 
