@@ -31,37 +31,86 @@ import { ref } from "vue";
 
 const accordionContent = ref([
   {
-    title: "How does GoSource work?",
+    title: "Do you offer customized or specialty items upon request?",
     description:
-      "In the dynamic landscape of modern business, the demand for streamlined and efficient processes has never been more critical. One area that often faces complexities is food procurement, supply-chain management, and logistics.",
+      "Yes, we specialize in providing customized and specialty items tailored to your restaurant's specific needs. Feel free to inquire about any unique requirements.",
     isOpen: false,
     height: 0,
   },
   {
-    title: "How much credit am I eligible for?",
+    title: "What are your delivery times and shipping costs?",
     description:
-      "In the dynamic landscape of modern business, the demand for streamlined and efficient processes has never been more critical. One area that often faces complexities is food procurement, supply-chain management, and logistics.",
+      "Our delivery times vary based on location and order specifics. Shipping costs are calculated based on order size. We aim for timely deliveries and competitive shipping rates.",
     isOpen: false,
     height: 0,
   },
   {
-    title: "How long before you deliver?",
+    title:
+      "What is your return or exchange policy if we receive damaged or incorrect items?",
     description:
-      "In the dynamic landscape of modern business, the demand for streamlined and efficient processes has never been more critical. One area that often faces complexities is food procurement, supply-chain management, and logistics.",
+      "In case of damaged or incorrect items, please notify us immediately. We have a hassle-free return and exchange policy. We'll arrange for replacements or refunds as per your preference.",
     isOpen: false,
     height: 0,
   },
   {
-    title: "How do I sign up?",
+    title: "How do you handle backorders or items out of stock?",
     description:
-      "In the dynamic landscape of modern business, the demand for streamlined and efficient processes has never been more critical. One area that often faces complexities is food procurement, supply-chain management, and logistics.",
+      "If an item is out of stock or on backorder, we'll promptly inform you and provide estimated restocking dates. You can choose to wait or make alternative arrangements.",
     isOpen: false,
     height: 0,
   },
   {
-    title: "How do I access credit?",
+    title: "Is there a dedicated account manager or point of contact for our restaurant?",
     description:
-      "In the dynamic landscape of modern business, the demand for streamlined and efficient processes has never been more critical. One area that often faces complexities is food procurement, supply-chain management, and logistics.",
+      "Yes, we assign a dedicated account manager to each restaurant to ensure personalized service and smooth communication for all your needs.",
+    isOpen: false,
+    height: 0,
+  },
+  {
+    title: "What payment methods do you accept?",
+    description:
+      "We accept various payment methods, including credit/debit cards, bank transfers, and other secure online payment options for your convenience.",
+    isOpen: false,
+    height: 0,
+  },
+  {
+    title: "Can you assist with sourcing rare or hard-to-find ingredients/products?",
+    description:
+      "Absolutely, we have extensive networks and expertise to assist in sourcing rare or hard-to-find ingredients/products. Just let us know your requirements.",
+    isOpen: false,
+    height: 0,
+  },
+  {
+    title: "What types of credit facilities do you offer for restaurants?",
+    description: "We offer diverse credit facilities, tailored to restaurant needs.",
+    isOpen: false,
+    height: 0,
+  },
+  {
+    title: "What are the eligibility criteria for obtaining a credit facility?",
+    description:
+      "Eligibility criteria typically involve factors like credit history, business revenue, and time in operation. Our team will guide you through the specific requirements.",
+    isOpen: false,
+    height: 0,
+  },
+  {
+    title: "What is the maximum/minimum credit limit available?",
+    description:
+      "The credit limits vary based on several factors. We assess your needs and financial situation to determine the most suitable credit limit for your restaurant.",
+    isOpen: false,
+    height: 0,
+  },
+  {
+    title: "What are the interest rates or fees associated with the credit facility?",
+    description:
+      "Interest rates and fees depend on the type of credit facility and individual circumstances. Our team will provide transparent information on rates and fees applicable to your chosen facility.",
+    isOpen: false,
+    height: 0,
+  },
+  {
+    title: "Do you offer flexible repayment options or schedules?",
+    description:
+      "Yes, we understand the importance of flexibility. We offer various repayment options and schedules tailored to accommodate your restaurant's cash flow and needs.",
     isOpen: false,
     height: 0,
   },

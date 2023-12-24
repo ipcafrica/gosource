@@ -82,7 +82,7 @@ onMounted(() => {});
   opacity: 0.4;
   width: 32px;
   height: 32px;
-  transition: all calc(var(--animation-duration) * 1.1) ease;
+  transition: all calc(var(--animation-duration) * 0.2);
 }
 
 .img.active {
