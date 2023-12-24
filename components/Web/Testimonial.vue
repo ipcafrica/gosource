@@ -69,7 +69,7 @@ const onSlideChange = () => {
 onMounted(() => {});
 </script>
 
-<style>
+<style scoped>
 .image-wrapper {
   display: flex;
   align-items: center;
