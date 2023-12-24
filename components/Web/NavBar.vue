@@ -23,10 +23,45 @@
             @mouseover="toggleDropdownHover(data.title)"
           > -->
           <li
+            class="web-menu"
             v-for="(data, index) in navData"
             :key="index"
             @click="toggleDropdownClick(data.title)"
             @mouseover="toggleDropdown(data.title)"
+          >
+            <div class="nav-menu">
+              <nuxt-link
+                :to="data.link"
+                v-if="data.link"
+                class="base-font text-body-large-medium medium text-grey-700"
+              >
+                {{ data.title }}
+              </nuxt-link>
+              <div
+                class="base-font text-body-large-medium medium text-grey-700"
+                v-if="!data.link"
+              >
+                {{ data.title }}
+              </div>
+            </div>
+            <WebNavDropdownFeature
+              class="mobile-logo"
+              :class="{ feature: feature }"
+              :data="data.dropdown"
+              v-if="feature && data.title === 'Features'"
+            />
+            <WebNavDropdownCompany
+              class="mobile-logo"
+              :class="{ company: company }"
+              :data="data.dropdown"
+              v-if="company && data.title === 'Company'"
+            />
+          </li>
+          <li
+            class="mobile-menu"
+            v-for="(data, index) in navData"
+            :key="index"
+            @click="toggleDropdownClick(data.title)"
           >
             <div class="nav-menu">
               <nuxt-link
@@ -145,8 +180,8 @@ const toggleDropdown = (arg) => {
 };
 
 const toggleDropdownClick = (arg) => {
-// console.log(arg);
-switch (arg) {
+  // console.log(arg);
+  switch (arg) {
     case "Features":
       feature.value = !feature.value;
       company.value = false;
@@ -160,7 +195,7 @@ switch (arg) {
       company.value = false;
       break;
   }
-}
+};
 
 const closeDropdown = () => {
   feature.value = false;
@@ -203,6 +238,9 @@ const toggleDropdownHover = (arg) => {
 </script>
 
 <style scoped>
+.mobile-menu {
+  display: none;
+}
 .cta-mobile {
   display: none;
 }
@@ -364,6 +402,12 @@ ul li .nav-menu {
 }
 
 @media (max-width: 950px) {
+  .web-menu {
+    display: none;
+  }
+  .mobile-menu {
+    display: block;
+  }
   ul {
     max-width: 90%;
     overflow-y: auto;
