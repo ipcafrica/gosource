@@ -7,7 +7,7 @@
       :class="{ open: content.isOpen }"
     >
       <header @click="toggleAccordion(index)">
-        <span class="title display-font text-heading-4-meduim medium text-grey-700">
+        <span class="title display-font text-heading-4-meduim medium text-grey-700 h1">
           {{ content.title }}
         </span>
         <div class="icon">
@@ -17,7 +17,7 @@
       </header>
 
       <p
-        class="description text-body-large-regular regular text-grey-700"
+        class="description text-body-large-regular regular text-grey-700s"
         :style="{ height: content.isOpen ? content.height + 'px' : '0px' }"
       >
         {{ content.description }}
@@ -137,6 +137,9 @@ const getContentHeight = (index) => {
 </script>
 
 <style scoped>
+.h1 {
+  max-width: 500px;
+}
 .icon {
   position: relative;
   display: flex;
@@ -176,13 +179,18 @@ p {
 }
 
 .accordion .accordion-content {
-  margin: 10px 0;
+  width: 100%;
   border-radius: 4px;
   overflow: hidden;
 }
 
 .accordion-content.open {
-  padding-bottom: 10px;
+  padding-bottom: 24px;
+  border-radius: 16px;
+  background: var(--grey-75);
+}
+.accordion-content.open header .title{
+  color: var(--grey-900-base);
 }
 
 .accordion-content header {
@@ -215,6 +223,7 @@ p {
     font-style: normal;
     line-height: 24px; /* 150% */
     letter-spacing: -0.2px;
+    max-width: 500px;
   }
   header span.description {
     font-size: 14px;
