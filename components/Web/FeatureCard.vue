@@ -209,6 +209,7 @@ span.line {
   }
   .content-container {
     position: relative;
+    padding-inline: 12px;
   }
   .card-wrapper {
     height: auto;
