@@ -200,7 +200,7 @@ p {
   padding: 24px;
   justify-content: space-between;
   align-items: center;
-  align-self: stretch;
+  gap: 16px;
   transition: all 0.2s linear;
 }
 
