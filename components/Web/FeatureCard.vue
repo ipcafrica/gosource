@@ -1,8 +1,8 @@
 <template>
   <div class="card-wrapper" :class="{ noimg: !data.title }">
     <div class="image-container">
-      <img :src="data.img" alt="" />
-      <img :src="data.imgMobile" alt="" />
+      <img :src="data.img" alt="" class="imgMWeb"/>
+      <img :src="data.imgMobile" alt="" class="imgMobile"/>
     </div>
     <div class="content-container" v-if="data.title">
       <div class="tag" :class="data.color">
@@ -173,6 +173,10 @@ span.line {
   background-color: var(--primary-primary-500-base);
 }
 
+.imgMobile {
+    display: none;
+  }
+
 @media (max-width: 1186px) {
   .content-container {
     height: 207px;
@@ -184,6 +188,12 @@ span.line {
 }
 
 @media (max-width: 960px) {
+  .imgMWeb {
+    display: none;
+  }
+  .imgMobile {
+    display: block;
+  }
   .content-container {
     height: auto;
   }
