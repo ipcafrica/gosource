@@ -100,7 +100,8 @@
     </div>
     <!-- testimonials here -->
     <section class="bg-grey-50">
-      <WebTestimonial data-aos="fade-zoom-in" style="padding: 96px 24px ;"/>
+      <!-- <WebTestimonial data-aos="fade-zoom-in" style="padding: 96px 24px ;"/> -->
+      <WebNew-Testimonial data-aos="fade-zoom-in" style="padding: 96px 24px ;"/>
     </section>
     <!-- <section class="bg-grey-50">
       <WebTestimonies data-aos="fade-zoom-in" :data="testimonials" style="padding: 96px 24px ;"/>
@@ -108,7 +109,8 @@
     <!-- FAQ -->
     <WebSection :data="sectionData[4]" flexPosition="center" data-aos="fade-zoom-in">
       <template v-slot:content>
-        <WebFAQ data-aos="fade-zoom-in" />
+        <!-- <WebFAQ data-aos="fade-zoom-in" /> -->
+        <WebFAQMain data-aos="fade-zoom-in" class="accordion" />
       </template>
     </WebSection>
     <!-- Let’s go! -->
@@ -415,6 +417,11 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.accordion{
+  margin-top: 32px;
+  max-width: 100%;
+  width: 738px;
+}
 .client {
   width: 100%;
   display: flex;
@@ -512,7 +519,11 @@ onMounted(() => {
     object-position: right 80% bottom 0px;
   }
 }
-
+@media screen and (max-width: 850px) {
+  .accordion{
+    width: 100%;
+  }
+}
 @media (max-width: 700px) {
   .feature-wrap {
     gap: 20px;

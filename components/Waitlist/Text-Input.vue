@@ -13,15 +13,15 @@
       <span>{{ label }}</span>
     </div>
     <div  v-if="ctaClicked" class="message-container">
-      <DynamicMessage :msg="msg" :msgType="msgType" />
+      <WaitlistInputMessage :msg="msg" :msgType="msgType" />
     </div>
   </template>
     
-  <script>
-  export default {
-    emits: ['updateValue'],
-    props: {
-      label: {
+    <script setup>
+    import { ref, defineProps, defineEmits } from 'vue';
+    
+    const props = defineProps({
+    label: {
         type: String,
         required: true,
       },
@@ -53,9 +53,10 @@
         type: String,
         default: "",
       },
-    },
-  };
-  </script>
+    });
+    
+    const emits = defineEmits(['updateValue']);
+    </script>
     
   <style scoped>
   .message-container {
@@ -86,6 +87,7 @@
   }
   
   input {
+    max-width: 100%;
     width: 343px;
     border-radius: 12px;
     height: 56px;
@@ -94,7 +96,7 @@
     transition: 0.3s ease-in-out;
     color: var(--grey-900-base);
     outline: none;
-    font-family: var(--InterRegular);
+    font-family: var(--primary---font--family);
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -109,7 +111,7 @@
     pointer-events: none;
     color: var(--grey-500);
     transition: 0.5s ease-in-out;
-    font-family: var(--InterRegular);
+    font-family: var(--primary---font--family);
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -128,13 +130,13 @@
   }
   
   .form-group input:hover {
-    border: 1px solid var(--primary-500-base);
+    border: 1px solid var(--primary-primary-500-base);
   }
   input:active,
   input:focus {
     border-radius: 12px;
     padding-top: 32px;
-    border: 1px solid var(--primary-500-base);
+    border: 1px solid var(--primary-primary-500-base);
     background: var(--White);
     box-shadow: 0px 0px 0px 3px #e7f6ec;
   }
@@ -145,8 +147,9 @@
     border: 1px solid var(--negative-500-base);
   }
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width:675px) {
     .form-input {
+        max-width: 100%;
       width: 100%;
       /* height: 100px; */
       border-radius: 12px;

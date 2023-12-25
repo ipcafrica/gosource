@@ -54,6 +54,12 @@ function animateText() {
 </script>
 
 <style scoped>
+.accordion{
+  margin-top: 32px;
+  border: 1px solid red;
+  max-width: 100%;
+  width: 738px;
+}
 .animated-text span {
   font-size: 48px;
   transition: all 0.2s ease;
