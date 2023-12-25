@@ -299,6 +299,7 @@ const images = ref([
 ]);
 const featureCardData = ref([
   {
+    imgMobile: "/images/store.svg",
     img: "/images/store.svg",
     svg: store,
     svgName: "Store",
@@ -309,6 +310,7 @@ const featureCardData = ref([
     color: "bg-wine-50",
   },
   {
+    imgMobile: "/images/woman.png",
     img: "/images/woman.png",
     svg: null,
     svgName: null,
@@ -318,6 +320,7 @@ const featureCardData = ref([
     color: "",
   },
   {
+    imgMobile: "/images/invoice.png",
     img: "/images/invoice.svg",
     svg: invoice,
     svgName: "Invoice",
@@ -327,6 +330,7 @@ const featureCardData = ref([
     color: "bg-primary-50",
   },
   {
+    imgMobile: "/images/orders.png",
     img: "/images/orders.svg",
     svg: order,
     svgName: "Orders",
@@ -336,6 +340,7 @@ const featureCardData = ref([
     color: "bg-purple-50",
   },
   {
+    imgMobile: "/images/man.png",
     img: "/images/man.png",
     svg: null,
     svgName: null,
@@ -345,6 +350,7 @@ const featureCardData = ref([
     color: "",
   },
   {
+    imgMobile: "/images/insight.png",
     img: "/images/insight.svg",
     svg: insight,
     svgName: "Insights",

@@ -2,6 +2,7 @@
   <div class="card-wrapper" :class="{ noimg: !data.title }">
     <div class="image-container">
       <img :src="data.img" alt="" />
+      <img :src="data.imgMobile" alt="" />
     </div>
     <div class="content-container" v-if="data.title">
       <div class="tag" :class="data.color">
