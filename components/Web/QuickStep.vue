@@ -254,12 +254,19 @@ p {
     border-radius: 1000px;
     background: var(--grey-200);
   }
-}
-</style>
+  .webp-wrap {
+    max-width: 100%;
+    padding: 27.651px 29.82px 0px 29.277px;
+  }
 
-<style>
-.svg svg {
-  width: 100%;
-  height: auto;
+  .img-wrap {
+    width: 100%;
+    height: 100%;
+  }
 }
+
+@media (max-width: 960px) {
+  
+}
+
 </style>

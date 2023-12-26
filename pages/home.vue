@@ -427,6 +427,7 @@ onMounted(() => {
 }
 
 .feature-wrap {
+  max-width: 1102px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 40px;
