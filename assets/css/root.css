@@ -1001,7 +1001,7 @@ button {
 
     transition: 0.3s;
 
-    font-family: var(--secondary---font--family);
+    font-family: var(--primary---font--family);
 }
 
 button:disabled {
@@ -1017,7 +1017,7 @@ button.large {
 button.medium {
     height: 40px;
     padding: 0px 20px;
-    gap: var(--spacing-unit);
+    gap: calc(var(--spacing-unit)/2);
 }
 
 button.small {
