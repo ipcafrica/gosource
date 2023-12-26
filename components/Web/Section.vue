@@ -152,7 +152,7 @@ header {
 }
 @media (max-width: 450px) {
   .section-wrapper {
-    width: 90%;
+    width: 81%;
   }
   .content.left h1,
   .content.left p {
