@@ -1,6 +1,6 @@
 <template>
     <div :class="['message', msgType]">
-        <p class="body-micro-regular"> {{ msg }} </p>
+        <p class="text-body-micro-regular regular text-negative-500-base"> {{ msg }} </p>
     </div>
 </template>
 
