@@ -1,11 +1,12 @@
 <template>
   <div class="drop-wrap">
     <div class="wrapper">
-      <div class="wrap" v-for="(data, index) in data" :key="index">
+      <div class="wrap dropdown-list" v-for="(data, index) in data" :key="index">
         <div class="svg-group">
           <div v-html="data.svg"></div>
           <p class="body-small-medium medium text-grey-700">{{ data.title }}</p>
         </div>
+        <div class="icon" v-html="arrowRightUp"></div>
       </div>
     </div>
     <div class="blog-wrap">
@@ -26,6 +27,7 @@
 </template>
 
 <script setup>
+import { arrowRightUp } from "../utils/svg";
 defineProps({
   data: {
     type: Array,
@@ -35,13 +37,28 @@ defineProps({
 
 <style scoped>
 .drop-wrap {
-  margin-top: 16px;
+  margin-top: 12px;
+  position: absolute;
   display: flex;
-  padding: 0px 8px;
+  max-width: 400px;
+  width: 100%;
+  padding: 12px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
-  align-self: stretch;
+  gap: 40px;
+
+  border-radius: 16px;
+  border: 1px solid var(--grey-100);
+  background: var(--White);
+
+  /* Shadow/Shadow__XXLarge */
+  box-shadow: 0px 25px 50px 0px rgba(71, 83, 103, 0.25);
+}
+
+.icon {
+  opacity: 0;
+  margin-top: 10px;
+  transition: all var(--animation-duration) ease;
 }
 
 .svg-group {
@@ -54,15 +71,23 @@ defineProps({
 .blog-wrap {
   width: 100%;
   display: flex;
+  padding: 12px;
   align-items: center;
   gap: 12px;
+  border-radius: 12px;
+  transition: all var(--animation-duration) ease;
 }
 
 .wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
-  gap: 16px;
+  column-gap: 16px;
+  flex-wrap: wrap;
+}
+
+.wrap {
+  width: 47%;
 }
 
 .img {
@@ -87,5 +112,53 @@ defineProps({
   font-size: 12px;
   font-weight: 300;
   line-height: 18px;
+}
+
+.dropdown-list {
+  cursor: pointer;
+  display: flex;
+  padding: 8px 12px;
+  height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border-radius: 10px;
+  transition: all var(--animation-duration) ease;
+}
+
+.dropdown-list:hover,
+.blog-wrap:hover {
+  background: var(--grey-75);
+}
+.dropdown-list:hover svg,
+.dropdown-list:hover p {
+  color: var(--grey-900-base);
+}
+
+.dropdown-list:hover .icon {
+  opacity: 1;
+  margin-top: 0;
+}
+
+@media (max-width: 950px) {
+  .drop-wrap {
+    position: relative;
+    margin-top: 16px;
+    padding: 0px 8px;
+    gap: 24px;
+    border: none;
+    box-shadow: none;
+    max-width: 100%;
+  }
+
+  .wrapper {
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .wrap {
+    width: 100%;
+  }
 }
 </style>

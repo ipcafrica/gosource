@@ -3,12 +3,12 @@
     <WebNews />
     <WebNavBar :navData="navData" />
     <div class="bg-orange-25">
-      <WebHero data-aos="zoom-in-up" ref="revealType" />
+      <WebHero data-aos="fade-zoom-in" ref="revealType" />
     </div>
     <!-- logo -->
-    <WebSection data-aos="zoom-in-up" :data="null">
+    <WebSection data-aos="fade-zoom-in" :data="null">
       <template v-slot:content>
-        <div class="client" data-aos="zoom-in-up">
+        <div class="client" data-aos="fade-zoom-in">
           <h3 class="heading-3-medium medium text-grey-900">
             Trusted by 100+ businesses across the Nation
           </h3>
@@ -18,7 +18,7 @@
               alt=""
               v-for="(image, index) in images"
               :key="index"
-              data-aos="zoom-in-up"
+              data-aos="fade-zoom-in"
             />
           </div>
         </div>
@@ -31,7 +31,7 @@
         flexPosition="left"
         align="start"
         maxWidth="499px"
-        data-aos="zoom-in-up"
+        data-aos="fade-zoom-in"
       >
         <template v-slot:content>
           <div class="feature-wrap mt-128">
@@ -39,7 +39,7 @@
               v-for="(data, index) in featureCardData"
               :key="index"
               :class="'feature-item' + (index + 1)"
-              data-aos="zoom-in-up"
+              data-aos="fade-zoom-in"
             >
               <WebFeatureCard :data="data" class="w-auto">
                 <template v-slot:svg>
@@ -53,19 +53,19 @@
     </div>
     <!-- Built for you -->
     <WebSection
-      data-aos="zoom-in-up"
+      data-aos="fade-zoom-in"
       :data="sectionData[1]"
       flexPosition="center"
       maxWidth="458px"
       left="left"
     >
       <template v-slot:content>
-        <div class="bfy-wrap mt-128" data-aos="zoom-in-up">
+        <div class="bfy-wrap mt-128" data-aos="fade-zoom-in">
           <WebBFYCard
             :data="data"
             v-for="(data, index) in builtForYou"
             :key="index"
-            data-aos="zoom-in-up"
+            data-aos="fade-zoom-in"
           >
             <template v-slot:svg>
               <div v-html="data.svg"></div>
@@ -75,10 +75,10 @@
       </template>
     </WebSection>
     <!-- Quick steps -->
-    <div class="" data-aos="zoom-in-up">
+    <div class="" data-aos="fade-zoom-in">
       <WebSection :data="sectionData[2]" flexPosition="center">
         <template v-slot:content>
-          <WebQuickStep class="mt-128" :data="quickStep" data-aos="zoom-in-up" />
+          <WebQuickStep class="mt-128" :data="quickStep" data-aos="fade-zoom-in" />
         </template>
       </WebSection>
     </div>
@@ -89,33 +89,39 @@
         flexPosition="center"
         maxWidth="1009px"
         bigFont="text-white text-display-regular bold"
-        data-aos="zoom-in-up"
+        data-aos="fade-zoom-in"
       >
         <template v-slot:content>
           <div class="img mt-128">
-            <img src="/assets/images/zero-stress.png" alt="" data-aos="zoom-in-up" />
+            <img src="/assets/images/zero-stress.png" alt="" data-aos="fade-zoom-in" />
           </div>
         </template>
       </WebSection>
     </div>
-
     <!-- testimonials here -->
+    <section class="bg-grey-50">
+      <WebTestimonial data-aos="fade-zoom-in" style="padding: 96px 24px ;"/>
+    </section>
+    <!-- <section class="bg-grey-50">
+      <WebTestimonies data-aos="fade-zoom-in" :data="testimonials" style="padding: 96px 24px ;"/>
+    </section> -->
     <!-- FAQ -->
-    <WebSection :data="sectionData[4]" flexPosition="center" data-aos="zoom-in-up">
+    <WebSection :data="sectionData[4]" flexPosition="center" data-aos="fade-zoom-in">
       <template v-slot:content>
-        <WebFAQ data-aos="zoom-in-up" />
+        <WebFAQ data-aos="fade-zoom-in" />
       </template>
     </WebSection>
     <!-- Let’s go! -->
-    <div class="bg-grey-50" data-aos="zoom-in-up">
+    <div class="bg-grey-50" data-aos="fade-zoom-in">
       <WebSection
         :data="sectionData[5]"
         flexPosition="center"
-        maxWidth="458px"
-        data-aos="zoom-in-up"
+        maxWidth="616px"
+        bigFont="text-display-regular bold"
+        data-aos="fade-zoom-in"
       />
     </div>
-    <WebFooter data-aos="zoom-in-up" />
+    <WebFooter data-aos="fade-zoom-in" />
   </div>
 </template>
 
@@ -358,13 +364,39 @@ const quickStep = ref([
     snippet: "Add multiple items you want to buy in bulk in no time",
   },
   {
-    title: "Checkout with ease",
+    title: "Swift checkout",
     snippet: "Proceed to give us delivery informations and checkout very fast",
   },
 ]);
+const testimonials = ref([
+    {
+      img: "/images/spicy-corner.png",
+      testimony:
+        "We no longer have to deal with multiple suppliers or chasing people with phone calls to supply us on time. Take take out orders and we expect delivery within 24hours. The service and experience is brilliant.",
+      name: "Busayo",
+      position: "Co-founder, Spicy Corner",
+    },
+    {
+      img: "/images/redg.png",
+      testimony:
+        "GoSource is efficient, cost effective and most importantly their staff are always ready to proffer solutions to the regular issues Lagos will present you with. As a small business owner this is invaluable.",
+      name: "Seun Adebajo",
+      position: "Co-founder, Red Gourmet Kitchen",
+    },
+    {
+      img: "/images/citysub.png",
+      testimony:
+        "GoSource has shown they love my business and it’s clear from the way they operate. They also provide the logistics service we use daily. It has given us time to focus on selling great food to our customers.",
+      name: "Demi Odunubi",
+      position: "Co-founder, City Subs",
+    },
+  ]);
+  
+
 onMounted(() => {
   AOS.init({
     duration: 1300,
+    offset: 200,
   });
 
   const lenis = new Lenis();

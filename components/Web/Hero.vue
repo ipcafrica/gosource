@@ -57,7 +57,7 @@ h1 {
   color: var(--grey-900-base);
   font-size: 88px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 100px; /* 113.636% */
   letter-spacing: -3px;
 }

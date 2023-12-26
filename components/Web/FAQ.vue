@@ -33,28 +33,35 @@ const accordionContent = ref([
   {
     title: "How does GoSource work?",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nobis ut perspiciatis minima quidem nisi, obcaecati, delectus consequatur fuga nostrum iusto ipsam ducimus quibusdam possimus. Maiores non enim numquam voluptatem",
+      "In the dynamic landscape of modern business, the demand for streamlined and efficient processes has never been more critical. One area that often faces complexities is food procurement, supply-chain management, and logistics.",
     isOpen: false,
     height: 0,
   },
   {
-    title: "How does GoSource work?",
+    title: "How much credit am I eligible for?",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nobis ut perspiciatis minima quidem nisi, obcaecati, delectus consequatur fuga nostrum iusto ipsam ducimus quibusdam possimus. Maiores non enim numquam voluptatem?",
+      "In the dynamic landscape of modern business, the demand for streamlined and efficient processes has never been more critical. One area that often faces complexities is food procurement, supply-chain management, and logistics.",
     isOpen: false,
     height: 0,
   },
   {
-    title: "How does GoSource work?",
+    title: "How long before you deliver?",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nobis ut perspiciatis minima quidem nisi, obcaecati, delectus consequatur fuga nostrum iusto ipsam ducimus quibusdam possimus. Maiores non enim numquam voluptatem? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto neque, sed inventore illum ut quis ducimus deleniti temporibus maiores? At nisi sed pariatur cupiditate quidem quod adipisci aut, eos quis minima voluptates non veniam ipsam quasi architecto ducimus error eum id ab, suscipit doloribus, ut accusantium consequuntur voluptate! Unde, hic sed rerum officia totam id libero officiis nihil rem sequi porro labore praesentium repudiandae a blanditiis molestias nisi beatae natus! Ea, ut voluptates, natus harum nesciunt odio hic eveniet reprehenderit veritatis, possimus tempora magni soluta eaque quidem neque maxime nostrum sapiente commodi? Earum ex cumque cupiditate dicta, tempora temporibus quaerat.",
+      "In the dynamic landscape of modern business, the demand for streamlined and efficient processes has never been more critical. One area that often faces complexities is food procurement, supply-chain management, and logistics.",
     isOpen: false,
     height: 0,
   },
   {
-    title: "How does GoSource work?",
+    title: "How do I sign up?",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nobis ut perspiciatis minima quidem nisi, obcaecati, delectus consequatur fuga nostrum iusto ipsam ducimus quibusdam possimus. Maiores non enim numquam voluptatem? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto neque, sed inventore illum ut quis ducimus deleniti temporibus maiores? At nisi sed pariatur cupiditate quidem quod adipisci aut, eos quis minima voluptates non veniam ipsam quasi architecto ducimus error eum id ab, suscipit doloribus, ut accusantium consequuntur voluptate! Unde, hic sed rerum officia totam id libero officiis nihil rem sequi porro labore praesentium repudiandae a blanditiis molestias nisi beatae natus! Ea, ut voluptates, natus harum nesciunt odio hic eveniet reprehenderit veritatis, possimus tempora magni soluta eaque quidem neque maxime nostrum sapiente commodi? Earum ex cumque cupiditate dicta, tempora temporibus quaerat.",
+      "In the dynamic landscape of modern business, the demand for streamlined and efficient processes has never been more critical. One area that often faces complexities is food procurement, supply-chain management, and logistics.",
+    isOpen: false,
+    height: 0,
+  },
+  {
+    title: "How do I access credit?",
+    description:
+      "In the dynamic landscape of modern business, the demand for streamlined and efficient processes has never been more critical. One area that often faces complexities is food procurement, supply-chain management, and logistics.",
     isOpen: false,
     height: 0,
   },

@@ -1,6 +1,6 @@
 <template>
-  <div class="wrapper">
-    <nav :class="{ active: active }">
+  <div class="wrapper" :class="{ active: active }">
+    <nav>
       <div class="logo-menu">
         <div class="logo">
           <Logo />
@@ -15,10 +15,18 @@
               </div>
             </div>
           </li>
-          <li
+          <!-- <li
             v-for="(data, index) in navData"
             :key="index"
             @click="toggleDropdown(data.title)"
+            @mouseleave="toggleDropdownHoverLeave(data.title)"
+            @mouseover="toggleDropdownHover(data.title)"
+          > -->
+          <li
+            v-for="(data, index) in navData"
+            :key="index"
+            @click="toggleDropdownClick(data.title)"
+            @mouseover="toggleDropdown(data.title)"
           >
             <div class="nav-menu">
               <nuxt-link
@@ -47,26 +55,20 @@
             </div>
             <WebNavDropdownFeature
               class="mobile-logo"
+              :class="{ feature: feature }"
               :data="data.dropdown"
               v-if="feature && data.title === 'Features'"
             />
             <WebNavDropdownCompany
               class="mobile-logo"
+              :class="{ company: company }"
               :data="data.dropdown"
               v-if="company && data.title === 'Company'"
             />
           </li>
-          <div class=" cta mobile-logo">
-            <DynamicButtonMain
-              buttonText="Sign up"
-              size="medium"
-              type="filled"
-            />
-            <DynamicButtonMain
-              buttonText="Log in"
-              size="medium"
-              type="link-neutral"
-            />
+          <div class="cta mobile-logo">
+            <DynamicButtonMain buttonText="Sign up" size="medium" type="filled" />
+            <DynamicButtonMain buttonText="Log in" size="medium" type="link-neutral" />
           </div>
         </ul>
       </div>
@@ -97,7 +99,11 @@
         </div>
       </div>
     </nav>
-    <div class="bg-overlay"></div>
+    <div
+      class="bg-overlay"
+      :class="{ feature: feature, company: company }"
+      @mouseover="closeDropdown"
+    ></div>
   </div>
 </template>
 
@@ -122,6 +128,26 @@ const toggleDropdown = (arg) => {
   // console.log(arg);
   switch (arg) {
     case "Features":
+      feature.value = true;
+      // feature.value = !feature.value;
+      company.value = false;
+      break;
+    case "Company":
+      company.value = true;
+      // company.value = !company.value;
+      feature.value = false;
+      break;
+    default:
+      feature.value = false;
+      company.value = false;
+      break;
+  }
+};
+
+const toggleDropdownClick = (arg) => {
+// console.log(arg);
+switch (arg) {
+    case "Features":
       feature.value = !feature.value;
       company.value = false;
       break;
@@ -134,6 +160,45 @@ const toggleDropdown = (arg) => {
       company.value = false;
       break;
   }
+}
+
+const closeDropdown = () => {
+  feature.value = false;
+  company.value = false;
+};
+const toggleDropdownHoverLeave = (arg) => {
+  // console.log(arg);
+  // switch (arg) {
+  //   case "Features":
+  //     feature.value = false;
+  //     // company.value = false;
+  //     break;
+  //   case "Company":
+  //     company.value = false;
+  //     // feature.value = false;
+  //     break;
+  //   default:
+  //     feature.value = false;
+  //     company.value = false;
+  //     break;
+  // }
+};
+const toggleDropdownHover = (arg) => {
+  // console.log(arg);
+  // switch (arg) {
+  //   case "Features":
+  //     feature.value = true;
+  //     company.value = false;
+  //     break;
+  //   case "Company":
+  //     company.value = true;
+  //     feature.value = false;
+  //     break;
+  //   default:
+  //     feature.value = false;
+  //     company.value = false;
+  //     break;
+  // }
 };
 </script>
 
@@ -181,10 +246,6 @@ ul {
   flex-shrink: 0;
 }
 
-li {
-  width: 100%;
-}
-
 ul li .nav-menu {
   cursor: pointer;
   width: 100%;
@@ -213,6 +274,7 @@ ul li .nav-menu {
 }
 .menu.active {
   height: 24px;
+  display: none;
 }
 .menu span {
   width: 22px;
@@ -246,7 +308,7 @@ ul li .nav-menu {
   position: fixed;
   width: 100%;
   height: 100vh;
-  background: #ff000000;
+  background: rgba(255, 255, 255, 0);
   top: 0;
   z-index: -1;
 }
@@ -285,10 +347,26 @@ ul li .nav-menu {
   rotate: 90deg;
 }
 
+.mobile-logo.feature {
+  display: flex;
+}
+.mobile-logo.company {
+  display: flex;
+}
+
+.bg-overlay.feature,
+.bg-overlay.company {
+  position: absolute;
+  height: 100vh;
+  background: none;
+  width: 100%;
+  z-index: -1;
+}
+
 @media (max-width: 950px) {
   ul {
     max-width: 90%;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
   .menu {
     display: flex;
@@ -307,23 +385,35 @@ ul li .nav-menu {
     display: none;
   }
   .active ul {
-    position: fixed;
-    top: 50px;
+    position: absolute;
+    top: 14px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
+    /* max-height: 90vh; */
     height: auto;
     padding: 0px 16px 32px 16px;
     flex-direction: column;
     align-items: center;
     gap: 39px;
     border-radius: 12px;
-    border: 1px solid var(--Grey-200);
+    border: 1px solid var(--grey-200);
     background: var(--White);
     z-index: 9;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: transparent transparent; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
 
     /* Shadow/Shadow__XXLarge */
     box-shadow: 0px 25px 50px 0px rgba(71, 83, 103, 0.25);
+  }
+  ::-webkit-scrollbar {
+    width: 1px; /* Adjust the width as needed */
+    background: white !important;
+  }
+
+  .active ul::-webkit-scrollbar-thumb {
+    background-color: transparent;
   }
   .cta .w-auto:first-child,
   .cta .w-auto:nth-child(2) {
@@ -333,6 +423,14 @@ ul li .nav-menu {
   ul .cta {
     flex-direction: column;
     width: 100%;
+  }
+
+  li {
+    width: 100%;
+  }
+
+  .wrapper.active {
+    position: relative;
   }
 }
 @media (max-width: 364px) {

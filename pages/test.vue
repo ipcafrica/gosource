@@ -1,6 +1,7 @@
 <template>
   <div>
     <WebTestimony/>
+    <WebFaqMain/>
     <!-- <Testimonial/> -->
   </div>
   </template>
