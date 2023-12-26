@@ -71,9 +71,16 @@ const buttonClasses = computed(() => {
 <style scoped>
 button {
   gap: 4px;
+  font-weight: 600 !important;
+}
+
+button span {
+  font-weight: 600 !important;
 }
 
 button.large {
   gap: 8px;
 }
+
+
 </style>
