@@ -26,17 +26,18 @@
       </div>
     </div>
 
-    <div class="svg" v-html="quickStep"></div>
+    <div class="webp-wrap">
+      <div class="img-wrap">
+        <img :src="getWebPImage(step)" alt="WebP Image" />
+      </div>
+    </div>
   </div>
 </template>
 
-
-
 <script setup>
-import { quickStep } from "../utils/svg";
 import { ref, onMounted, onBeforeUnmount } from "vue";
 
-const props = defineProps({
+const { data } = defineProps({
   data: {
     type: Object,
     required: true,
@@ -49,13 +50,17 @@ let intervalId;
 onMounted(() => {
   intervalId = setInterval(() => {
     step.value = (step.value % 3) + 1;
-  }, 2500);
-  onBeforeUnmount(() => {
-    clearInterval(intervalId);
-  });
+  }, 9000);
 });
-</script>
 
+onBeforeUnmount(() => {
+  clearInterval(intervalId);
+});
+
+const getWebPImage = (step) => {
+  return `/images/${step}.webp`;
+};
+</script>
 
 <style scoped>
 h5,
@@ -129,7 +134,7 @@ p {
   width: 100%;
   height: 0;
   opacity: 1;
-  transition: height 2.5s linear;
+  transition: height 9s linear;
 }
 
 .current .bar span,
@@ -160,6 +165,28 @@ p {
 }
 .current p {
   color: var(--grey-700);
+}
+
+.webp-wrap {
+  display: flex;
+  max-width: 604px;
+  padding: 51px 55px 0px 54px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  background: var(--grey-50);
+}
+
+.img-wrap {
+  width: 492px;
+  height: 544px;
+  overflow: hidden;
+}
+
+.img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 @media (max-width: 1200px) {
@@ -210,23 +237,23 @@ p {
     text-align: center;
   }
 
-.paginate {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 12px;
-}
+  .paginate {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+  }
 
-.paginate span.current {
-background: var(--grey-500);
-}
+  .paginate span.current {
+    background: var(--grey-500);
+  }
 
-.paginate span {
-  width: 16px;
-  height: 16px;
-  border-radius: 1000px;
-  background: var(--grey-200);
-}
+  .paginate span {
+    width: 16px;
+    height: 16px;
+    border-radius: 1000px;
+    background: var(--grey-200);
+  }
 }
 </style>
 

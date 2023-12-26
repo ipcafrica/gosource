@@ -8,7 +8,7 @@
       </div>
       <div class="track">
         <div class="trackingBar">
-          <TrackingBar :step="step" :inValid="inValided" v-if="!showModal" />
+          <WebTrackingBar :step="step" :inValid="inValided" v-if="!showModal" />
         </div>
       </div>
       <div
