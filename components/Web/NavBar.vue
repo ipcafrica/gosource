@@ -43,6 +43,7 @@
               >
                 {{ data.title }}
               </div>
+              <div class="triangle" v-if="!data.link"></div>
             </div>
             <WebNavDropdownFeature
               class="mobile-logo"
@@ -401,7 +402,22 @@ ul li .nav-menu {
   z-index: -1;
 }
 
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 5px solid var(--grey-500);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  border-radius: 2px;
+  transform: scaleY(-1);
+}
+
 @media (max-width: 950px) {
+  .triangle {
+    display: none;
+  }
   .web-menu {
     display: none;
   }
