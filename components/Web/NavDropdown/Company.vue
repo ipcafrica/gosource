@@ -2,7 +2,7 @@
   <div class="drop-wrap">
     <div class="wrapper">
       <div class="wrap dropdown-list" v-for="(data, index) in data" :key="index">
-        <div class="svg-group">
+        <div class="svg-group -icon">
           <div v-html="data.svg"></div>
           <p class="body-small-medium medium text-grey-700">{{ data.title }}</p>
         </div>
@@ -22,6 +22,7 @@
           and a financial paradise for food marketers.
         </p>
       </div>
+      <div class="icon" v-html="arrowRightUp"></div>
     </div>
   </div>
 </template>
@@ -34,6 +35,15 @@ defineProps({
   },
 });
 </script>
+
+<style>
+.svg-group.-icon path {
+  transition: all var(--animation-duration) ease;
+}
+.dropdown-list:hover .svg-group.-icon path {
+  fill: var(--grey-900-base);
+}
+</style>
 
 <style scoped>
 .drop-wrap {
@@ -96,11 +106,18 @@ defineProps({
 }
 
 .content {
+  cursor: pointer;
   width: 70%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 2px;
+  transition: all var(--animation-duration) ease;
+}
+
+.blog-wrap:hover p,
+.blog-wrap:hover h6 {
+  color: var(--grey-900-base);
 }
 
 .truncate {
@@ -132,10 +149,12 @@ defineProps({
 }
 .dropdown-list:hover svg,
 .dropdown-list:hover p {
+  fill: var(--grey-900-base);
   color: var(--grey-900-base);
 }
 
-.dropdown-list:hover .icon {
+.dropdown-list:hover .icon,
+.blog-wrap:hover .icon {
   opacity: 1;
   margin-top: 0;
 }

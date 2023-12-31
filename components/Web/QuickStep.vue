@@ -174,13 +174,14 @@ p {
   justify-content: center;
   align-items: center;
   border-radius: 16px;
-  background: var(--grey-50);
+  background: var(--success-50);
 }
 
 .img-wrap {
   width: 492px;
   height: 544px;
   overflow: hidden;
+  border-radius: 8px 8px 0 0;
 }
 
 .img-wrap img {

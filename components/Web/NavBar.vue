@@ -15,13 +15,6 @@
               </div>
             </div>
           </li>
-          <!-- <li
-            v-for="(data, index) in navData"
-            :key="index"
-            @click="toggleDropdown(data.title)"
-            @mouseleave="toggleDropdownHoverLeave(data.title)"
-            @mouseover="toggleDropdownHover(data.title)"
-          > -->
           <li
             class="web-menu"
             v-for="(data, index) in navData"
