@@ -239,7 +239,7 @@ const toggleDropdownHover = (arg) => {
   display: none;
 }
 .wrapper {
-  position: sticky;
+  position: relative;
   top: 0;
   background: var(--White);
   z-index: 999;
