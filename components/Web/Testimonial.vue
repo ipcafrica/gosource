@@ -14,6 +14,7 @@
         v-for="(data, index) in testimonials"
         :key="index"
         :class="{ active: index === activeIndex }"
+        @click="goToSlide(index)"
       >
         <img :src="data.picture" alt="" />
       </div>
@@ -25,6 +26,7 @@
 import { ref, onMounted } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
+
 
 const testimonials = ref([
   {
@@ -63,7 +65,13 @@ const onSwiper = (swiper) => {
 
 const onSlideChange = () => {
   activeIndex.value = swiperInstance.value.activeIndex;
-  // step.value++
+  console.log(swiperInstance)
+};
+
+const goToSlide = (index) => {
+  if (swiperInstance.value) {
+    swiperInstance.value.slideTo(index);
+  }
 };
 
 onMounted(() => {});
