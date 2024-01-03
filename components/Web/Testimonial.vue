@@ -65,7 +65,7 @@ const onSwiper = (swiper) => {
 
 const onSlideChange = () => {
   activeIndex.value = swiperInstance.value.activeIndex;
-  console.log(swiperInstance)
+  // console.log(swiperInstance)
 };
 
 const goToSlide = (index) => {
