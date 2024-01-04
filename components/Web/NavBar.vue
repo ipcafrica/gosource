@@ -96,13 +96,29 @@
             />
           </li>
           <div class="cta mobile-logo">
-            <DynamicButtonMain buttonText="Sign up" size="medium" type="filled" />
-            <DynamicButtonMain buttonText="Log in" size="medium" type="link-neutral" />
+            <a
+              href="https://web.gosource.app/auth/register"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <DynamicButtonMain buttonText="Sign up" size="medium" type="filled"
+            /></a>
+            <a
+              href="https://web.gosource.app/auth/login"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <DynamicButtonMain buttonText="Log in" size="medium" type="link-neutral"
+            /></a>
           </div>
         </ul>
       </div>
       <div class="cta">
-        <a href="https://web.gosource.app/auth/login" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://web.gosource.app/auth/login"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <DynamicButtonMain
             buttonText="Log in"
             size="medium"
@@ -111,7 +127,11 @@
           />
         </a>
 
-        <a href="https://web.gosource.app/auth/register" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://web.gosource.app/auth/register"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <DynamicButtonMain
             buttonText="Sign up"
             size="medium"
@@ -120,7 +140,11 @@
           />
         </a>
 
-        <a href="https://web.gosource.app/auth/login" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://web.gosource.app/auth/login"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <DynamicButtonMain
             buttonText="Sign up"
             size="small"
