@@ -32,27 +32,27 @@ const FooterData = ref([
   {
     category: "company",
     items: [
-      { name: "About Us", link: "/" },
-      { name: "Help/FAQ", link: "/" },
-      { name: "Blog", link: "/" },
-      { name: "Careers", link: "/" },
+      { name: "About Us", link: "/waitlist" },
+      { name: "Help/FAQ", link: "/waitlist" },
+      { name: "Blog", link: "/waitlist" },
+      { name: "Careers", link: "/waitlist" },
     ],
   },
   {
     category: "Customers",
     items: [
-      { name: "Restaurants", link: "/" },
-      { name: "Hotels", link: "/" },
-      { name: "Retail suppliers", link: "/" },
-      { name: "Caterers", link: "/" },
-      { name: "Food businesses", link: "/" },
+      { name: "Restaurants", link: "/waitlist" },
+      { name: "Hotels", link: "/waitlist" },
+      { name: "Retail suppliers", link: "/waitlist" },
+      { name: "Caterers", link: "/waitlist" },
+      { name: "Food businesses", link: "/waitlist" },
     ],
   },
   {
     category: "Legal",
     items: [
-      { name: "Legal Policy", link: "/" },
-      { name: "Terms of Use", link: "/" },
+      { name: "Legal Policy", link: "/waitlist" },
+      { name: "Terms of Use", link: "/waitlist" },
     ],
   },
   {
@@ -60,9 +60,9 @@ const FooterData = ref([
     items: [
       { name: "admin@ipc-africa.com", type: "mail" },
       { name: "0906 182 7124", type: "number" },
-      { name: "Twitter", link: "/" },
-      { name: "Instagram", link: "/" },
-      { name: "LinkedIn", link: "/" },
+      { name: "Twitter", link: "/waitlist" },
+      { name: "Instagram", link: "/waitlist" },
+      { name: "LinkedIn", link: "/waitlist" },
     ],
   },
 ]);
