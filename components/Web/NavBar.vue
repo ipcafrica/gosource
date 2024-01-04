@@ -102,7 +102,7 @@
         </ul>
       </div>
       <div class="cta">
-        <a href="https://web.gosource.app/auth/login">
+        <a href="https://web.gosource.app/auth/login" target="_blank" rel="noopener noreferrer">
           <DynamicButtonMain
             buttonText="Log in"
             size="medium"
@@ -111,7 +111,7 @@
           />
         </a>
 
-        <a href="https://web.gosource.app/auth/register">
+        <a href="https://web.gosource.app/auth/register" target="_blank" rel="noopener noreferrer">
           <DynamicButtonMain
             buttonText="Sign up"
             size="medium"
@@ -120,7 +120,7 @@
           />
         </a>
 
-        <a href="https://web.gosource.app/auth/login">
+        <a href="https://web.gosource.app/auth/login" target="_blank" rel="noopener noreferrer">
           <DynamicButtonMain
             buttonText="Sign up"
             size="small"
