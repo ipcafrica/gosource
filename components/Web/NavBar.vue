@@ -97,19 +97,21 @@
           </li>
           <div class="cta mobile-logo">
             <a
+              style="width: 100%"
               href="https://web.gosource.app/auth/register"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <DynamicButtonMain buttonText="Sign up" size="medium" type="filled"
-            /></a>
+              <DynamicButtonMain buttonText="Sign up" size="medium" type="filled" />
+            </a>
             <a
+              style="width: 100%"
               href="https://web.gosource.app/auth/login"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <DynamicButtonMain buttonText="Log in" size="medium" type="link-neutral"
-            /></a>
+              <DynamicButtonMain buttonText="Log in" size="medium" type="link-neutral" />
+            </a>
           </div>
         </ul>
       </div>
