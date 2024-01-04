@@ -226,4 +226,12 @@ span.line {
     height: auto;
   }
 }
+@media (max-width: 420px) {
+  .image-container {
+    height: 211.37px;
+  }
+  .image-container img {
+    object-fit: cover;
+  }
+}
 </style>

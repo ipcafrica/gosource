@@ -102,25 +102,32 @@
         </ul>
       </div>
       <div class="cta">
-        <DynamicButtonMain
-          buttonText="Log in"
-          size="medium"
-          type="link-neutral"
-          class="w-auto"
-        />
-        <DynamicButtonMain
-          buttonText="Sign up"
-          size="medium"
-          type="filled"
-          class="w-auto"
-        />
+        <a href="https://web.gosource.app/auth/login">
+          <DynamicButtonMain
+            buttonText="Log in"
+            size="medium"
+            type="link-neutral"
+            class="w-auto"
+          />
+        </a>
 
-        <DynamicButtonMain
-          buttonText="Sign up"
-          size="small"
-          type="filled"
-          class="w-auto cta-mobile"
-        />
+        <a href="https://web.gosource.app/auth/register">
+          <DynamicButtonMain
+            buttonText="Sign up"
+            size="medium"
+            type="filled"
+            class="w-auto"
+          />
+        </a>
+
+        <a href="https://web.gosource.app/auth/login">
+          <DynamicButtonMain
+            buttonText="Sign up"
+            size="small"
+            type="filled"
+            class="w-auto cta-mobile"
+          />
+        </a>
         <div class="menu" :class="{ active: active }" @click="toggleActive()">
           <span></span>
           <span></span>

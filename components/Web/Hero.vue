@@ -66,7 +66,7 @@ p {
   max-width: 566px;
   color: var(--grey-700);
   font-size: 20px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 30px; /* 150% */
   letter-spacing: -0.3px;
 }
