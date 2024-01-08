@@ -7,17 +7,19 @@
           GoSource is a strong force in food sourcing and delivery, lifting
           responsibilities from businesses and consumers to keep the supply chain smooth.
         </p>
-        <DynamicButtonMain
-          size="medium"
-          type="primary"
-          icon="icon-right"
-          buttonText="Get started"
-          class="w-auto"
-        >
-          <template v-slot:svg>
-            <div v-html="caretRightWhite"></div>
-          </template>
-        </DynamicButtonMain>
+        <nuxt-link to="/waitlist">
+          <DynamicButtonMain
+            size="medium"
+            type="primary"
+            icon="icon-right"
+            buttonText="Get started"
+            class="w-auto"
+          >
+            <template v-slot:svg>
+              <div v-html="caretRightWhite"></div>
+            </template>
+          </DynamicButtonMain>
+        </nuxt-link>
       </div>
       <WebHeroSVG class="svg" />
     </div>

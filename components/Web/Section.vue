@@ -15,18 +15,19 @@
           {{ data.snippet }}
         </p>
       </div>
-      <DynamicButtonMain
-        v-if="data.buttonText"
-        size="medium"
-        type="primary"
-        icon="icon-right"
-        :buttonText="data.buttonText"
-        class="w-auto"
-      >
-        <template v-slot:svg>
-          <div v-html="caretRightWhite"></div>
-        </template>
-      </DynamicButtonMain>
+      <nuxt-link :to="data.link" v-if="data.buttonText">
+        <DynamicButtonMain
+          size="medium"
+          type="primary"
+          icon="icon-right"
+          :buttonText="data.buttonText"
+          class="w-auto"
+        >
+          <template v-slot:svg>
+            <div v-html="caretRightWhite"></div>
+          </template>
+        </DynamicButtonMain>
+      </nuxt-link>
     </div>
     <slot name="content" />
   </section>

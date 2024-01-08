@@ -96,14 +96,9 @@
             />
           </li>
           <div class="cta mobile-logo">
-            <a
-              style="width: 100%"
-              href="https://web.gosource.app/auth/register"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <nuxt-link style="width: 100%" to="/waitlist">
               <DynamicButtonMain buttonText="Sign up" size="medium" type="filled" />
-            </a>
+            </nuxt-link>
             <a
               style="width: 100%"
               href="https://web.gosource.app/auth/login"
@@ -129,23 +124,16 @@
           />
         </a>
 
-        <a
-          href="https://web.gosource.app/auth/register"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <nuxt-link to="/waitlist">
           <DynamicButtonMain
             buttonText="Sign up"
             size="medium"
             type="filled"
             class="w-auto"
           />
-        </a>
+        </nuxt-link>
 
-        <a
-          href="https://web.gosource.app/auth/login"
-          target="_blank"
-          rel="noopener noreferrer"
+        <nuxt-link to="/waitlist"
         >
           <DynamicButtonMain
             buttonText="Sign up"
@@ -153,7 +141,7 @@
             type="filled"
             class="w-auto cta-mobile"
           />
-        </a>
+        </nuxt-link>
         <div class="menu" :class="{ active: active }" @click="toggleActive()">
           <span></span>
           <span></span>

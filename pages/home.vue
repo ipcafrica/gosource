@@ -251,6 +251,7 @@ const sectionData = ref([
     snippet:
       "We are a food procurement, supply-chain, and logistics powerhouse that take responsibilities off businesses and consumers and keeps the supply chain running.",
     buttonText: "Start now",
+    link: '/waitlist',
   },
   {
     id: 1,
@@ -258,6 +259,7 @@ const sectionData = ref([
     header: "Run your business with zero stress",
     snippet: null,
     buttonText: null,
+    link: '/waitlist',
   },
   {
     id: 2,
@@ -265,6 +267,7 @@ const sectionData = ref([
     header: "Place your first order",
     snippet: null,
     buttonText: null,
+    link: '/waitlist',
   },
   {
     id: 3,
@@ -272,6 +275,7 @@ const sectionData = ref([
     header: "Focus more on cooking, let’s go to the market for you",
     snippet: null,
     buttonText: "Start ordering",
+    link: '/waitlist',
   },
   {
     id: 4,
@@ -279,6 +283,7 @@ const sectionData = ref([
     header: "Frequently asked questions",
     snippet: null,
     buttonText: null,
+    link: '/waitlist',
   },
   {
     id: 5,
@@ -287,6 +292,7 @@ const sectionData = ref([
     snippet:
       "Start ordering on GoSource today to make the process of buying food items very easy for your business.",
     buttonText: "Start now",
+    link: '/waitlist',
   },
 ]);
 const images = ref([
