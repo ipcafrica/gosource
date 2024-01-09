@@ -270,10 +270,9 @@ export default {
         this.showModal = true;
       } catch (error) {
         console.error("An error occurred during the request:", error.response);
+      } finally {
+        this.isLoading = false;
       }
-      // finally {
-
-      // }
     },
   },
   computed: {

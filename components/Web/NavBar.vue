@@ -133,8 +133,7 @@
           />
         </nuxt-link>
 
-        <nuxt-link to="/waitlist"
-        >
+        <nuxt-link to="/waitlist">
           <DynamicButtonMain
             buttonText="Sign up"
             size="small"
